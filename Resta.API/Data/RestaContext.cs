@@ -44,12 +44,12 @@ namespace Resta.API.Data
 
             model.Entity<Odeme>().ToTable("Odeme");
 
-            //
-            // 🚫 Kategori → Bolum ilişkisinin KESİN olarak olmadığını söyle
+            ////
+            //// 🚫 Kategori → Bolum ilişkisinin KESİN olarak olmadığını söyle
+            ////model.Entity<Kategori>().Ignore("BolumId");
+            //model.Entity<Kategori>().Ignore("Bolum");
             //model.Entity<Kategori>().Ignore("BolumId");
-            model.Entity<Kategori>().Ignore("Bolum");
-            model.Entity<Kategori>().Ignore("BolumId");
-            model.Entity<Kategori>().Ignore("BolumId1");
+            //model.Entity<Kategori>().Ignore("BolumId1");
 
 
             //model.Entity<Kategori>().Ignore(k => k.Bolum);
@@ -60,10 +60,10 @@ namespace Resta.API.Data
 
             // Kategori hiyerarşisi
             model.Entity<Kategori>()
-                .HasOne(k => k.UstKategori)
-                .WithMany(k => k!.AltKategoriler)
-                .HasForeignKey(k => k.UstId)
-                .OnDelete(DeleteBehavior.Restrict);
+    .HasOne(k => k.UstKategori)
+    .WithMany(k => k.AltKategoriler)
+    .HasForeignKey(k => k.UstId)
+    .OnDelete(DeleteBehavior.Restrict);
 
             // Masa -> Bolum
             model.Entity<Masa>()
@@ -87,7 +87,7 @@ namespace Resta.API.Data
 
             // 🔴 YENİ: BolumKategori
             model.Entity<BolumKategori>()
-                .ToTable("BolumKategori");
+    .ToTable("BolumKategori");
 
             model.Entity<BolumKategori>()
                 .HasKey(x => new { x.BolumId, x.KategoriId });
@@ -95,12 +95,16 @@ namespace Resta.API.Data
             model.Entity<BolumKategori>()
                 .HasOne(x => x.Bolum)
                 .WithMany()
-                .HasForeignKey(x => x.BolumId);
+                .HasForeignKey(x => x.BolumId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             model.Entity<BolumKategori>()
                 .HasOne(x => x.Kategori)
-                .WithMany()
-                .HasForeignKey(x => x.KategoriId);
+                .WithMany() // ❗ burada navigation TANIMLAMIYORUZ
+                .HasForeignKey(x => x.KategoriId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+
 
             // Adisyon
             model.Entity<Adisyon>()

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "E:\\MEHMET\\RestaBRO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\entities\\kategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\kategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\data\\restacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\data\\restacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\controllers\\api\\kategoricontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\kategoricontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\entities\\kategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\kategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{880EF446-7934-4F50-B8BF-82457F356F37}|Resta.API\\Resta.API.csproj|e:\\mehmet\\restabro\\resta.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,17 +150,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 20,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RestaContext.cs",
               "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Data\\RestaContext.cs",
               "RelativeDocumentMoniker": "Resta.API\\Data\\RestaContext.cs",
               "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API\\Data\\RestaContext.cs",
               "RelativeToolTip": "Resta.API\\Data\\RestaContext.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAQwI4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAIwAwAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-11T18:50:25.443Z",
               "IsPinned": true,
@@ -181,7 +181,35 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "KategoriController.cs",
+              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Controllers\\API\\KategoriController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\KategoriController.cs",
+              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API\\Controllers\\API\\KategoriController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\KategoriController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAA4wDQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-14T05:42:56.041Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Kategori.cs",
+              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Entities\\Kategori.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\Kategori.cs",
+              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API\\Entities\\Kategori.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\Kategori.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA6wBUAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T19:31:15.765Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "launchSettings.json",
               "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Resta.API\\Properties\\launchSettings.json",
@@ -362,19 +390,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "KategoriController.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Controllers\\API\\KategoriController.cs",
-              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\KategoriController.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API\\Controllers\\API\\KategoriController.cs",
-              "RelativeToolTip": "Resta.API\\Controllers\\API\\KategoriController.cs",
-              "ViewState": "AgIAAKAAAAAAAAAAAAAlwJYAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T05:42:56.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 20,
               "Title": "Resta.API.csproj",
               "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Resta.API.csproj",
@@ -396,19 +411,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-14T05:45:21.231Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Kategori.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API\\Entities\\Kategori.cs",
-              "RelativeDocumentMoniker": "Resta.API\\Entities\\Kategori.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API\\Entities\\Kategori.cs",
-              "RelativeToolTip": "Resta.API\\Entities\\Kategori.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwDQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T19:31:15.765Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",

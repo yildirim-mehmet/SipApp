@@ -10,6 +10,8 @@ namespace Resta.API.Controllers.API
     public class KategoriController : ControllerBase
     {
         private readonly RestaContext _db;
+        public ICollection<BolumKategori> BolumKategoriler { get; set; } = new List<BolumKategori>();
+
 
         public KategoriController(RestaContext db)
         {

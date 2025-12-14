@@ -291,10 +291,10 @@ E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\staticwebassets\msbuild.build.Rest
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Resta.API.props
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Resta.API.props
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\staticwebassets.pack.json
-E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\Resta.API.csproj.Up2Date
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\Resta.API.dll
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\refint\Resta.API.dll
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\Resta.API.pdb
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\Resta.API.genruntimeconfig.cache
 E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\ref\Resta.API.dll
+E:\MEHMET\RestaBRO\Resta.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
