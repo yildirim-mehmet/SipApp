@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Menü";
+    var masaId = ViewBag.MasaId;
+}
+
+<div class="container mt-3">
+    <h5 class="text-center">Menü</h5>
+
+    <span id="masaDurum" class="badge bg-secondary">Yükleniyor...</span>
+
+    <div id="menuArea" class="mt-3"></div>
+
+    <hr />
+
+    <div id="sepetArea"></div>
+
+    <button id="siparisVerBtn"
+            class="btn btn-success w-100 d-none">
+        Sipariş Ver
+    </button>
+</div>
+
+<script>
+    const masaId = @masaId;
+</script>
+
+<script src="~/js/masa.js"></script>

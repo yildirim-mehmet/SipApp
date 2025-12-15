@@ -1,5 +1,4 @@
-﻿using System.Reflection.Emit;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Resta.API.Entities;
 
 namespace Resta.API.Data
@@ -44,28 +43,18 @@ namespace Resta.API.Data
 
             model.Entity<Odeme>().ToTable("Odeme");
 
-            ////
-            //// 🚫 Kategori → Bolum ilişkisinin KESİN olarak olmadığını söyle
-            ////model.Entity<Kategori>().Ignore("BolumId");
-            //model.Entity<Kategori>().Ignore("Bolum");
-            //model.Entity<Kategori>().Ignore("BolumId");
-            //model.Entity<Kategori>().Ignore("BolumId1");
-
-
-            //model.Entity<Kategori>().Ignore(k => k.Bolum);
-            //model.Entity<Kategori>()
-            //.HasOne(k => k.UstKategori)
-            //.WithMany(k => k.AltKategoriler)
-            //.HasForeignKey(k => k.UstId);
-
-            // Kategori hiyerarşisi
+            // --------------------------------------------------
+            // Kategori hiyerarşisi (Kategori.ustId -> Kategori.id)
+            // --------------------------------------------------
             model.Entity<Kategori>()
-    .HasOne(k => k.UstKategori)
-    .WithMany(k => k.AltKategoriler)
-    .HasForeignKey(k => k.UstId)
-    .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(k => k.UstKategori)
+                .WithMany(k => k.AltKategoriler)
+                .HasForeignKey(k => k.UstId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // Masa -> Bolum
+            // --------------------------------------------------
+            // Masa -> Bolum (N:1)
+            // --------------------------------------------------
             model.Entity<Masa>()
                 .HasOne(m => m.Bolum)
                 .WithMany(b => b.Masalar)
@@ -112,6 +101,13 @@ namespace Resta.API.Data
                 .WithMany(m => m.Adisyonlar)
                 .HasForeignKey(a => a.MasaId);
 
+            // Decimal precision (SQL: decimal(10,2))
+            model.Entity<Adisyon>().Property(x => x.ToplamTutar).HasPrecision(10, 2);
+            model.Entity<AdisyonKalem>().Property(x => x.BirimFiyat).HasPrecision(10, 2);
+            model.Entity<AdisyonKalem>().Property(x => x.AraToplam).HasPrecision(10, 2);
+            model.Entity<Urun>().Property(x => x.Fiyat).HasPrecision(10, 2);
+            model.Entity<Odeme>().Property(x => x.Tutar).HasPrecision(10, 2);
+
             model.Entity<AdisyonKalem>()
                 .HasOne(k => k.Adisyon)
                 .WithMany(a => a.Kalemler)
@@ -138,7 +134,14 @@ namespace Resta.API.Data
                 .WithMany()
                 .HasForeignKey(x => x.KategoriId);
 
-            
+            // --------------------------------------------------
+            // Decimal precision (SQL: decimal(10,2))
+            // --------------------------------------------------
+            model.Entity<Urun>().Property(p => p.Fiyat).HasPrecision(10, 2);
+            model.Entity<Adisyon>().Property(p => p.ToplamTutar).HasPrecision(10, 2);
+            model.Entity<AdisyonKalem>().Property(p => p.BirimFiyat).HasPrecision(10, 2);
+            model.Entity<AdisyonKalem>().Property(p => p.AraToplam).HasPrecision(10, 2);
+            model.Entity<Odeme>().Property(p => p.Tutar).HasPrecision(10, 2);
 
 
         }

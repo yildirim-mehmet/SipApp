@@ -30,7 +30,10 @@ namespace Resta.API.Entities
         public DateTime Tarih { get; set; } = DateTime.Now;
 
         public ICollection<Masa> Masalar { get; set; } = new List<Masa>();
-        public ICollection<Kategori> Kategoriler { get; set; } = new List<Kategori>();
+        // ❗Kategori'ler BolumKategori (N:N) üzerinden yönetilir.
+        // Bu entity üzerinde doğrudan ICollection<Kategori> tutmak,
+        // EF Core'un Kategori tablosunda shadow FK (BolumId1/BolumId2) üretmesine
+        // ve "Invalid column name 'BolumIdX'" hatalarına sebep olur.
     }
 }
 

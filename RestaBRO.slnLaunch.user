@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Resta.API\\Resta.API.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Resta.MVC\\Resta.MVC.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

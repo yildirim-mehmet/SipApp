@@ -53,10 +53,14 @@ namespace Resta.API.Controllers.API
             if (string.IsNullOrWhiteSpace(dto.Ad))
                 return BadRequest("Kategori adı zorunludur.");
 
+            // Root kategori için DB'de NULL kullanılmalı. UI/Swagger bazen 0 gönderir.
+            var ustId = dto.UstId;
+            if (ustId == 0) ustId = null;
+
             var kategori = new Kategori
             {
                 Ad = dto.Ad,
-                UstId = dto.UstId,
+                UstId = ustId,
                 Renk = dto.Renk,
                 SiraNo = dto.SiraNo,
                 Aktif = true,

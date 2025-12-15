@@ -1,23 +1,39 @@
-﻿using Resta.API.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("Kategori")]
-public class Kategori
+namespace Resta.API.Entities
 {
-    public int Id { get; set; }
-    public int? UstId { get; set; }
-    public int? SiraNo { get; set; }
-    public string? Ad { get; set; }
-    public string? Renk { get; set; }
-    public bool Aktif { get; set; } = true;
-    public DateTime? Tarih { get; set; }
+    [Table("Kategori")]
+    public class Kategori
+    {
+        [Column("id")]
+        public int Id { get; set; }
 
-    // Self-reference
-    public Kategori? UstKategori { get; set; }
-    public ICollection<Kategori> AltKategoriler { get; set; } = new List<Kategori>();
+        [Column("ustId")]
+        public int? UstId { get; set; }
 
-    // ❌ BOLUMLA ALAKALI TEK SATIR YOK
+        [Column("siraNo")]
+        public int? SiraNo { get; set; }
 
-    public ICollection<Urun> Urunler { get; set; } = new List<Urun>();
-    public ICollection<EkranKategori> EkranKategoriler { get; set; } = new List<EkranKategori>();
+        [Column("ad")]
+        public string? Ad { get; set; }
+
+        [Column("renk")]
+        public string? Renk { get; set; }
+
+        [Column("ekleyen")]
+        public int? Ekleyen { get; set; }
+
+        [Column("aktif")]
+        public bool Aktif { get; set; } = true;
+
+        [Column("tarih")]
+        public DateTime? Tarih { get; set; } = DateTime.Now;
+
+        // Self-reference navigation (Kategori.ustId -> Kategori.id)
+        public Kategori? UstKategori { get; set; }
+        public ICollection<Kategori> AltKategoriler { get; set; } = new List<Kategori>();
+
+        // Kategori ↔ EkranKategori (1:N)
+        public ICollection<EkranKategori> EkranKategoriler { get; set; } = new List<EkranKategori>();
+    }
 }
