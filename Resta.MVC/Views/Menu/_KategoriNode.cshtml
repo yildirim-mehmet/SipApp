@@ -1,0 +1,57 @@
+@model Resta.MVC.Models.MenuKategoriVm
+
+@{
+    var accordionId = $"acc_{Model.Id}";
+    var collapseId = $"col_{Model.Id}";
+    var headerColor = string.IsNullOrWhiteSpace(Model.Renk) ? "" : Model.Renk;
+}
+
+<div class="accordion-item mb-2">
+    <h2 class="accordion-header" id="@accordionId">
+        <button class="accordion-button collapsed" type="button"
+                data-bs-toggle="collapse" data-bs-target="#@collapseId"
+                style="@(string.IsNullOrWhiteSpace(headerColor) ? "" : $"background-color:{headerColor}; color:white;")">
+            @Model.Ad
+        </button>
+    </h2>
+
+    <div id="@collapseId" class="accordion-collapse collapse">
+        <div class="accordion-body">
+
+            @if (Model.Urunler is { Count: > 0 })
+            {
+                <div class="list-group mb-3">
+                    @foreach (var u in Model.Urunler)
+                    {
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div class="me-2">
+                                    <div class="fw-semibold">@u.Ad</div>
+                                    @if (!string.IsNullOrWhiteSpace(u.Aciklama))
+                                    {
+                                        <small class="text-muted">@u.Aciklama</small>
+                                    }
+                                    <div class="mt-1"><b>@u.Fiyat</b> ₺</div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary"
+                                        onclick="cartAdd(@u.Id, '@(u.Ad.Replace("'", "\\'"))', @u.Fiyat)">
+                                    Ekle
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            @if (Model.AltKategoriler is { Count: > 0 })
+            {
+                <div class="accordion">
+                    @foreach (var alt in Model.AltKategoriler)
+                    {
+                        <partial name="_KategoriNode" model="alt" />
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
