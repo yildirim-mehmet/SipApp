@@ -1,4 +1,5 @@
 using Resta.MVC.Services;
+using Resta.MVC.Hubs;
 
 namespace Resta.MVC;
 
@@ -10,6 +11,8 @@ public class Program
 
         // MVC
         builder.Services.AddControllersWithViews();
+        builder.Services.AddSignalR();
+
 
         // API base url (appsettings.json -> ApiSettings:BaseUrl)
         var apiBaseUrl = builder.Configuration["ApiSettings:BaseUrl"];
@@ -49,6 +52,9 @@ public class Program
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}"
         );
+
+        app.MapHub<SiparisHub>("/hubs/siparis");
+
 
         app.Run();
     }

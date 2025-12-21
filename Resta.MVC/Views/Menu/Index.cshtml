@@ -9,8 +9,17 @@
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <h5 class="mb-0">Menü</h5>
-            <small class="text-muted">Masa: @Model.MasaId • Durum: <b>@masaDurum</b></small>
+            <small class="text-muted">
+                Masa: @Model.MasaId • Durum:
+                <b id="masaDurumText">@masaDurum</b>
+            </small>
+
         </div>
+        <!-- sipariş edilenler olanlar -->
+        <button class="btn btn-outline-secondary ms-2"
+                id="btnOncekiSiparisler">
+            Siparişler
+        </button>
 
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartCanvas" aria-controls="cartCanvas">
             Sepet <span class="badge bg-light text-dark ms-1" id="cartCount">0</span>
@@ -72,10 +81,78 @@
     </div>
 </div>
 
+
+
+<!-- Önceki Siparişler Modal -->
+<div class="modal fade" id="oncekiSiparislerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Siparişler</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <div id="oncekiSiparislerBody">
+                    <div class="text-muted">Yükleniyor...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts {
     <script>
         window.MASA_ID = @Model.MasaId;
         window.MASA_DURUM = "@masaDurum";
     </script>
+
+    <!-- SignalR -->
+    <script src="~/js/signalr.min.js"></script>
+
+    <!-- Menü -->
     <script src="~/js/menu.js"></script>
+
+    <!-- Önceki Siparişler -->
+    <script>
+        document.getElementById("btnOncekiSiparisler")
+            ?.addEventListener("click", async () => {
+
+            const modal = new bootstrap.Modal(
+                document.getElementById("oncekiSiparislerModal")
+            );
+            modal.show();
+
+            const body = document.getElementById("oncekiSiparislerBody");
+            body.innerHTML = "Yükleniyor...";
+
+            try {
+                const res = await fetch(`/Menu/AktifAdisyonDetay?masaId=${window.MASA_ID}`);
+                if (!res.ok) {
+                    body.innerHTML = "Sipariş bulunamadı.";
+                    return;
+                }
+
+                const data = await res.json();
+
+                if (!data || data.length === 0) {
+                    body.innerHTML = "Henüz sipariş yok.";
+                    return;
+                }
+
+                body.innerHTML = data.map(x => `
+                    <div class="border rounded p-2 mb-2">
+                        <div class="fw-semibold">${x.urunAdi}</div>
+                        <small class="text-muted">
+                            ${x.adet} adet • ${x.siparisDurumu}
+                        </small>
+                    </div>
+                `).join("");
+
+            } catch {
+                body.innerHTML = "Hata oluştu.";
+            }
+        });
+    </script>
 }

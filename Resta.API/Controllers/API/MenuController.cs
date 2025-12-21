@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Resta.API.Data;
 using Resta.API.DTOs.Menu;
+using Resta.API.Entities;
 
 
 namespace Resta.API.Controllers.API
@@ -133,6 +134,25 @@ namespace Resta.API.Controllers.API
                 AltKategoriler = altKategoriler,
                 Urunler = urunler
             };
+        }
+
+
+
+
+        [HttpGet("aktif-adisyon/{masaId}")]
+        public async Task<IActionResult> AktifAdisyonDetay(int masaId)
+        {
+            var adisyon = await _db.Adisyonlar
+                .Where(a => a.MasaId == masaId && a.Durum == (int)AdisyonDurum.Acik)
+                .SelectMany(a => a.Kalemler)
+                .Select(k => new {
+                    urunAdi = k.Urun.Ad,
+                    adet = k.Adet,
+                    siparisDurumu = k.SiparisDurumu
+                })
+                .ToListAsync();
+
+            return Ok(adisyon);
         }
 
     }

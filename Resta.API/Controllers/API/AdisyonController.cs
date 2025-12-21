@@ -219,6 +219,33 @@ namespace Resta.API.Controllers.API
             //.Sum(k => k.AraToplam ?? 0m);
         }
 
+        [HttpGet("masa/{masaId}/aktif-detay")]
+        public async Task<IActionResult> AktifAdisyonDetay(int masaId)
+        {
+            var adisyon = await _db.Adisyonlar
+                .Include(a => a.Kalemler)
+                    .ThenInclude(k => k.Urun)
+                .Where(a => a.MasaId == masaId && a.Durum == (int)AdisyonDurum.Acik)
+                .Select(a => new
+                {
+                    a.Id,
+                    Kalemler = a.Kalemler.Select(k => new
+                    {
+                        k.Id,
+                        UrunAd = k.Urun.Ad,
+                        k.Adet,
+                        k.SiparisDurumu
+                    })
+                })
+                .FirstOrDefaultAsync();
+
+            return Ok(adisyon);
+        }
+
+
+
+
+
 
         // ====================================================
         // DTO'lar

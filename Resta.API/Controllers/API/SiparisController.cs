@@ -1,7 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Resta.API.Data;
 using Resta.API.Entities;
+
+using Resta.API.Hubs;
+
+
+
 
 namespace Resta.API.Controllers.API
 {
@@ -11,9 +17,14 @@ namespace Resta.API.Controllers.API
     {
         private readonly RestaContext _db;
 
-        public SiparisController(RestaContext db)
+        private readonly IHubContext<SiparisHub> _hub;
+
+        public SiparisController(
+            RestaContext db,
+            IHubContext<SiparisHub> hub)
         {
             _db = db;
+            _hub = hub;
         }
 
         // ====================================================
@@ -92,6 +103,23 @@ namespace Resta.API.Controllers.API
 
             // 5) SignalR tetikleme noktası (bir sonraki adım)
             // await _hub.Clients.Group("EKRAN_x").SendAsync("YeniSiparis", ...);
+            // 🔔 MASA ARTIK DOLU → TÜM DİNLENEN CLIENTLARA BİLDİR
+            // kalemin bağlı olduğu adisyonu bul
+            //var adisyon = await _db.Adisyonlar
+            //    .AsNoTracking()
+            //    .FirstOrDefaultAsync(a => a.Id == kalem.AdisyonId);
+
+            if (adisyon != null)
+            {
+                await _hub.Clients
+                    .Group($"MASA_{adisyon.MasaId}")
+                    .SendAsync("MasaDurumDegisti", new
+                    {
+                        masaId = adisyon.MasaId,
+                        durum = "dolu"
+                    });
+            }
+
 
             return Ok(new
             {
@@ -146,9 +174,53 @@ namespace Resta.API.Controllers.API
 
             await _db.SaveChangesAsync();
 
+            // ===============================
+            // SIGNALR – MASA DOLU BİLDİRİMİ
+            // ===============================
+            // kalemin bağlı olduğu adisyonu bul
+            var adisyon = await _db.Adisyonlar
+                .AsNoTracking()
+                .FirstOrDefaultAsync(a => a.Id == kalem.AdisyonId);
+
+            if (adisyon != null)
+            {
+                await _hub.Clients
+                    .Group($"MASA_{adisyon.MasaId}")
+                    .SendAsync("MasaDurumDegisti", new
+                    {
+                        masaId = adisyon.MasaId,
+                        durum = "dolu"
+                    });
+            }
+
+
             // SignalR: durum değişti
             return Ok(kalem);
         }
+
+
+
+
+        [HttpGet("aktif-adisyon/{masaId}")]
+        public async Task<IActionResult> AktifAdisyonDetay(int masaId)
+        {
+            var adisyon = await _db.Adisyonlar
+                .Where(a => a.MasaId == masaId && a.Durum == (int)AdisyonDurum.Acik)
+                .SelectMany(a => a.Kalemler)
+                .Select(k => new {
+                    urunAdi = k.Urun.Ad,
+                    adet = k.Adet,
+                    siparisDurumu = k.SiparisDurumu
+                })
+                .ToListAsync();
+
+            return Ok(adisyon);
+        }
+
+
+
+
+
 
         // ====================================================
         // DTO'LAR

@@ -1,4 +1,18 @@
 // =============================
+// test döngüleri
+// ===
+console.log("menu.js yüklendi");
+console.log("MASA_ID:", window.MASA_ID);
+console.log("MASA_DURUM:", window.MASA_DURUM);
+
+
+
+
+
+
+
+
+// =============================
 // Sepet: masa bazlı localStorage
 // =============================
 
@@ -199,10 +213,112 @@ document.addEventListener("DOMContentLoaded", () => {
         const off = bootstrap.Offcanvas.getInstance(document.getElementById('cartCanvas'));
         if (off) off.hide();
 
-        alert(`Sipariş gönderildi. AdisyonId: ${resp.adisyonId}`);
+          alert(`Sipariş gönderildi. AdisyonId: ${resp.adisyonId}`);
+          setMasaDurumLocal("dolu");
+
       } catch (e) {
         alert(e?.message || e);
       }
     });
   });
 });
+
+
+// =======================================================
+// MASA DURUMU – LOCAL UI UPDATE
+// =======================================================
+function setMasaDurumLocal(durum) {
+    window.MASA_DURUM = durum;
+
+    const el = document.getElementById("masaDurumText");
+    if (!el) return;
+
+    el.innerText = durum;
+
+    if (durum === "dolu") {
+        el.classList.remove("text-success");
+        el.classList.add("text-danger");
+    } else {
+        el.classList.remove("text-danger");
+        el.classList.add("text-success");
+    }
+}
+
+
+////önceki siparişler
+//document.getElementById("btnOncekiSiparisler")
+//    ?.addEventListener("click", async () => {
+
+//        const res = await fetch(`/Menu/AktifAdisyonDetay?masaId=${MASA_ID}`);
+//        if (!res.ok) {
+//            alert("Aktif sipariş yok");
+//            return;
+//        }
+
+//        const data = await res.json();
+//        if (!data || !data.kalemler || data.kalemler.length === 0) {
+//            alert("Sipariş yok");
+//            return;
+//        }
+
+//        let html = "";
+//        data.kalemler.forEach(k => {
+//            html += `<div>
+//            ${k.urunAd} x${k.adet} (${k.durum})
+//        </div>`;
+//        });
+
+//        alert(html); // şimdilik basit, sonra modal yaparız
+//    });
+
+
+
+//masa durum değiştirme
+// ===============================
+// SIGNALR – MASA DURUMU DİNLE
+// ===============================
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/hubs/siparis")
+    .withAutomaticReconnect()
+    .build();
+
+connection.start().then(() => {
+    connection.invoke("JoinMasa", window.MASA_ID.toString());
+}).catch(err => console.error(err));
+
+
+// 🔔 API'den gelen event
+connection.on("MasaDurumDegisti", data => {
+    if (data.masaId !== window.MASA_ID) return;
+
+    const el = document.getElementById("masaDurumText");
+    if (!el) return;
+
+    el.innerText = data.durum;
+});
+
+
+document.getElementById("btnOncekiSiparisler")
+    ?.addEventListener("click", async () => {
+
+        const res = await fetch(`/Menu/AktifAdisyonDetay?masaId=${MASA_ID}`);
+        if (!res.ok) {
+            alert("Aktif sipariş yok");
+            return;
+        }
+
+        const data = await res.json();
+        if (!data || !data.kalemler || data.kalemler.length === 0) {
+            alert("Sipariş yok");
+            return;
+        }
+
+        let html = "";
+        data.kalemler.forEach(k => {
+            html += `<div>
+            ${k.urunAd} x${k.adet} (${k.durum})
+        </div>`;
+        });
+
+        alert(html); // şimdilik basit, sonra modal yaparız
+    });

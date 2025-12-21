@@ -31,10 +31,10 @@ namespace Resta.API
 
             var app = builder.Build();
 
-            // Add SignalR
-            //builder.Services.AddSignalR();
-
+            // Add SignalR            
             app.MapHub<SiparisHub>("/hubs/siparis");
+
+
             // Add SignalR bit
 
             // Configure the HTTP request pipeline.
