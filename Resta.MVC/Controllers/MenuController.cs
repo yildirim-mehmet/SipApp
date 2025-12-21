@@ -91,4 +91,27 @@ public class MenuController : Controller
         var adisyon = await _api.GetAsync<AdisyonMiniDto>($"Masa/{masaId}/aktif-adisyon", ct);
         return Ok(adisyon); // null gelebilir
     }
+
+
+    // ==========================================
+    // GET /Menu/AktifAdisyonDetay?masaId=2
+    // AMAÇ:
+    // - Masadaki aktif adisyonun sipariş kalemlerini getirir
+    // - "Siparişler" butonuna basıldığında çağrılır
+    // ==========================================
+    [HttpGet]
+    public async Task<IActionResult> AktifAdisyonDetay(int masaId)
+    {
+        if (masaId <= 0)
+            return BadRequest("masaId zorunlu");
+
+        // API'ye PROXY çağrı (CORS yok)
+        var data = await _api.GetAsync<object>($"Siparis/aktif-adisyon/{masaId}");
+
+        if (data == null)
+            return Ok(new List<object>());
+
+        return Ok(data);
+    }
+
 }

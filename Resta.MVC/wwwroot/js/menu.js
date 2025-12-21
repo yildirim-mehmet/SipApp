@@ -303,13 +303,13 @@ document.getElementById("btnOncekiSiparisler")
 
         const res = await fetch(`/Menu/AktifAdisyonDetay?masaId=${MASA_ID}`);
         if (!res.ok) {
-            alert("Aktif sipariş yok");
+            //alert("Aktif siparişler aranıyor?");
             return;
         }
 
         const data = await res.json();
         if (!data || !data.kalemler || data.kalemler.length === 0) {
-            alert("Sipariş yok");
+            //alert("Siparişler Aranıyor?");
             return;
         }
 
