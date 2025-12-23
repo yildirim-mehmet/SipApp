@@ -1,0 +1,839 @@
+﻿@using System.IO
+@model List<SarkiViewModel>
+@{
+    ViewData["Title"] = ViewBag.Title ?? "Müzik Siparişi";
+    var masa = ViewBag.Masa as MasaDto;
+    var mevcutSira = ViewBag.MevcutSira as List<CalmaListesiViewModel>;
+    var antiForgeryToken = Html.AntiForgeryToken();
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .music-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .queue-card, .songs-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .song-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+            .song-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                border-color: var(--primary-color);
+            }
+
+        .priority-badge {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #333;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .status-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .playing-now {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-premium {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none;
+            color: #333;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-premium:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 15px rgba(255, 165, 0, 0.4);
+            }
+
+        .btn-normal {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-normal:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            }
+
+        .queue-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+            .queue-table thead {
+                background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+                color: white;
+            }
+
+            .queue-table tbody tr:hover {
+                background-color: rgba(102, 126, 234, 0.1);
+            }
+
+        .modal-premium {
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+            .modal-premium .modal-header {
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #333;
+                border-bottom: none;
+            }
+
+        @@keyframes pulse { /* DÜZELTİLDİ: @@ kullan */
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .timer-warning {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .qr-code {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-container">
+        <!-- Header -->
+        <div class="header-card">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="display-5 fw-bold text-primary">
+                        <i class="fas fa-music me-2"></i>Müzik Siparişi
+                    </h1>
+                    <p class="lead mb-1">Hoş geldiniz <strong class="text-primary">@masa?.Ad</strong></p>
+                    <p class="text-muted mb-0">
+                        <i class="fas fa-qrcode me-1"></i>
+                        Masa ID: <code class="bg-light p-1 rounded">@masa?.Id</code> <!-- HashId yerine id -->
+                    </p>
+                    <div class="qr-code">
+                        <div id="qrcode" class="mb-2"></div>
+                        <small class="text-muted">Masa ID: @masa?.Id</small>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="alert alert-info border-0 shadow-sm">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Önemli:</strong> Ardışık istekler için 1 dakika bekleyin.
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm" onclick="refreshQueue()">
+                        <i class="fas fa-sync-alt me-1"></i>Listeyi Yenile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mevcut Sıra -->
+        <div class="queue-card">
+            <h3 class="mb-4">
+                <i class="fas fa-list-ol me-2 text-primary"></i>Mevcut Çalma Sırası
+                <span class="badge bg-primary ms-2" id="queueCount">0</span>
+            </h3>
+
+            <div class="table-responsive">
+                <table class="table queue-table">
+                    <thead>
+                        <tr>
+                            <th width="60">Sıra</th>
+                            <th>Şarkı</th>
+                            <th width="150">Ekleyen</th>
+                            <th width="120">Öncelik</th>
+                            <th width="100">Durum</th>
+                            <th width="100">Ekleme</th>
+                        </tr>
+                    </thead>
+                    <tbody id="queueTable">
+                        @if (mevcutSira != null && mevcutSira.Any())
+                        {
+                            int siraNo = 1;
+                            foreach (var item in mevcutSira.Where(x => !x.Calindi).OrderByDescending(x => x.SiraDegeri).ThenBy(x => x.Id))
+                            {
+                                <tr>
+                                    <td class="fw-bold text-center">@siraNo</td>
+                                    <td>
+                                        <div class="fw-semibold">@item.SarkiAdi</div>
+                                        <small class="text-muted">@item.SureFormatted</small>
+                                    </td>
+                                    <td>@item.MasaAdi</td>
+                                    <td>
+                                        @if (item.SiraDegeri > 1)
+                                        {
+                                            <span class="priority-badge">
+                                                <i class="fas fa-crown me-1"></i>@item.SiraDegeri
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Normal</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.Calindi)
+                                        {
+                                            <span class="badge bg-success status-badge">
+                                                <i class="fas fa-check-circle me-1"></i>Çalındı
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-info status-badge">
+                                                <i class="fas fa-clock me-1"></i>Bekliyor
+                                            </span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">@item.EklemeZamaniFormatted</small>
+                                    </td>
+                                </tr>
+                                siraNo++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center py-4">
+                                    <i class="fas fa-music fa-2x text-muted mb-3"></i>
+                                    <p class="text-muted mb-0">Henüz şarkı eklenmemiş</p>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <small class="text-muted">
+                    <i class="fas fa-info-circle me-1"></i>
+                    Öncelik: 1 = Normal, 2+ = Ödemeli (TL cinsinden)
+                </small>
+                <div>
+                    <span class="badge bg-light text-dark me-2">
+                        <i class="fas fa-users me-1"></i> @(mevcutSira?.Count(x => !x.Calindi) ?? 0) Bekleyen
+                    </span>
+                    <span class="badge bg-success text-white">
+                        <i class="fas fa-check-circle me-1"></i> @(mevcutSira?.Count(x => x.Calindi) ?? 0) Çalındı
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Şarkı Listesi -->
+        <div class="songs-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="mb-0">
+                    <i class="fas fa-compact-disc me-2 text-primary"></i>Şarkı Listesi
+                    <span class="badge bg-primary ms-2" id="songCount">@Model.Count</span>
+                </h3>
+                <div class="search-box">
+                    <input type="text" id="songSearch" class="form-control"
+                           placeholder="Şarkı ara..." style="max-width: 250px;">
+                </div>
+            </div>
+
+            <div class="row" id="songsContainer">
+                @foreach (var sarki in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-3 song-item-container">
+                        <div class="song-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="fw-bold text-primary mb-0 song-title">@sarki.Ad</h5>
+                                <span class="badge bg-light text-dark">
+                                    <i class="fas fa-clock me-1"></i>@sarki.SureFormatted
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-file-audio me-1"></i>
+                                    @{
+                                        // Path.GetExtension alternatifi
+                                        var dosyaYolu = sarki.DosyaYolu;
+                                        var extension = !string.IsNullOrEmpty(dosyaYolu) && dosyaYolu.Contains(".")
+                                        ? dosyaYolu.Substring(dosyaYolu.LastIndexOf('.') + 1).ToUpper()
+                                        : "MP3";
+                                    }
+                                    @extension
+                                </small>
+                            </div>
+
+                            <div class="btn-group w-100" role="group">
+                                <button class="btn btn-normal btn-ekle"
+                                        data-sarkiid="@sarki.Id"
+                                        data-sarkiad="@sarki.Ad">
+                                    <i class="fas fa-plus me-1"></i>Sıraya Ekle (1 TL)
+                                </button>
+                                <button class="btn btn-premium btn-on-sira"
+                                        data-sarkiid="@sarki.Id"
+                                        data-sarkiad="@sarki.Ad">
+                                    <i class="fas fa-crown me-1"></i>Ön Sıraya Ekle
+                                </button>
+                            </div>
+
+                            <div class="timer-warning" id="timer-@sarki.Id">
+                                <i class="fas fa-hourglass-half me-2"></i>
+                                <span class="timer-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            @if (!Model.Any())
+            {
+                <div class="text-center py-5">
+                    <i class="fas fa-music fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">Henüz şarkı eklenmemiş</h4>
+                </div>
+            }
+        </div>
+
+        <!-- Kurallar Bilgilendirme -->
+        <div class="alert alert-warning border-0 shadow-sm">
+            <h5 class="alert-heading">
+                <i class="fas fa-exclamation-triangle me-2"></i>Önemli Kurallar
+            </h5>
+            <ul class="mb-0">
+                <li><strong>Aynı masadan</strong> ardışık şarkı ekleyemezsiniz (1 dakika bekleme süresi)</li>
+                <li><strong>Aynı şarkı</strong> hemen ardışık eklenemez (1 dakika bekleme süresi)</li>
+                <li><strong>Ön sıraya eklemek</strong> için minimum 2 TL ödeme gereklidir</li>
+                <li>Ödeme miktarı şarkınızın <strong>öncelik değerini</strong> belirler</li>
+                <li>Sistem otomatik olarak öncelik ve eklenme sırasına göre çalma sırası belirler</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Premium Modal -->
+    <div class="modal fade" id="premiumModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-premium">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-crown me-2"></i>Ön Sıraya Ekle
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="premiumSarkiAdi" class="fw-bold text-center fs-5 mb-4"></p>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold mb-2">
+                            <i class="fas fa-money-bill-wave me-1"></i>
+                            Ödeme Miktarı (Minimum 2 TL)
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-warning border-warning">
+                                <i class="fas fa-lira-sign"></i>
+                            </span>
+                            <input type="number" id="odemeMiktari" class="form-control"
+                                   min="2" value="2" step="1" style="font-size: 1.1rem;">
+                        </div>
+                        <div class="form-text text-muted">
+                            <i class="fas fa-info-circle me-1"></i>
+                            Ödeme miktarı = Öncelik değeri. Daha yüksek ödeme = Daha yüksek öncelik!
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold mb-2">
+                            <i class="fas fa-bolt me-1"></i>
+                            Hızlı Ödeme Seçenekleri
+                        </label>
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <button class="btn btn-outline-warning w-100 btn-odeme" data-miktar="2">
+                                    <i class="fas fa-bolt me-1"></i>2 TL
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-outline-warning w-100 btn-odeme" data-miktar="5">
+                                    <i class="fas fa-fire me-1"></i>5 TL
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button class="btn btn-outline-warning w-100 btn-odeme" data-miktar="10">
+                                    <i class="fas fa-rocket me-1"></i>10 TL
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <small>Öncelik Seviyesi</small>
+                            <small id="priorityLevel">Düşük</small>
+                        </div>
+                        <div class="progress" style="height: 20px; border-radius: 10px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                 id="oncelikGosterge" style="width: 20%">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info border-0">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-lightbulb me-3 fs-4"></i>
+                            <div>
+                                <strong id="priorityTitle">Normal Öncelik</strong>
+                                <p class="mb-0 small" id="priorityDescription">
+                                    Şarkınız normal sıraya eklenecek
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fas fa-times me-1"></i>İptal
+                    </button>
+                    <button type="button" class="btn btn-warning fw-bold" id="btnOdemeYap">
+                        <i class="fas fa-credit-card me-1"></i>Ödeme Yap ve Ekle
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Müzik Çalar Simülasyonu -->
+    <div class="music-player" id="musicPlayer">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="mb-0 fw-bold">
+                <i class="fas fa-headphones me-1"></i>Şu An Çalıyor
+            </h6>
+            <button class="btn btn-sm btn-outline-secondary" onclick="closePlayer()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mb-2">
+            <div class="fw-semibold" id="nowPlayingSong">-</div>
+            <small class="text-muted" id="nowPlayingMasa">-</small>
+        </div>
+        <div class="progress mb-2" style="height: 5px;">
+            <div class="progress-bar bg-primary" id="playbackProgress" style="width: 0%"></div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <small id="currentTime">00:00</small>
+            <small id="totalTime">00:00</small>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <script>
+        // Global değişkenler
+        let secilenSarkiId = null;
+        let secilenSarkiAd = null;
+        const masaId = @masa?.Id;
+        const masaAdi = '@Html.Raw(masa?.Ad)';
+        let beklemeTimerleri = {};
+        let queueRefreshInterval = null;
+
+        $(document).ready(function() {
+            // QR kod oluştur (masa.id kullanarak)
+            generateQRCode();
+
+            // Sayfa yüklendiğinde sırayı güncelle
+            updateQueueCount();
+
+            // Otomatik sıra yenileme (30 saniyede bir)
+            queueRefreshInterval = setInterval(refreshQueue, 30000);
+
+            // Şarkı arama
+            $('#songSearch').on('input', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                $('.song-item-container').each(function() {
+                    const songTitle = $(this).find('.song-title').text().toLowerCase();
+                    $(this).toggle(songTitle.includes(searchTerm));
+                });
+                updateSongCount();
+            });
+
+            // Normal ekleme butonu
+            $('.btn-ekle').click(function() {
+                const sarkiId = $(this).data('sarkiid');
+                const sarkiAd = $(this).data('sarkiad');
+
+                if (confirm(`${sarkiAd} şarkısını sıraya eklemek istediğinize emin misiniz?\n\nÜcret: 1 TL`)) {
+                    ekleSarki(sarkiId, masaId, 1, null);
+                }
+            });
+
+            // Premium modal açıldığında
+            $('#premiumModal').on('show.bs.modal', function(event) {
+                const button = $(event.relatedTarget);
+                secilenSarkiId = button.data('sarkiid');
+                secilenSarkiAd = button.data('sarkiad');
+
+                $('#premiumSarkiAdi').text(secilenSarkiAd);
+                updateOncelikGosterge(2);
+            });
+
+            // Ödeme miktarı değiştiğinde
+            $('#odemeMiktari').on('input', function() {
+                const miktar = parseInt($(this).val()) || 2;
+                updateOncelikGosterge(miktar);
+            });
+
+            // Hızlı ödeme butonları
+            $('.btn-odeme').click(function() {
+                const miktar = $(this).data('miktar');
+                $('#odemeMiktari').val(miktar);
+                updateOncelikGosterge(miktar);
+            });
+
+            // Ödeme yap butonu
+            $('#btnOdemeYap').click(function() {
+                const odemeMiktari = parseInt($('#odemeMiktari').val()) || 2;
+
+                if (odemeMiktari < 2) {
+                    showError('Minimum ödeme miktarı 2 TL\'dir.');
+                    return;
+                }
+
+                if (confirm(`${secilenSarkiAd} şarkısını ${odemeMiktari} TL ödeyerek ön sıraya eklemek istediğinize emin misiniz?`)) {
+                    const odemeRef = 'PAYTR_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    odemeliEkleSarki(secilenSarkiId, masaId, odemeMiktari, odemeRef);
+                }
+            });
+        });
+
+        function generateQRCode() {
+            const qrData = {
+                masaId: masaId,
+                masaAdi: masaAdi,
+                timestamp: Date.now()
+            };
+
+            QRCode.toCanvas(document.getElementById('qrcode'),
+                JSON.stringify(qrData),
+                { width: 100, height: 100 },
+                function(error) {
+                    if (error) console.error(error);
+                }
+            );
+        }
+
+        function updateQueueCount() {
+            const count = $('#queueTable tr:not(:has(td.text-center))').length;
+            $('#queueCount').text(count);
+        }
+
+        function updateSongCount() {
+            const visibleCount = $('.song-item-container:visible').length;
+            $('#songCount').text(visibleCount);
+        }
+
+        function refreshQueue() {
+            $.ajax({
+                url: '/Muzik/@masa?.Id',  <!-- HashId yerine id -->
+                method: 'GET',
+                success: function(data) {
+                    // Queue tablosunu güncelle
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const newQueue = $(doc).find('#queueTable').html();
+                    $('#queueTable').html(newQueue);
+                    updateQueueCount();
+                },
+                error: function() {
+                    console.log('Queue güncelleme başarısız');
+                }
+            });
+        }
+
+        function updateOncelikGosterge(miktar) {
+            let width = 20;
+            let level = 'Düşük';
+            let title = 'Normal Öncelik';
+            let description = 'Şarkınız normal sıraya eklenecek';
+
+            if (miktar >= 10) {
+                width = 100;
+                level = 'Maksimum';
+                title = '⚡ HEMEN ÇALINIR!';
+                description = 'Şarkınız hemen çalmaya başlayacak';
+            } else if (miktar >= 5) {
+                width = 70;
+                level = 'Yüksek';
+                title = '🔥 Çok Kısa Sürede';
+                description = 'Şarkınız çok kısa sürede çalınacak';
+            } else if (miktar >= 3) {
+                width = 50;
+                level = 'Orta';
+                title = '🚀 Kısa Sürede';
+                description = 'Şarkınız kısa sürede çalınacak';
+            } else if (miktar == 2) {
+                width = 30;
+                level = 'Hafif';
+                title = '👍 Öncelikli';
+                description = 'Şarkınız normalden önce çalınacak';
+            }
+
+            $('#oncelikGosterge').css('width', width + '%');
+            $('#priorityLevel').text(level);
+            $('#priorityTitle').html(title);
+            $('#priorityDescription').text(description);
+        }
+
+        function ekleSarki(sarkiId, masaId, siraDegeri, odemeRef) {
+            const token = $('input[name="__RequestVerificationToken"]').val();
+
+            $.ajax({
+                url: '/Muzik/Ekle',
+                method: 'POST',
+                headers: {
+                    'RequestVerificationToken': token
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    SarkiId: sarkiId,    <!-- Büyük harf -->
+                    MasaId: masaId       <!-- Büyük harf -->
+                }),
+                success: function(response) {
+                    if (response.success) {
+                        showSuccess(`Şarkı sıraya eklendi!<br>Sıra numarası: ${response.calmaListesiId}`);
+
+                        // Timer başlat
+                        startTimer(sarkiId, 60);
+
+                        // Sayfayı yenile
+                        setTimeout(() => {
+                            refreshQueue();
+                        }, 1500);
+                    } else {
+                        showError(response.message);
+
+                        // Bekleme süresi varsa timer başlat
+                        if (response.kalanSure) {
+                            startTimer(sarkiId, response.kalanSure);
+                        }
+                    }
+                },
+                error: function(xhr) {
+                    try {
+                        const error = JSON.parse(xhr.responseText);
+                        showError(error.message || 'İstek gönderilemedi');
+                    } catch(e) {
+                        showError('Sunucu hatası');
+                    }
+                }
+            });
+        }
+
+        function odemeliEkleSarki(sarkiId, masaId, odemeMiktari, odemeRef) {
+            const token = $('input[name="__RequestVerificationToken"]').val();
+
+            $.ajax({
+                url: '/Muzik/OdemeliEkle',
+                method: 'POST',
+                headers: {
+                    'RequestVerificationToken': token
+                },
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    SarkiId: sarkiId,           <!-- Büyük harf -->
+                    MasaId: masaId,             <!-- Büyük harf -->
+                    OdemeMiktari: odemeMiktari, <!-- Büyük harf -->
+                    OdemeReferans: odemeRef     <!-- Büyük harf -->
+                }),
+                success: function(response) {
+                    if (response.success) {
+                        showSuccess(`Ödemeli şarkı eklendi!<br>Öncelik: ${response.siraDegeri}<br>Şarkınız kısa sürede çalınacak.`);
+                        $('#premiumModal').modal('hide');
+
+                        // Timer başlat (ödemeli için 30 sn)
+                        startTimer(sarkiId, 30);
+
+                        // Sayfayı yenile
+                        setTimeout(() => {
+                            refreshQueue();
+                        }, 1500);
+                    } else {
+                        showError(response.message || 'Ödeme işlemi başarısız');
+                    }
+                },
+                error: function(xhr) {
+                    try {
+                        const error = JSON.parse(xhr.responseText);
+                        showError(error.message || 'Ödeme işlemi başarısız');
+                    } catch(e) {
+                        showError('Sunucu hatası');
+                    }
+                }
+            });
+        }
+
+        function startTimer(sarkiId, duration) {
+            const timerElement = $(`#timer-${sarkiId}`);
+            const timerText = timerElement.find('.timer-text');
+
+            if (timerElement.length === 0) return;
+
+            timerElement.show();
+            let timeLeft = duration;
+
+            const timer = setInterval(function() {
+                timeLeft--;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    timerElement.hide();
+                    return;
+                }
+
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerText.text(`Tekrar ekleyebilmeniz için: ${minutes}:${seconds.toString().padStart(2, '0')}`);
+            }, 1000);
+
+            beklemeTimerleri[sarkiId] = timer;
+        }
+
+        function closePlayer() {
+            $('#musicPlayer').hide();
+        }
+
+        function showSuccess(message) {
+            const alert = `
+                <div class="alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3"
+                     style="z-index: 9999; min-width: 300px; max-width: 500px;">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-check-circle fa-2x me-3"></i>
+                        <div>${message}</div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>`;
+
+            $('body').append(alert);
+            setTimeout(() => $('.alert').alert('close'), 5000);
+        }
+
+        function showError(message) {
+            const alert = `
+                <div class="alert alert-danger alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3"
+                     style="z-index: 9999; min-width: 300px; max-width: 500px;">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-exclamation-circle fa-2x me-3"></i>
+                        <div>${message}</div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>`;
+
+            $('body').append(alert);
+            setTimeout(() => $('.alert').alert('close'), 5000);
+        }
+
+        // Sayfa kapanırken timer'ları temizle
+        $(window).on('beforeunload', function() {
+            if (queueRefreshInterval) {
+                clearInterval(queueRefreshInterval);
+            }
+
+            Object.values(beklemeTimerleri).forEach(timer => {
+                clearInterval(timer);
+            });
+        });
+    </script>
+</body>
+</html>

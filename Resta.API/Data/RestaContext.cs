@@ -24,7 +24,10 @@ namespace Resta.API.Data
         public DbSet<Odeme> Odemeler => Set<Odeme>();
 
 
-
+        // YENİ EKLENECEK müzik:
+        public DbSet<SarkiListesi> SarkiListesi => Set<SarkiListesi>();
+        public DbSet<CalmaListesi> CalmaListesi => Set<CalmaListesi>();
+        public DbSet<CalinmaGecmisi> CalinmaGecmisi => Set<CalinmaGecmisi>();
 
 
         protected override void OnModelCreating(ModelBuilder model)
@@ -143,6 +146,31 @@ namespace Resta.API.Data
             model.Entity<AdisyonKalem>().Property(p => p.AraToplam).HasPrecision(10, 2);
             model.Entity<Odeme>().Property(p => p.Tutar).HasPrecision(10, 2);
 
+            // YENİ EKLENECEK müzik:
+            model.Entity<SarkiListesi>().ToTable("SarkiListesi");
+            model.Entity<CalmaListesi>().ToTable("CalmaListesi");
+            model.Entity<CalinmaGecmisi>().ToTable("CalinmaGecmisi");
+
+            // İlişkiler
+            model.Entity<CalmaListesi>()
+                .HasOne(c => c.Sarki)
+                .WithMany(s => s.CalmaListeleri)
+                .HasForeignKey(c => c.sarkiId);
+
+            model.Entity<CalmaListesi>()
+                .HasOne(c => c.Masa)
+                .WithMany()
+                .HasForeignKey(c => c.masaId);
+
+            model.Entity<CalinmaGecmisi>()
+                .HasOne(c => c.CalmaListesi)
+                .WithMany(c => c.CalinmaGecmisleri)
+                .HasForeignKey(c => c.calmaListesiId);
+
+            model.Entity<CalinmaGecmisi>()
+                .HasOne(c => c.Masa)
+                .WithMany()
+                .HasForeignKey(c => c.masaId);
 
         }
     }

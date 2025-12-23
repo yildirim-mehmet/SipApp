@@ -1,0 +1,26 @@
+﻿🔗 API Endpoint Özeti:
+Windows Form uygulamasının kullanacağı endpoint'ler:
+
+Endpoint	Method	Açıklama
+GET /api/Muzik/kuyruk	GET	Çalınmayan şarkıları getir
+GET /api/Muzik/siradaki	GET	Sıradaki şarkıyı belirle
+POST /api/Muzik/{id}/calindi	POST	Şarkıyı çalındı olarak işaretle
+GET /api/Muzik/sarkilar	GET	Tüm şarkıları listele
+GET /api/Muzik/tum-sira	GET	Tüm sırayı getir
+🚀 Kurulum Adımları:
+Database Migration:
+
+bash
+dotnet ef migrations add AddMusicTables
+dotnet ef database update
+API Test:
+
+https://localhost:7231/api/Muzik/sarkilar
+
+https://localhost:7231/api/Muzik/kuyruk
+
+MVC Test:
+
+https://localhost:7231/Muzik/{masaHash} (Müşteri)
+
+https://localhost:7231/Muzik/Panel (Yönetim)

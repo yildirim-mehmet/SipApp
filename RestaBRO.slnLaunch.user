@@ -9,6 +9,10 @@
       {
         "Path": "Resta.MVC\\Resta.MVC.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "MuzikCalarWinForm\\MuzikCalarWinForm.csproj",
+        "Action": "Start"
       }
     ]
   }

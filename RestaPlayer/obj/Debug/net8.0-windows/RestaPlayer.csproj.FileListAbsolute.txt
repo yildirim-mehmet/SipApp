@@ -1,0 +1,16 @@
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\bin\Debug\net8.0-windows\RestaPlayer.exe
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\bin\Debug\net8.0-windows\RestaPlayer.deps.json
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\bin\Debug\net8.0-windows\RestaPlayer.runtimeconfig.json
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\bin\Debug\net8.0-windows\RestaPlayer.dll
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\bin\Debug\net8.0-windows\RestaPlayer.pdb
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.MainForm.resources
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.csproj.GenerateResource.cache
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.AssemblyInfoInputs.cache
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.AssemblyInfo.cs
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.csproj.CoreCompileInputs.cache
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.dll
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\refint\RestaPlayer.dll
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.pdb
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\RestaPlayer.genruntimeconfig.cache
+C:\Users\_a19sisopr35\Downloads\SipApp-main (2)\SipApp-main\RestaPlayer\obj\Debug\net8.0-windows\ref\RestaPlayer.dll

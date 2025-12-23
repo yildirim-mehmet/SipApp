@@ -1,0 +1,1119 @@
+﻿@{
+    ViewData["Title"] = "Müzik Yönetim Paneli";
+    var istatistikler = ViewBag.Istatistikler as MuzikIstatistikViewModel;
+    var sarkilar = ViewBag.Sarkilar as List<SarkiViewModel>;
+    var sira = ViewBag.Sira as List<CalmaListesiViewModel>;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SipApp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --success: #4cc9f0;
+            --warning: #f72585;
+            --info: #4895ef;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar-custom {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+            .stats-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .stats-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .icon-music {
+            background: linear-gradient(45deg, #4361ee, #4cc9f0);
+            color: white;
+        }
+
+        .icon-queue {
+            background: linear-gradient(45deg, #f72585, #b5179e);
+            color: white;
+        }
+
+        .icon-money {
+            background: linear-gradient(45deg, #ff9e00, #ff9100);
+            color: white;
+        }
+
+        .icon-history {
+            background: linear-gradient(45deg, #7209b7, #560bad);
+            color: white;
+        }
+
+        .table-custom {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+            .table-custom thead {
+                background: linear-gradient(45deg, var(--primary), var(--secondary));
+                color: white;
+            }
+
+            .table-custom tbody tr:hover {
+                background-color: rgba(67, 97, 238, 0.05);
+            }
+
+        .badge-priority {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #333;
+            font-weight: bold;
+        }
+
+        .badge-normal {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-action {
+            padding: 5px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin: 2px;
+        }
+
+        .upload-area {
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+            .upload-area:hover {
+                border-color: var(--primary);
+                background: rgba(67, 97, 238, 0.05);
+            }
+
+        .player-controls {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-custom {
+            height: 6px;
+            border-radius: 3px;
+            background: #e9ecef;
+            overflow: hidden;
+        }
+
+            .progress-custom .progress-bar {
+                background: linear-gradient(90deg, var(--primary), var(--secondary));
+                transition: width 0.3s ease;
+            }
+
+        .song-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+            .song-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                border-color: var(--primary);
+            }
+
+        .modal-custom .modal-header {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 0;
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 0 0 10px 10px;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+
+            .nav-tabs .nav-link.active {
+                background: white;
+                border-color: #dee2e6 #dee2e6 white;
+                color: var(--primary);
+            }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-sliders-h me-2"></i>Müzik Yönetim Paneli
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Ana Sayfa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Muzik/Panel">
+                            <i class="fas fa-music me-1"></i>Müzik Yönetimi
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="refreshData()">
+                            <i class="fas fa-sync-alt me-1"></i>Yenile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid py-4">
+        <!-- İstatistikler -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="mb-4">
+                    <i class="fas fa-chart-bar me-2 text-primary"></i>Sistem İstatistikleri
+                </h2>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card">
+                    <div class="stats-icon icon-music">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="fw-bold">@(istatistikler?.ToplamSarki ?? 0)</h3>
+                    <p class="text-muted mb-0">Toplam Şarkı</p>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card">
+                    <div class="stats-icon icon-queue">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <h3 class="fw-bold">@(istatistikler?.AktifCalmaListesi ?? 0)</h3>
+                    <p class="text-muted mb-0">Aktif Sıra</p>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card">
+                    <div class="stats-icon icon-history">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 class="fw-bold">@(istatistikler?.TamamlananCalma ?? 0)</h3>
+                    <p class="text-muted mb-0">Çalınan Şarkı</p>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="stats-card">
+                    <div class="stats-icon icon-money">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="fw-bold">@(istatistikler?.ToplamOdemeFormatted ?? "0,00 TL")</h3>
+                    <p class="text-muted mb-0">Toplam Gelir</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Menü -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="queue-tab" data-bs-toggle="tab" data-bs-target="#queue">
+                    <i class="fas fa-play-circle me-1"></i>Çalma Sırası
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="songs-tab" data-bs-toggle="tab" data-bs-target="#songs">
+                    <i class="fas fa-compact-disc me-1"></i>Şarkı Listesi
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="upload-tab" data-bs-toggle="tab" data-bs-target="#upload">
+                    <i class="fas fa-upload me-1"></i>Şarkı Yükle
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats">
+                    <i class="fas fa-chart-pie me-1"></i>Detaylı İstatistikler
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab İçerikleri -->
+        <div class="tab-content" id="myTabContent">
+            <!-- Tab 1: Çalma Sırası -->
+            <div class="tab-pane fade show active" id="queue" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="mb-0">
+                        <i class="fas fa-play-circle me-2 text-primary"></i>Çalma Sırası
+                        <span class="badge bg-primary">@(sira?.Count ?? 0)</span>
+                    </h4>
+                    <div>
+                        <button class="btn btn-outline-primary btn-sm" onclick="refreshQueue()">
+                            <i class="fas fa-sync-alt me-1"></i>Yenile
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" onclick="clearQueue()">
+                            <i class="fas fa-trash me-1"></i>Temizle
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-custom">
+                        <thead>
+                            <tr>
+                                <th width="50">#</th>
+                                <th>Şarkı</th>
+                                <th width="120">Masa</th>
+                                <th width="100">Öncelik</th>
+                                <th width="100">Ödeme</th>
+                                <th width="120">Durum</th>
+                                <th width="150">Ekleme</th>
+                                <th width="120">İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="queueTable">
+                            @if (sira != null && sira.Any())
+                            {
+                                int siraNo = 1;
+                                foreach (var item in sira.OrderByDescending(x => x.SiraDegeri).ThenBy(x => x.Id))
+                                {
+                                    <tr data-id="@item.Id">
+                                        <td class="fw-bold">@siraNo</td>
+                                        <td>
+                                            <div class="fw-semibold">@item.SarkiAdi</div>
+                                            <small class="text-muted">@item.SureFormatted</small>
+                                        </td>
+                                        <td>@item.MasaAdi</td>
+                                        <td>
+                                            @if (item.SiraDegeri > 1)
+                                            {
+                                                <span class="badge badge-priority">
+                                                    <i class="fas fa-crown me-1"></i>@item.SiraDegeri
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-normal">Normal</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (item.OdemeMiktari > 0)
+                                            {
+                                                <span class="badge bg-success">
+                                                    @item.OdemeMiktari.ToString("C")
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-muted">-</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (item.Calindi)
+                                            {
+                                                <span class="badge bg-success">
+                                                    <i class="fas fa-check-circle me-1"></i>Çalındı
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-info">
+                                                    <i class="fas fa-clock me-1"></i>Bekliyor
+                                                </span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">@item.EklemeZamaniFormatted</small>
+                                        </td>
+                                        <td>
+                                            @if (!item.Calindi)
+                                            {
+                                                <button class="btn btn-success btn-action btn-play"
+                                                        data-id="@item.Id"
+                                                        data-sarki="@item.SarkiAdi">
+                                                    <i class="fas fa-play"></i> Çal
+                                                </button>
+                                            }
+                                            <button class="btn btn-danger btn-action btn-remove"
+                                                    data-id="@item.Id">
+                                                <i class="fas fa-times"></i> Sil
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    siraNo++;
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="8" class="text-center py-4">
+                                        <i class="fas fa-music fa-2x text-muted mb-3"></i>
+                                        <p class="text-muted mb-0">Henüz şarkı eklenmemiş</p>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 2: Şarkı Listesi -->
+            <div class="tab-pane fade" id="songs" role="tabpanel">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <h4 class="mb-0">
+                            <i class="fas fa-compact-disc me-2 text-primary"></i>Şarkı Listesi
+                            <span class="badge bg-primary">@(sarkilar?.Count ?? 0)</span>
+                        </h4>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="songSearch"
+                                   placeholder="Şarkı ara...">
+                            <button class="btn btn-outline-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="songsContainer">
+                    @if (sarkilar != null && sarkilar.Any())
+                    {
+                        foreach (var sarki in sarkilar)
+                        {
+                            <div class="col-md-4 col-lg-3 mb-3 song-item-container">
+                                <div class="song-item">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <h6 class="fw-bold text-primary mb-0 song-title">@sarki.Ad</h6>
+                                        <span class="badge bg-light text-dark">
+                                            <i class="fas fa-clock me-1"></i>@sarki.SureFormatted
+                                        </span>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <small class="text-muted">
+                                            <i class="fas fa-file-audio me-1"></i>
+                                            @System.IO.Path.GetExtension(sarki.DosyaYolu).ToUpper().Replace(".", "")
+                                        </small>
+                                    </div>
+
+                                    <div class="d-flex justify-content-between">
+                                        <button class="btn btn-outline-danger btn-sm btn-delete-song"
+                                                data-id="@sarki.Id"
+                                                data-name="@sarki.Ad">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <div>
+                                            <span class="badge @(sarki.Aktif ? "bg-success" : "bg-secondary")">
+                                                @sarki.Durum
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="col-12 text-center py-5">
+                            <i class="fas fa-music fa-3x text-muted mb-3"></i>
+                            <h4 class="text-muted">Henüz şarkı eklenmemiş</h4>
+                            <p class="text-muted">Şarkı yükleme sekmesinden yeni şarkılar ekleyebilirsiniz</p>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Tab 3: Şarkı Yükle -->
+            <div class="tab-pane fade" id="upload" role="tabpanel">
+                <h4 class="mb-4">
+                    <i class="fas fa-upload me-2 text-primary"></i>Yeni Şarkı Yükle
+                </h4>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="upload-area mb-4" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                            <h5>Şarkıyı buraya sürükleyin veya tıklayın</h5>
+                            <p class="text-muted small mb-3">
+                                Desteklenen formatlar: MP3, WAV, WMA, M4A<br>
+                                Maksimum dosya boyutu: 50MB
+                            </p>
+                            <input type="file" id="fileInput" accept=".mp3,.wav,.wma,.m4a" style="display: none;">
+                            <button class="btn btn-outline-primary" onclick="document.getElementById('fileInput').click()">
+                                <i class="fas fa-folder-open me-1"></i>Dosya Seç
+                            </button>
+                        </div>
+
+                        <div id="uploadProgress" class="mb-4" style="display: none;">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Yükleniyor...</span>
+                                <span id="uploadPercent">0%</span>
+                            </div>
+                            <div class="progress" style="height: 10px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                     id="uploadProgressBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label for="sarkiAdi" class="form-label fw-semibold">Şarkı Adı *</label>
+                            <input type="text" id="sarkiAdi" class="form-control"
+                                   placeholder="Şarkı adını girin" required>
+                            <div class="form-text">Zorunlu alan</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="sarkiDosyaYolu" class="form-label fw-semibold">Dosya Yolu *</label>
+                            <input type="text" id="sarkiDosyaYolu" class="form-control"
+                                   placeholder="Ör: d:/sarki/sarkim.mp3" required>
+                            <div class="form-text">Windows üzerinde çalacak dosya yolu</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="sarkiSure" class="form-label fw-semibold">Süre (saniye) *</label>
+                            <input type="number" id="sarkiSure" class="form-control"
+                                   min="1" value="180" required>
+                            <div class="form-text">Şarkının saniye cinsinden süresi</div>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="sarkiAktif" checked>
+                            <label class="form-check-label" for="sarkiAktif">
+                                Şarkıyı aktif olarak listeye ekle
+                            </label>
+                        </div>
+
+                        <button class="btn btn-primary w-100" id="btnUpload" onclick="uploadSong()">
+                            <i class="fas fa-upload me-1"></i>Şarkıyı Yükle
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: İstatistikler -->
+            <div class="tab-pane fade" id="stats" role="tabpanel">
+                <h4 class="mb-4">
+                    <i class="fas fa-chart-pie me-2 text-primary"></i>Detaylı İstatistikler
+                </h4>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-chart-bar me-2"></i>Günlük İstatistikler
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Bugünkü İstekler
+                                        <span class="badge bg-primary rounded-pill">
+                                            @(istatistikler?.BugunkuIstekler ?? 0)
+                                        </span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Aktif Şarkılar
+                                        <span class="badge bg-success rounded-pill">
+                                            @(sarkilar?.Count(s => s.Aktif) ?? 0)
+                                        </span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Pasif Şarkılar
+                                        <span class="badge bg-secondary rounded-pill">
+                                            @(sarkilar?.Count(s => !s.Aktif) ?? 0)
+                                        </span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Ödemeli Şarkılar
+                                        <span class="badge bg-warning rounded-pill">
+                                            @(sira?.Count(s => s.OdemeMiktari > 0) ?? 0)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm mb-4">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-users me-2"></i>En Aktif Masalar
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                @if (istatistikler?.EnCokEkleyenMasa != null)
+                                {
+                                    <div class="alert alert-info">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-crown fa-2x me-3 text-warning"></i>
+                                            <div>
+                                                <h5 class="mb-1">@istatistikler.EnCokEkleyenMasa.MasaAdi</h5>
+                                                <p class="mb-0">
+                                                    <strong>@istatistikler.EnCokEkleyenMasa.Sayi şarkı</strong> ile en çok istek yapan masa
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="text-center py-4">
+                                        <i class="fas fa-users fa-2x text-muted mb-3"></i>
+                                        <p class="text-muted mb-0">Henüz yeterli veri yok</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2"></i>Sistem Bilgileri
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">API URL</small>
+                                    <code>@Url.Action("Index", "Home", null, Context.Request.Scheme)/api/Muzik/</code>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">Son Güncelleme</small>
+                                    <span>@DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <small class="text-muted d-block">Toplam Şarkı Süresi</small>
+                                    <span>
+                                        @{
+                                            var toplamSure = sarkilar?.Sum(s => s.Sure) ?? 0;
+                                            var saat = toplamSure / 3600;
+                                            var dakika = (toplamSure % 3600) / 60;
+                                            var saniye = toplamSure % 60;
+                                        }
+                                        @saat:@dakika.ToString("00"):@saniye.ToString("00")
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Müzik Çalar -->
+    <div class="player-controls" id="playerControls" style="display: none;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div id="nowPlayingInfo">
+                        <div class="fw-bold" id="nowPlayingSong">Şarkı seçilmedi</div>
+                        <small class="text-muted" id="nowPlayingMasa">-</small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="progress-custom mb-2">
+                        <div class="progress-bar" id="playbackProgress" style="width: 0%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <small id="currentTime">00:00</small>
+                        <small id="totalTime">00:00</small>
+                    </div>
+                </div>
+                <div class="col-md-3 text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary btn-sm" id="btnPrev">
+                            <i class="fas fa-step-backward"></i>
+                        </button>
+                        <button class="btn btn-primary btn-sm" id="btnPlayPause">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm" id="btnNext">
+                            <i class="fas fa-step-forward"></i>
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm" id="btnStop">
+                            <i class="fas fa-stop"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Şarkı Silme Onay -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-custom">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-exclamation-triangle text-warning me-2"></i>Şarkıyı Sil
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="deleteMessage">Bu şarkıyı silmek istediğinize emin misiniz?</p>
+                    <p class="text-muted small">Bu işlem geri alınamaz. Şarkı pasif hale getirilecek.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scriptler -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // DataTable başlat
+            $('.table-custom').DataTable({
+                pageLength: 10,
+                order: [[0, 'asc']],
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/tr.json'
+                }
+            });
+
+            // Dosya yükleme alanı
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+
+            uploadArea.addEventListener('click', () => fileInput.click());
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#4361ee';
+                uploadArea.style.background = 'rgba(67, 97, 238, 0.05)';
+            });
+
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.style.borderColor = '#dee2e6';
+                uploadArea.style.background = '#f8f9fa';
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#dee2e6';
+                uploadArea.style.background = '#f8f9fa';
+
+                if (e.dataTransfer.files.length) {
+                    fileInput.files = e.dataTransfer.files;
+                    handleFileSelect();
+                }
+            });
+
+            fileInput.addEventListener('change', handleFileSelect);
+
+            // Şarkı arama
+            $('#songSearch').on('input', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                $('.song-item-container').each(function() {
+                    const songTitle = $(this).find('.song-title').text().toLowerCase();
+                    $(this).toggle(songTitle.includes(searchTerm));
+                });
+            });
+
+            // Şarkı çal butonu
+            $('.btn-play').click(function() {
+                const id = $(this).data('id');
+                const sarkiAd = $(this).data('sarki');
+                playSong(id, sarkiAd);
+            });
+
+            // Şarkı sil butonu (sıradan)
+            $('.btn-remove').click(function() {
+                const id = $(this).data('id');
+                removeFromQueue(id);
+            });
+
+            // Şarkı sil butonu (liste)
+            $('.btn-delete-song').click(function() {
+                const id = $(this).data('id');
+                const name = $(this).data('name');
+                showDeleteModal(id, name, 'song');
+            });
+
+            // Müzik çalar kontrolleri
+            $('#btnPlayPause').click(togglePlayPause);
+            $('#btnNext').click(playNext);
+            $('#btnPrev').click(playPrev);
+            $('#btnStop').click(stopPlayback);
+
+            // Otomatik yenileme (30 saniyede bir)
+            setInterval(refreshQueue, 30000);
+        });
+
+        function handleFileSelect() {
+            const file = fileInput.files[0];
+            if (file) {
+                const allowedTypes = ['audio/mpeg', 'audio/wav', 'audio/x-ms-wma', 'audio/mp4'];
+
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Geçersiz dosya formatı! Lütfen MP3, WAV, WMA veya M4A formatında bir dosya seçin.');
+                    fileInput.value = '';
+                    return;
+                }
+
+                // Dosya boyutu kontrolü (max 50MB)
+                if (file.size > 50 * 1024 * 1024) {
+                    alert('Dosya boyutu çok büyük! Maksimum 50MB desteklenir.');
+                    fileInput.value = '';
+                    return;
+                }
+
+                // Dosya yolunu otomatik doldur (Windows formatı)
+                $('#sarkiDosyaYolu').val(`d:/sarki/${file.name}`);
+                $('#sarkiAdi').val(file.name.replace(/\.[^/.]+$/, "")); // Uzantıyı kaldır
+            }
+        }
+
+        function uploadSong() {
+            const sarkiAdi = $('#sarkiAdi').val().trim();
+            const dosyaYolu = $('#sarkiDosyaYolu').val().trim();
+            const sure = $('#sarkiSure').val();
+            const aktif = $('#sarkiAktif').is(':checked');
+
+            if (!sarkiAdi || !dosyaYolu || !sure) {
+                alert('Lütfen tüm zorunlu alanları doldurun.');
+                return;
+            }
+
+            // API'ye gönder
+            $.ajax({
+                url: '/api/Muzik/sarkilar', // BU ENDPOINT'I EKLEMENIZ GEREKECEK
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    ad: sarkiAdi,
+                    dosyaYolu: dosyaYolu,
+                    sure: parseInt(sure),
+                    aktif: aktif
+                }),
+                success: function(response) {
+                    if (response.success) {
+                        showSuccess('Şarkı başarıyla eklendi!');
+                        // Formu temizle
+                        $('#sarkiAdi').val('');
+                        $('#sarkiDosyaYolu').val('');
+                        $('#fileInput').val('');
+                        // Sayfayı yenile
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        showError(response.message || 'Ekleme başarısız');
+                    }
+                },
+                error: function(xhr) {
+                    showError('Sunucu hatası: ' + xhr.statusText);
+                }
+            });
+        }
+
+        function playSong(id, sarkiAd) {
+            $.ajax({
+                url: `/api/Muzik/${id}/calindi`,
+                method: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        showSuccess(`"${sarkiAd}" çalındı olarak işaretlendi`);
+                        // Müzik çaları göster ve başlat
+                        showPlayer(sarkiAd, id);
+                        // Sırayı güncelle
+                        refreshQueue();
+                    }
+                },
+                error: function() {
+                    showError('İşlem başarısız');
+                }
+            });
+        }
+
+        function removeFromQueue(id) {
+            if (confirm('Bu şarkıyı sıradan çıkarmak istediğinize emin misiniz?')) {
+                $.ajax({
+                    url: `/api/Muzik/${id}/remove`, // BU ENDPOINT'I EKLEMENIZ GEREKECEK
+                    method: 'DELETE',
+                    success: function(response) {
+                        if (response.success) {
+                            showSuccess('Şarkı sıradan çıkarıldı');
+                            refreshQueue();
+                        }
+                    },
+                    error: function() {
+                        showError('İşlem başarısız');
+                    }
+                });
+            }
+        }
+
+        function clearQueue() {
+            if (confirm('Tüm sırayı temizlemek istediğinize emin misiniz? Bu işlem geri alınamaz!')) {
+                $.ajax({
+                    url: '/api/Muzik/clear', // BU ENDPOINT'I EKLEMENIZ GEREKECEK
+                    method: 'POST',
+                    success: function(response) {
+                        if (response.success) {
+                            showSuccess('Tüm sıra temizlendi');
+                            refreshQueue();
+                        }
+                    },
+                    error: function() {
+                        showError('Temizleme başarısız');
+                    }
+                });
+            }
+        }
+
+        function refreshQueue() {
+            $.ajax({
+                url: '/Muzik/Panel',
+                method: 'GET',
+                success: function(data) {
+                    // Tabloyu güncelle
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const newTable = $(doc).find('#queueTable').html();
+                    $('#queueTable').html(newTable);
+
+                    // Buton event'lerini tekrar bağla
+                    $('.btn-play').off('click').click(function() {
+                        const id = $(this).data('id');
+                        const sarkiAd = $(this).data('sarki');
+                        playSong(id, sarkiAd);
+                    });
+
+                    $('.btn-remove').off('click').click(function() {
+                        const id = $(this).data('id');
+                        removeFromQueue(id);
+                    });
+                }
+            });
+        }
+
+        function refreshData() {
+            location.reload();
+        }
+
+        function showDeleteModal(id, name, type) {
+            let message = '';
+            if (type === 'song') {
+                message = `<strong>"${name}"</strong> şarkısını silmek istediğinize emin misiniz?`;
+            } else {
+                message = `Bu kaydı silmek istediğinize emin misiniz?`;
+            }
+
+            $('#deleteMessage').html(message);
+            $('#confirmDelete').data('id', id).data('type', type);
+            $('#deleteModal').modal('show');
+        }
+
+        $('#confirmDelete').click(function() {
+            const id = $(this).data('id');
+            const type = $(this).data('type');
+
+            if (type === 'song') {
+                // Şarkı silme işlemi
+                $.ajax({
+                    url: `/api/Muzik/sarkilar/${id}`,
+                    method: 'DELETE',
+                    success: function(response) {
+                        if (response.success) {
+                            showSuccess('Şarkı silindi');
+                            $('#deleteModal').modal('hide');
+                            location.reload();
+                        }
+                    },
+                    error: function() {
+                        showError('Silme işlemi başarısız');
+                    }
+                });
+            }
+        });
+
+        function showPlayer(sarkiAd, id) {
+            $('#nowPlayingSong').text(sarkiAd);
+            $('#nowPlayingMasa').text('ID: ' + id);
+            $('#playerControls').show();
+
+            // Müzik çalma simülasyonu başlat
+            startPlaybackSimulation();
+        }
+
+        let playbackInterval = null;
+        let currentTime = 0;
+        let totalTime = 180; // 3 dakika varsayılan
+
+        function startPlaybackSimulation() {
+            if (playbackInterval) {
+                clearInterval(playbackInterval);
+            }
+
+            currentTime = 0;
+            totalTime = 180;
+
+            playbackInterval = setInterval(function() {
+                currentTime++;
+
+                const progress = (currentTime / totalTime) * 100;
+                $('#playbackProgress').css('width', progress + '%');
+
+                $('#currentTime').text(formatTime(currentTime));
+                $('#totalTime').text(formatTime(totalTime));
+
+                if (currentTime >= totalTime) {
+                    clearInterval(playbackInterval);
+                    playNext();
+                }
+            }, 1000);
+
+            $('#btnPlayPause').html('<i class="fas fa-pause"></i>');
+        }
+
+        function togglePlayPause() {
+            if (playbackInterval) {
+                clearInterval(playbackInterval);
+                playbackInterval = null;
+                $('#btnPlayPause').html('<i class="fas fa-play"></i>');
+            } else {
+                startPlaybackSimulation();
+            }
+        }
+
+        function playNext() {
+            // Sıradaki şarkıyı bul ve çal
+            const nextRow = $('#queueTable tr:not(:has(.bg-success))').first();
+            if (nextRow.length) {
+                const id = nextRow.data('id');
+                const sarkiAd = nextRow.find('td:nth-child(2) .fw-semibold').text();
+                playSong(id, sarkiAd);
+            } else {
+                stopPlayback();
+            }
+        }
+
+        function playPrev() {
+            alert('Önceki şarkı özelliği henüz implemente edilmedi');
+        }
+
+        function stopPlayback() {
+            if (playbackInterval) {
+                clearInterval(playbackInterval);
+                playbackInterval = null;
+            }
+
+            $('#playbackProgress').css('width', '0%');
+            $('#currentTime').text('00:00');
+            $('#playerControls').hide();
+            $('#btnPlayPause').html('<i class="fas fa-play"></i>');
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function showSuccess(message) {
+            const alert = `
+                <div class="alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3"
+                     style="z-index: 9999; min-width: 300px;">
+                    <i class="fas fa-check-circle me-2"></i>${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>`;
+
+            $('body').append(alert);
+            setTimeout(() => $('.alert').alert('close'), 3000);
+        }
+
+        function showError(message) {
+            const alert = `
+                <div class="alert alert-danger alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3"
+                     style="z-index: 9999; min-width: 300px;">
+                    <i class="fas fa-exclamation-circle me-2"></i>${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>`;
+
+            $('body').append(alert);
+            setTimeout(() => $('.alert').alert('close'), 5000);
+        }
+    </script>
+</body>
+</html>
