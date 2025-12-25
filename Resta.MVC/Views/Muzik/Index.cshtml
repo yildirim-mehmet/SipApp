@@ -1,8 +1,10 @@
 ﻿@using System.IO
+@using MyMasa = Resta.MVC.Models.MasaDto 
 @model List<SarkiViewModel>
 @{
     ViewData["Title"] = ViewBag.Title ?? "Müzik Siparişi";
-    var masa = ViewBag.Masa as MasaDto;
+    //var masa = ViewBag.Masa as MasaDto;
+    var masa = ViewBag.Masa as MyMasa;
     var mevcutSira = ViewBag.MevcutSira as List<CalmaListesiViewModel>;
     var antiForgeryToken = Html.AntiForgeryToken();
 }
@@ -524,14 +526,14 @@
         // Global değişkenler
         let secilenSarkiId = null;
         let secilenSarkiAd = null;
-        const masaId = @masa?.Id;
+        const masaId =@((masa?.Id) ?? 2);
         const masaAdi = '@Html.Raw(masa?.Ad)';
         let beklemeTimerleri = {};
         let queueRefreshInterval = null;
 
         $(document).ready(function() {
             // QR kod oluştur (masa.id kullanarak)
-            generateQRCode();
+           // generateQRCode();
 
             // Sayfa yüklendiğinde sırayı güncelle
             updateQueueCount();
@@ -550,14 +552,23 @@
             });
 
             // Normal ekleme butonu
-            $('.btn-ekle').click(function() {
-                const sarkiId = $(this).data('sarkiid');
-                const sarkiAd = $(this).data('sarkiad');
+            // $('.btn-ekle').click(function() {
+            //     const sarkiId = $(this).data('sarkiid');
+            //     const sarkiAd = $(this).data('sarkiad');
 
-                if (confirm(`${sarkiAd} şarkısını sıraya eklemek istediğinize emin misiniz?\n\nÜcret: 1 TL`)) {
-                    ekleSarki(sarkiId, masaId, 1, null);
-                }
-            });
+            //     if (confirm(`${sarkiAd} şarkısını sıraya eklemek istediğinize emin misiniz?\n\nÜcret: 1 TL`)) {
+            //         ekleSarki(sarkiId, masaId, 1, null);
+            //     }
+            // });
+                    $('.btn-ekle').click(function() {
+            const sarkiId = $(this).data('sarkiid');
+            const sarkiAd = $(this).data('sarkiad');
+            const masaId = $(this).data('masaid'); // Değişkeni buradan alıyoruz
+
+            if (confirm(`${sarkiAd} şarkısını sıraya eklemek istediğinize emin misiniz?\n\nÜcret: 1 TL`)) {
+                ekleSarki(sarkiId, masaId, 1, null);
+            }
+        });
 
             // Premium modal açıldığında
             $('#premiumModal').on('show.bs.modal', function(event) {
@@ -676,7 +687,7 @@
             $('#priorityDescription').text(description);
         }
 
-        function ekleSarki(sarkiId, masaId, siraDegeri, odemeRef) {
+                function ekleSarki(sarkiId, masaId, siraDegeri, odemeRef) {
             const token = $('input[name="__RequestVerificationToken"]').val();
 
             $.ajax({
@@ -687,24 +698,20 @@
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    SarkiId: sarkiId,    <!-- Büyük harf -->
-                    MasaId: masaId       <!-- Büyük harf -->
+                    SarkiId: sarkiId, // Yorum satırı kaldırıldı, C# tarafındaki ViewModel ile eşleşmeli
+                    MasaId: masaId
                 }),
                 success: function(response) {
+                    // response.success büyük-küçük harf duyarlılığına dikkat!
+                    // C# tarafı Ok(new { success = true }) dönüyorsa çalışır.
                     if (response.success) {
                         showSuccess(`Şarkı sıraya eklendi!<br>Sıra numarası: ${response.calmaListesiId}`);
-
-                        // Timer başlat
                         startTimer(sarkiId, 60);
-
-                        // Sayfayı yenile
                         setTimeout(() => {
                             refreshQueue();
                         }, 1500);
                     } else {
-                        showError(response.message);
-
-                        // Bekleme süresi varsa timer başlat
+                        showError(response.message || response.error); // API'den 'error' dönüyorsa ona bak
                         if (response.kalanSure) {
                             startTimer(sarkiId, response.kalanSure);
                         }
@@ -713,7 +720,7 @@
                 error: function(xhr) {
                     try {
                         const error = JSON.parse(xhr.responseText);
-                        showError(error.message || 'İstek gönderilemedi');
+                        showError(error.message || error.error || 'İstek gönderilemedi');
                     } catch(e) {
                         showError('Sunucu hatası');
                     }
@@ -732,10 +739,10 @@
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
-                    SarkiId: sarkiId,           <!-- Büyük harf -->
-                    MasaId: masaId,             <!-- Büyük harf -->
-                    OdemeMiktari: odemeMiktari, <!-- Büyük harf -->
-                    OdemeReferans: odemeRef     <!-- Büyük harf -->
+                    SarkiId: sarkiId,           
+                    MasaId: masaId,             
+                    OdemeMiktari: odemeMiktari, 
+                    OdemeReferans: odemeRef     
                 }),
                 success: function(response) {
                     if (response.success) {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XzglTGKupAI=",
+  "dgSpecHash": "y5q52TguBA4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main (2)\\SipApp-main\\Resta.API\\Resta.API.csproj",
+  "projectFilePath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_23122025_2359\\Resta.API\\Resta.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\_a19sisopr35\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\_a19sisopr35\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

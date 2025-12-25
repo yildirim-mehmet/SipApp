@@ -360,16 +360,26 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Ekran"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
-    "/api/Ekran/{id}/Siparisler": {
+    "/api/Ekran/{ekranId}/siparisler": {
       "get": {
         "tags": [
           "Ekran"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "ekranId",
             "in": "path",
             "required": true,
             "schema": {
@@ -378,6 +388,51 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ekran/siparis/{kalemId}/durum": {
+      "put": {
+        "tags": [
+          "Ekran"
+        ],
+        "parameters": [
+          {
+            "name": "kalemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"

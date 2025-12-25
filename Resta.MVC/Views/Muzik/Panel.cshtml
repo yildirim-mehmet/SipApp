@@ -643,7 +643,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <small class="text-muted d-block">API URL</small>
-                                    <code>@Url.Action("Index", "Home", null, Context.Request.Scheme)/api/Muzik/</code>
+                                    <code>@Url.Action("Index", "Home", null, Context.Request.Scheme)api/Muzik/</code>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -857,7 +857,7 @@
 
             // API'ye gönder
             $.ajax({
-                url: '/api/Muzik/sarkilar', // BU ENDPOINT'I EKLEMENIZ GEREKECEK
+                url: '/Muzik/sarkilar', // BU ENDPOINT'I EKLEMENIZ GEREKECEK
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({

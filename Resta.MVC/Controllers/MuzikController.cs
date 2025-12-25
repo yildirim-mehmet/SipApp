@@ -21,16 +21,16 @@ namespace Resta.MVC.Controllers
             _logger = logger;
         }
 
-        // GET: /Muzik/{masaHash}
-        // QR kod: https://localhost:7231/Muzik/eqr52d23qsd661f5erry78op
+        
         [HttpGet("Muzik/{masaHash}")]
         public async Task<IActionResult> Index(string masaHash)
         {
-            
+
             try
             {
                 // 1. Masa bilgilerini mevcut Menu API'sinden al
-                var masa = await _api.GetAsync<MasaDto>($"Menu/masa/{masaHash}");
+                //var masa = await _api.GetAsync<MasaDto>($"Menu/masa/{masaHash}");
+                var masa = await _api.GetAsync<MasaDto>($"Masa/{masaHash}");
                 if (masa == null || !masa.Aktif)
                 {
                     //return View("Error", new ErrorViewModel
@@ -78,9 +78,9 @@ namespace Resta.MVC.Controllers
 
                 ViewBag.Masa = new MasaDto
                 {
-                    id = masa.id,
+                    Id = masa.Id,
                     Ad = masa.Ad,
-                    HashId = masa.HashId,
+                    //HashId = masa.HashId,
                     Aktif = masa.Aktif
                 };
 
@@ -99,6 +99,10 @@ namespace Resta.MVC.Controllers
                 return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
             }
         }
+
+
+
+
 
         // GET: /Muzik/Panel (Yönetim Paneli)
         [HttpGet("Muzik/Panel")]
@@ -260,13 +264,13 @@ namespace Resta.MVC.Controllers
         public DateTime eklenmeZamani { get; set; }
     }
 
-    public class MasaDto
-    {
-        public int id { get; set; }
-        public string Ad { get; set; } = null!;
-        public string HashId { get; set; } = null!;
-        public bool Aktif { get; set; }
-    }
+    //public class MasaDto
+    //{
+    //    public int Id { get; set; }
+    //    public string Ad { get; set; } = null!;
+    //    public string HashId { get; set; } = null!;
+    //    public bool Aktif { get; set; }
+    //}
 
     public class MuzikIstatistikDto
     {
