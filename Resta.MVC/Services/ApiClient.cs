@@ -18,6 +18,17 @@ public class ApiClient
         _http = http;
     }
 
+    public async Task<T?> PutAsync<T>(string relativeUrl, object body, CancellationToken ct = default)
+    {
+        var res = await _http.PutAsJsonAsync(relativeUrl, body, ct);
+        if (!res.IsSuccessStatusCode) return default;
+
+        if (res.Content.Headers.ContentLength == 0) return default;
+
+        return await res.Content.ReadFromJsonAsync<T>(cancellationToken: ct);
+    }
+
+
     public async Task<T?> GetAsync<T>(string relativeUrl, CancellationToken ct = default)
     {
         var res = await _http.GetAsync(relativeUrl, ct);

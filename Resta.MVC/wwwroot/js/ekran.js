@@ -183,3 +183,47 @@ document.addEventListener("DOMContentLoaded", async () => {
     await conn.start();
     await conn.invoke("JoinEkranGroup", window.EKRAN_ID.toString());
 });
+
+
+
+
+
+
+// SON EKLENEN
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/hubs/siparis")
+    .build();
+
+connection.on("YeniSiparis", data => {
+    const card = document.querySelector(`#masa-${data.masaId}`);
+    if (!card) return;
+
+    card.classList.add("highlight");
+    setTimeout(() => card.classList.remove("highlight"), 2000);
+});
+
+connection.start();
+
+
+
+
+//son mantıklı düzenlemeler ama yukarısı riziko
+conn.on("AdisyonKapandi", async (msg) => {
+    // Eğer seçili adisyon kapandıysa paneli temizle
+    if (seciliAdisyonId && msg.adisyonId == seciliAdisyonId) {
+        seciliMasaId = null;
+        seciliAdisyonId = null;
+
+        document.getElementById("adisyonBaslik").innerText = "Adisyon kapandı";
+        document.getElementById("adisyonDetay").innerHTML =
+            `<div class="text-muted">Bu adisyon kapatıldı/iptal edildi.</div>`;
+        document.getElementById("toplamTutar").innerText = "0.00";
+
+        document.getElementById("btnKapat").disabled = true;
+        document.getElementById("btnIptal").disabled = true;
+        document.getElementById("btnYazdir").disabled = true;
+    }
+
+    // Listeyi yenile (sol/sağ paneller otomatik düşer)
+    await loadSiparisler();
+});

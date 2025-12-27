@@ -181,6 +181,75 @@
         }
       }
     },
+    "/api/Adisyon/aktif/masa/{masaId}": {
+      "get": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "masaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Adisyon/{id}/detay": {
+      "get": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Adisyon/{id}/iptal": {
+      "post": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Bolum": {
       "get": {
         "tags": [

@@ -312,27 +312,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Resta.API.Controllers.API.EkranController",
-    "Method": "EkranSiparisDurumGuncelle",
-    "RelativePath": "api/Ekran/siparis/{kalemId}/durum",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "kalemId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "yeniDurum",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "Resta.API.Controllers.API.KategoriController",
     "Method": "GetAll",
     "RelativePath": "api/Kategori",

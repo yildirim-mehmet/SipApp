@@ -1,7 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Resta.API.Data;
 using Resta.API.Entities;
+using Microsoft.AspNetCore.SignalR;
+using Resta.API.Hubs;
+
+
 
 namespace Resta.API.Controllers.API
 {
@@ -10,11 +15,16 @@ namespace Resta.API.Controllers.API
     public class AdisyonController : ControllerBase
     {
         private readonly RestaContext _db;
+        private readonly IHubContext<SiparisHub> _hub;
 
-        public AdisyonController(RestaContext db)
+
+        public AdisyonController(RestaContext db, IHubContext<SiparisHub> hub)
         {
             _db = db;
+            _hub = hub;
         }
+
+
 
         // ====================================================
         // GET /api/Adisyon/masa/{masaId}/aktif
@@ -193,6 +203,16 @@ namespace Resta.API.Controllers.API
 
             await _db.SaveChangesAsync();
 
+
+            // ✅ SignalR: Adisyon kapandı → tüm ekranlar ve ilgili masa yenilesin
+            await _hub.Clients
+                .All
+                .SendAsync("AdisyonKapandi", new
+                {
+                    adisyonId = adisyon.Id,
+                    masaId = adisyon.MasaId
+                });
+
             return Ok(new
             {
                 adisyon.Id,
@@ -203,6 +223,7 @@ namespace Resta.API.Controllers.API
                 adisyon.AcilisZamani,
                 adisyon.KapanisZamani
             });
+
         }
 
         // ====================================================

@@ -1,6 +1,5 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
-wwwroot\js\ekran.js
 wwwroot\js\masa.js
 wwwroot\js\menu.js
 wwwroot\js\signalr.min.js
@@ -62,3 +61,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\ekran.js

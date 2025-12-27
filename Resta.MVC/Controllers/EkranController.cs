@@ -42,13 +42,15 @@ public class EkranController : Controller
 
     // ✅ durum güncelle
     [HttpPut]
+    //[HttpPut]
     public async Task<IActionResult> KalemDurum(int kalemId, [FromBody] int yeniDurum, CancellationToken ct)
     {
-        var res = await _api.PostAsync<object>($"Ekran/siparis/{kalemId}/durum", yeniDurum, ct);
+        var res = await _api.PutAsync<object>($"Ekran/siparis/{kalemId}/durum", yeniDurum, ct);
         return Ok(res);
     }
 
-    // ✅ adisyon kapat/iptal (API tarafında ekleyeceğiz)
+
+    // ✅ adisyon kapat/iptal (API tarafında ekleyeceğiz) burada sorun çıkabilir
     [HttpPost]
     public async Task<IActionResult> AdisyonKapat(int adisyonId, CancellationToken ct)
     {
@@ -70,5 +72,43 @@ public class EkranController : Controller
         var data = await _api.GetAsync<dynamic>($"Adisyon/{adisyonId}/detay", ct);
         return View("Yazdir", data);
     }
+
+
+
+    // SON DURUM EKLEMELERİ
+    // /Ekran?ekranId=1
+    public async Task<IActionResult> Index(int ekranId)
+    {
+        ViewBag.EkranId = ekranId;
+
+        var siparisler = await _api.GetAsync<List<dynamic>>(
+            $"Ekran/{ekranId}/siparisler");
+
+        var masalar = await _api.GetAsync<List<dynamic>>("Masa");
+
+        return View(new
+        {
+            Siparisler = siparisler,
+            Masalar = masalar
+        });
+    }
+
+    // Adisyon detay (panel için)
+    public async Task<IActionResult> AdisyonPanel(int masaId)
+    {
+        var adisyon = await _api.GetAsync<dynamic>(
+            $"Adisyon/aktif/masa/{masaId}");
+
+        return PartialView("_AdisyonPanel", adisyon);
+    }
+
+    public async Task<IActionResult> Yazdir(int adisyonId)
+    {
+        var data = await _api.GetAsync<dynamic>(
+            $"Adisyon/detay/{adisyonId}");
+
+        return View(data);
+    }
+
 
 }
