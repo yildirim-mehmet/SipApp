@@ -65,9 +65,39 @@ namespace Resta.API.Data
                 .WithMany(b => b.Masalar)
                 .HasForeignKey(m => m.BolumId);
 
-            // EkranKategori
-            model.Entity<EkranKategori>()
-                .HasKey(e => new { e.EkranId, e.KategoriId });
+
+
+            // --------------------------------------------------
+            // EKRAN ↔ KATEGORİ (SADECE JOIN TABLE)
+            // --------------------------------------------------
+            model.Entity<EkranKategori>(entity =>
+            {
+                entity.ToTable("EkranKategori");
+
+                entity.HasKey(x => new { x.EkranId, x.KategoriId });
+
+                // DB kolon isimlerini kilitle
+                entity.Property(x => x.EkranId)
+                      .HasColumnName("ekranId");
+
+                entity.Property(x => x.KategoriId)
+                      .HasColumnName("kategoriId");
+
+                entity.HasOne(x => x.Ekran)
+                      .WithMany(e => e.EkranKategoriler)
+                      .HasForeignKey(x => x.EkranId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(x => x.Kategori)
+                      .WithMany(k => k.EkranKategoriler)
+                      .HasForeignKey(x => x.KategoriId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+
+            //// EkranKategori
+            //model.Entity<EkranKategori>()
+            //    .HasKey(e => new { e.EkranId, e.KategoriId });
 
             model.Entity<EkranKategori>()
                 .HasOne(e => e.Ekran)
