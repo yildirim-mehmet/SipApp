@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Ekran Paneli";
+    var ekranId = (int)ViewBag.EkranId;
+}
+
+<div class="container-fluid py-3">
+    <div class="row g-3">
+
+        <!-- SOL: Gelen siparişler -->
+        <div class="col-12 col-lg-3">
+            <div class="card h-100">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <b>Gelen Siparişler</b>
+                    <span class="badge bg-primary" id="badgeYeni">0</span>
+                </div>
+                <div class="card-body p-2" id="solListe" style="max-height: 80vh; overflow:auto;">
+                    <div class="text-muted">Yükleniyor...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAĞ: Masalar + Adisyon Detay -->
+        <div class="col-12 col-lg-9">
+            <div class="row g-3">
+
+                <!-- Masalar -->
+                <div class="col-12 col-lg-5">
+                    <div class="card h-100">
+                        <div class="card-header"><b>Masalar</b></div>
+                        <div class="card-body" id="masaGrid" style="max-height: 80vh; overflow:auto;">
+                            <div class="text-muted">Yükleniyor...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adisyon Detay -->
+                <div class="col-12 col-lg-7">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <b id="adisyonBaslik">Adisyon</b>
+                            <div class="btn-group">
+                                <button class="btn btn-outline-secondary btn-sm" id="btnYazdir" disabled>Yazdır</button>
+                                <button class="btn btn-success btn-sm" id="btnKapat" disabled>Adisyonu Kapat</button>
+                                <button class="btn btn-danger btn-sm" id="btnIptal" disabled>Adisyonu İptal</button>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="adisyonDetay">
+                            <div class="text-muted">Bir masa seçin.</div>
+                        </div>
+
+                        <div class="card-footer d-flex justify-content-between">
+                            <span class="text-muted">Toplam</span>
+                            <b id="toplamTutar">0.00</b>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.EKRAN_ID = @ekranId;
+        // API hub (SignalR) URL:
+        window.API_HUB_URL = "https://localhost:7286/hubs/siparis";
+    </script>
+
+    <script src="~/js/signalr.min.js"></script>
+    <script src="~/js/ekran.js"></script>
+}

@@ -243,6 +243,119 @@ namespace Resta.API.Controllers.API
         }
 
 
+        //İKİNCİ AŞAMA
+        // ====================================================
+        // GET /api/Adisyon/aktif/masa/{masaId}
+        // AMAÇ:
+        // - Ekran UI (kasa/garson/mutfak) için
+        // - Aktif adisyon + masa adı + kalemler + toplam
+        // ====================================================
+        [HttpGet("aktif/masa/{masaId}")]
+        public async Task<IActionResult> AktifAdisyonMasa(int masaId)
+        {
+            var adisyon = await _db.Adisyonlar
+                .Include(a => a.Masa)
+                .Include(a => a.Kalemler)
+                    .ThenInclude(k => k.Urun)
+                .Where(a => a.MasaId == masaId && a.Durum == (int)AdisyonDurum.Acik)
+                .OrderByDescending(a => a.Id)
+                .FirstOrDefaultAsync();
+
+            if (adisyon == null)
+                return NotFound();
+
+            var kalemler = adisyon.Kalemler
+                .OrderByDescending(k => k.SiparisVerilmeZamani)
+                .Select(k => new
+                {
+                    kalemId = k.Id,
+                    urunAdi = k.Urun.Ad,
+                    adet = k.Adet,
+                    birimFiyat = k.BirimFiyat,
+                    araToplam = k.AraToplam,
+                    siparisDurumu = k.SiparisDurumu,
+                    zaman = k.SiparisVerilmeZamani
+                })
+                .ToList();
+
+            var toplam = kalemler
+                .Where(x => x.siparisDurumu != 2)
+                .Sum(x => x.araToplam);
+
+            return Ok(new
+            {
+                adisyonId = adisyon.Id,
+                masaId = adisyon.MasaId,
+                masaAdi = adisyon.Masa.Ad,
+                toplam,
+                kalemler
+            });
+        }
+
+        // ====================================================
+        // GET /api/Adisyon/{id}/detay
+        // AMAÇ:
+        // - A5 yazdırma
+        // ====================================================
+        [HttpGet("{id}/detay")]
+        public async Task<IActionResult> AdisyonDetay(int id)
+        {
+            var adisyon = await _db.Adisyonlar
+                .Include(a => a.Masa)
+                .Include(a => a.Kalemler)
+                    .ThenInclude(k => k.Urun)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (adisyon == null)
+                return NotFound();
+
+            var kalemler = adisyon.Kalemler
+                .Where(k => k.SiparisDurumu != 2)
+                .Select(k => new
+                {
+                    urunAdi = k.Urun.Ad,
+                    adet = k.Adet,
+                    birimFiyat = k.BirimFiyat,
+                    araToplam = k.AraToplam
+                })
+                .ToList();
+
+            return Ok(new
+            {
+                adisyonId = adisyon.Id,
+                masaId = adisyon.MasaId,
+                masaAdi = adisyon.Masa.Ad,
+                toplam = kalemler.Sum(x => x.araToplam),
+                kalemler
+            });
+        }
+
+
+        // ====================================================
+        // POST /api/Adisyon/{id}/iptal
+        // AMAÇ:
+        // - Adisyonu tamamen iptal eder
+        // ====================================================
+        [HttpPost("{id}/iptal")]
+        public async Task<IActionResult> Iptal(int id)
+        {
+            var adisyon = await _db.Adisyonlar
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (adisyon == null)
+                return NotFound();
+
+            if (adisyon.Durum != (int)AdisyonDurum.Acik)
+                return BadRequest("Sadece açık adisyon iptal edilebilir.");
+
+            adisyon.Durum = (int)AdisyonDurum.Iptal;
+            adisyon.KapanisZamani = DateTime.Now;
+
+            await _db.SaveChangesAsync();
+            return Ok();
+        }
+
+
 
 
 

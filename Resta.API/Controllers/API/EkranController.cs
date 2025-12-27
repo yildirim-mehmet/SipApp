@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Resta.API.Data;
 using Resta.API.Entities;
+using Resta.API.Hubs;
 
 namespace Resta.API.Controllers.API
 {
@@ -124,22 +126,75 @@ namespace Resta.API.Controllers.API
         // AMAÇ:
         // - Ekran tarafından sipariş durumu güncellenir
         // ====================================================
+        //[HttpPut("siparis/{kalemId}/durum")]
         [HttpPut("siparis/{kalemId}/durum")]
         public async Task<IActionResult> EkranSiparisDurumGuncelle(
-            int kalemId,
-            [FromBody] int yeniDurum)
+    int kalemId,
+    [FromBody] int yeniDurum,
+    [FromServices] IHubContext<SiparisHub> hub)
         {
             var kalem = await _db.AdisyonKalemler
+                .Include(k => k.Adisyon)
+                .Include(k => k.Urun)
+                    .ThenInclude(u => u.UrunKategoriler)
                 .FirstOrDefaultAsync(k => k.Id == kalemId);
 
-            if (kalem == null)
-                return NotFound();
+            if (kalem == null) return NotFound();
 
             kalem.SiparisDurumu = yeniDurum;
             await _db.SaveChangesAsync();
 
+            // ✅ Bu kalem hangi ekranlara düşüyor?
+            var kategoriIds = kalem.Urun.UrunKategoriler.Select(x => x.KategoriId).Distinct().ToList();
+
+            var ekranIds = await _db.EkranKategoriler
+                .Where(x => kategoriIds.Contains(x.KategoriId))
+                .Select(x => x.EkranId)
+                .Distinct()
+                .ToListAsync();
+
+            // ✅ Ekranlara yayınla
+            foreach (var ekranId in ekranIds)
+            {
+                await hub.Clients.Group($"EKRAN_{ekranId}")
+                    .SendAsync("SiparisDurumDegisti", new
+                    {
+                        ekranId,
+                        kalemId = kalem.Id,
+                        siparisDurumu = kalem.SiparisDurumu,
+                        masaId = kalem.Adisyon.MasaId,
+                        adisyonId = kalem.AdisyonId
+                    });
+            }
+
+            // ✅ Masaya da yayınla (müşteri menu ekranı)
+            await hub.Clients.Group($"MASA_{kalem.Adisyon.MasaId}")
+                .SendAsync("SiparisDurumDegisti", new
+                {
+                    kalemId = kalem.Id,
+                    siparisDurumu = kalem.SiparisDurumu,
+                    masaId = kalem.Adisyon.MasaId,
+                    adisyonId = kalem.AdisyonId
+                });
+
             return Ok();
         }
+
+        //public async Task<IActionResult> EkranSiparisDurumGuncelle(
+        //    int kalemId,
+        //    [FromBody] int yeniDurum)
+        //{
+        //    var kalem = await _db.AdisyonKalemler
+        //        .FirstOrDefaultAsync(k => k.Id == kalemId);
+
+        //    if (kalem == null)
+        //        return NotFound();
+
+        //    kalem.SiparisDurumu = yeniDurum;
+        //    await _db.SaveChangesAsync();
+
+        //    return Ok();
+        //}
 
 
 

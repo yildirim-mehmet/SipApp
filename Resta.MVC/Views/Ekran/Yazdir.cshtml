@@ -1,0 +1,47 @@
+﻿@model dynamic
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Adisyon Yazdır</title>
+  <style>
+    @@page { size: A5; margin: 8mm; }
+    body { font-family: Arial; }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { padding: 6px; border-bottom: 1px solid #ddd; font-size: 12px; }
+    .right { text-align:right; }
+  </style>
+</head>
+<body onload="window.print()">
+
+<h3>Masa @Model.masaId - @Model.masaAdi</h3>
+<div>Adisyon: @Model.adisyonId</div>
+<hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ürün</th>
+      <th class="right">Adet</th>
+      <th class="right">Fiyat</th>
+      <th class="right">Tutar</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var k in Model.kalemler)
+    {
+      <tr>
+        <td>@k.urunAdi</td>
+        <td class="right">@k.adet</td>
+        <td class="right">@k.birimFiyat</td>
+        <td class="right">@k.araToplam</td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<hr/>
+<h3 class="right">Toplam: @Model.toplam</h3>
+
+</body>
+</html>

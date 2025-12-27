@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "Resta.API.Controllers.API.AdisyonController",
+    "Method": "AdisyonDetay",
+    "RelativePath": "api/Adisyon/{id}/detay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Resta.API.Controllers.API.AdisyonController",
+    "Method": "Iptal",
+    "RelativePath": "api/Adisyon/{id}/iptal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Resta.API.Controllers.API.AdisyonController",
     "Method": "CloseAdisyon",
     "RelativePath": "api/Adisyon/{id}/kapat",
     "HttpMethod": "PUT",
@@ -16,6 +48,22 @@
         "Name": "dto",
         "Type": "Resta.API.Controllers.API.AdisyonController\u002BCloseAdisyonDto",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Resta.API.Controllers.API.AdisyonController",
+    "Method": "AktifAdisyonMasa",
+    "RelativePath": "api/Adisyon/aktif/masa/{masaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "masaId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -236,6 +284,27 @@
     "Parameters": [
       {
         "Name": "ekranId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Resta.API.Controllers.API.EkranController",
+    "Method": "EkranSiparisDurumGuncelle",
+    "RelativePath": "api/Ekran/siparis/{kalemId}/durum",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kalemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "yeniDurum",
         "Type": "System.Int32",
         "IsRequired": true
       }
