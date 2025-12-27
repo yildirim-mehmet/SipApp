@@ -70,4 +70,5 @@ public class EkranController : Controller
         var data = await _api.GetAsync<dynamic>($"Adisyon/{adisyonId}/detay", ct);
         return View("Yazdir", data);
     }
+
 }
