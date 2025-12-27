@@ -110,6 +110,16 @@ namespace Resta.API.Controllers.API
             //    .FirstOrDefaultAsync(a => a.Id == kalem.AdisyonId);
 
             // ✅ 1) Masa dolu bildirimi (sende var)
+
+            await _hub.Clients
+            .Group("EKRAN_ALL") // şimdilik tüm ekranlar
+            .SendAsync("YeniSiparis", new
+            {
+                masaId = adisyon.MasaId,
+                adisyonId = adisyon.Id
+            });
+
+
             if (adisyon != null)
             {
                 await _hub.Clients
@@ -201,6 +211,15 @@ namespace Resta.API.Controllers.API
             }
 
             await _db.SaveChangesAsync();
+
+            await _hub.Clients
+            .All
+            .SendAsync("SiparisDurumDegisti", new
+            {
+                kalemId = kalem.Id,
+                yeniDurum = dto.YeniDurum
+            });
+
 
             // ===============================
             // SIGNALR – MASA DOLU BİLDİRİMİ

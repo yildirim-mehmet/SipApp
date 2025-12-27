@@ -1,9 +1,8 @@
-﻿@model List<dynamic>
+﻿@model List<Resta.MVC.Models.EkranVm>
+
 @{
     ViewData["Title"] = "Ekran Seç";
 }
-
-
 
 <div class="container py-4">
     <h4 class="mb-3">Ekran Seç</h4>
@@ -12,36 +11,9 @@
         @foreach (var e in Model)
         {
             <a class="list-group-item list-group-item-action"
-               href="/Ekran/Pano?ekranId=@e.id">
-                @e.ad
+               href="/Ekran/Pano?ekranId=@e.Id">
+                @e.Ad
             </a>
         }
     </div>
 </div>
-
-
-@* AŞAĞIDA İKİNCİ AŞAMA *@
-
-<div class="container-fluid">
-    <div class="row">
-
-        <!-- SOL: SİPARİŞ AKIŞI -->
-        <div class="col-lg-3 border-end">
-            <partial name="_SiparisAkis" />
-        </div>
-
-        <!-- SAĞ: MASALAR -->
-        <div class="col-lg-9">
-            <partial name="_Masalar" />
-        </div>
-
-    </div>
-</div>
-
-@section Scripts {
-    <script>
-        window.EKRAN_ID = @ViewBag.EkranId;
-    </script>
-    <script src="~/js/signalr.min.js"></script>
-    <script src="~/js/ekran.js"></script>
-}

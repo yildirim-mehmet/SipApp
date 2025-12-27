@@ -196,6 +196,36 @@ namespace Resta.API.Controllers.API
         //    return Ok();
         //}
 
+        //login
+
+        //[HttpGet("kullanici/{kullaniciId}")]
+        //public async Task<IActionResult> KullaniciEkranlar(int kullaniciId)
+        //{
+        //    var ekranlar = await _db.KullaniciEkranlar
+        //        .Where(x => x.KullaniciId == kullaniciId)
+        //        .Select(x => new {
+        //            x.Ekran.Id,
+        //            x.Ekran.Ad,
+        //            x.Ekran.Tip
+        //        })
+        //        .ToListAsync();
+
+        //    return Ok(ekranlar);
+        //}
+        [HttpGet("kullanici/{kullaniciId}")]
+        public async Task<IActionResult> KullaniciEkranlari(int kullaniciId)
+        {
+            var ekranlar = await _db.KullaniciEkranlar
+                .Where(x => x.KullaniciId == kullaniciId)
+                .Select(x => new
+                {
+                    x.Ekran.Id,
+                    x.Ekran.Ad
+                })
+                .ToListAsync();
+
+            return Ok(ekranlar);
+        }
 
 
 

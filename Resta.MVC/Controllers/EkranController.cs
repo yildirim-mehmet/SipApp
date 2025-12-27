@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Resta.MVC.Models;
 using Resta.MVC.Services;
 
 namespace Resta.MVC.Controllers;
@@ -12,17 +13,49 @@ public class EkranController : Controller
     [HttpGet]
     public async Task<IActionResult> Index(CancellationToken ct)
     {
-        var ekranlar = await _api.GetAsync<List<dynamic>>("Ekran", ct) ?? new();
+        var userId = HttpContext.Session.GetInt32("KULLANICI_ID");
+        if (userId == null)
+            return RedirectToAction("Login", "Auth");
+
+        var ekranlar = await _api.GetAsync<List<EkranVm>>(
+            $"Ekran/kullanici/{userId}", ct);
+
         return View(ekranlar);
     }
 
+
+    //public async Task<IActionResult> Index(CancellationToken ct)
+    //{
+    //    var ekranlar = await _api.GetAsync<List<EkranVm>>("Ekran", ct)
+    //                  ?? new List<EkranVm>();
+
+    //    return View(ekranlar);
+    //}
+
+
     // /Ekran/Pano?ekranId=1
     [HttpGet]
-    public IActionResult Pano(int ekranId)
+    public async Task<IActionResult> Pano(int ekranId, CancellationToken ct)
     {
+        var userId = HttpContext.Session.GetInt32("KULLANICI_ID");
+        if (userId == null)
+            return RedirectToAction("Login", "Auth");
+
+        var ekranlar = await _api.GetAsync<List<EkranVm>>(
+            $"Ekran/kullanici/{userId}", ct);
+
+        if (!ekranlar.Any(x => x.Id == ekranId))
+            return Forbid(); // ❌ yetkisiz
+
         ViewBag.EkranId = ekranId;
         return View();
     }
+
+    //public IActionResult Pano(int ekranId)
+    //{
+    //    ViewBag.EkranId = ekranId;
+    //    return View();
+    //}
 
     // ✅ UI sol/sağ panellerin datası (MVC -> API proxy)
     [HttpGet]
@@ -66,12 +99,28 @@ public class EkranController : Controller
     }
 
     // ✅ A5 print
+    //[HttpGet]
+    //public async Task<IActionResult> Yazdir(int adisyonId, CancellationToken ct)
+    //{
+    //    var data = await _api.GetAsync<dynamic>($"Adisyon/{adisyonId}/detay", ct);
+    //    return View("Yazdir", data);
+    //}
     [HttpGet]
     public async Task<IActionResult> Yazdir(int adisyonId, CancellationToken ct)
     {
-        var data = await _api.GetAsync<dynamic>($"Adisyon/{adisyonId}/detay", ct);
-        return View("Yazdir", data);
+        //var data = await _api.GetAsync<dynamic>(
+        //    $"Adisyon/{adisyonId}/yazdir", ct);
+
+        //return View("Yazdir", data);
+        var data = await _api.GetAsync<AdisyonYazdirVm>(
+        $"Adisyon/{adisyonId}/yazdir", ct);
+
+            if (data == null)
+                return NotFound();
+
+            return View("Yazdir", data);
     }
+
 
 
 

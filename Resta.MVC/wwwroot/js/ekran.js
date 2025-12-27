@@ -49,8 +49,10 @@ function renderFromSiparisList(list) {
 
     for (const m of masalar) {
         grid.innerHTML += `
-      <button class="btn btn-outline-primary w-100 text-start mb-2"
-              onclick="selectMasa(${m.masaId})">
+      <button id="masa-${m.masaId}"
+        class="btn btn-outline-primary w-100 text-start mb-2"
+        onclick="selectMasa(${m.masaId})">
+
         <div class="d-flex justify-content-between">
           <div><b>${m.masaId}</b> ${m.masaAdi}</div>
           <span class="badge bg-danger">${m.adet}</span>
@@ -194,13 +196,20 @@ const connection = new signalR.HubConnectionBuilder()
     .withUrl("/hubs/siparis")
     .build();
 
-connection.on("YeniSiparis", data => {
-    const card = document.querySelector(`#masa-${data.masaId}`);
-    if (!card) return;
+conn.on("YeniSiparis", async (msg) => {
+    // ilgili masa kartını parlat
+    const card = document.getElementById(`masa-${msg.masaId}`);
+    if (card) {
+        card.classList.add("highlight");
+        setTimeout(() => card.classList.remove("highlight"), 2000);
+    }
 
-    card.classList.add("highlight");
-    setTimeout(() => card.classList.remove("highlight"), 2000);
+    await loadSiparisler();
+    if (seciliMasaId === msg.masaId) {
+        await selectMasa(seciliMasaId);
+    }
 });
+
 
 connection.start();
 

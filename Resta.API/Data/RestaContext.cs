@@ -31,6 +31,9 @@ namespace Resta.API.Data
         public DbSet<CalmaListesi> CalmaListesi => Set<CalmaListesi>();
         public DbSet<CalinmaGecmisi> CalinmaGecmisi => Set<CalinmaGecmisi>();
 
+        //kullanıcı tarafı eklendi
+        public DbSet<Kullanici> Kullanicilar => Set<Kullanici>();
+        public DbSet<KullaniciEkran> KullaniciEkranlar => Set<KullaniciEkran>();
 
         protected override void OnModelCreating(ModelBuilder model)
         {
@@ -203,6 +206,23 @@ namespace Resta.API.Data
                 .HasOne(c => c.Masa)
                 .WithMany()
                 .HasForeignKey(c => c.masaId);
+
+
+            model.Entity<KullaniciEkran>()
+                .ToTable("KullaniciEkran");
+
+            model.Entity<KullaniciEkran>()
+                .HasOne(x => x.Kullanici)
+                .WithMany(k => k.KullaniciEkranlar)
+                .HasForeignKey(x => x.KullaniciId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<KullaniciEkran>()
+                .HasOne(x => x.Ekran)
+                .WithMany()
+                .HasForeignKey(x => x.EkranId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
         }
     }

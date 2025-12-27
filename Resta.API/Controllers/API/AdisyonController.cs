@@ -378,6 +378,39 @@ namespace Resta.API.Controllers.API
 
 
 
+        // GET /api/Adisyon/{id}/yazdir
+        [HttpGet("{id}/yazdir")]
+        public async Task<IActionResult> YazdirData(int id)
+        {
+            var adisyon = await _db.Adisyonlar
+                .Include(a => a.Masa)
+                .Include(a => a.Kalemler)
+                    .ThenInclude(k => k.Urun)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (adisyon == null)
+                return NotFound();
+
+            return Ok(new
+            {
+                adisyon.Id,
+                MasaAdi = adisyon.Masa.Ad,
+                Acilis = adisyon.AcilisZamani,
+                Kapanis = adisyon.KapanisZamani,
+                Toplam = adisyon.Kalemler
+                    .Where(k => k.SiparisDurumu != 2)
+                    .Sum(k => k.AraToplam),
+                Kalemler = adisyon.Kalemler
+                    .Where(k => k.SiparisDurumu != 2)
+                    .Select(k => new
+                    {
+                        k.Urun.Ad,
+                        k.Adet,
+                        k.BirimFiyat,
+                        k.AraToplam
+                    })
+            });
+        }
 
 
 
