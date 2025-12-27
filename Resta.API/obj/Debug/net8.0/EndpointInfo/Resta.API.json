@@ -1760,6 +1760,10 @@
             "type": "string",
             "format": "date-time"
           },
+          "aciklama": {
+            "type": "string",
+            "nullable": true
+          },
           "sureFormatted": {
             "type": "string",
             "nullable": true,

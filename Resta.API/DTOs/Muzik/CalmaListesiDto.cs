@@ -14,6 +14,8 @@
         public decimal odemeMiktari { get; set; }
         public DateTime eklenmeZamani { get; set; }
 
+        public string aciklama { get; set; } //= null!;  // Masa adı için
+
         // Hesaplanmış property'ler
         public string sureFormatted => TimeSpan.FromSeconds(sure).ToString(@"mm\:ss");
         public string eklenmeZamaniFormatted => eklenmeZamani.ToLocalTime().ToString("HH:mm");

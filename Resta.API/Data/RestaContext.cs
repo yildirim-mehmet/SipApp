@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Resta.API.Entities;
 
+
+
 namespace Resta.API.Data
 {
     public class RestaContext : DbContext

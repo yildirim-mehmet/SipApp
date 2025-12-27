@@ -194,6 +194,8 @@
     </style>
 </head>
 <body>
+    @Html.AntiForgeryToken()
+
     <div class="music-container">
         <!-- Header -->
         <div class="header-card">
@@ -520,7 +522,8 @@
     <!-- Scriptler -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/lib/browser.min.js"></script>
+    @* <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script> *@
 
     <script>
         // Global değişkenler
@@ -563,7 +566,8 @@
                     $('.btn-ekle').click(function() {
             const sarkiId = $(this).data('sarkiid');
             const sarkiAd = $(this).data('sarkiad');
-            const masaId = $(this).data('masaid'); // Değişkeni buradan alıyoruz
+            //const masaId = $(this).data('masaid'); // Değişkeni buradan alıyoruz
+            //const masaId = $(this).data('masaid'); // Değişkeni buradan alıyoruz
 
             if (confirm(`${sarkiAd} şarkısını sıraya eklemek istediğinize emin misiniz?\n\nÜcret: 1 TL`)) {
                 ekleSarki(sarkiId, masaId, 1, null);

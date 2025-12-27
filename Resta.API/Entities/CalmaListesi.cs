@@ -33,6 +33,9 @@ namespace Resta.API.Entities
         [ForeignKey("masaId")]
         public virtual Masa Masa { get; set; } = null!;  // Mevcut Masa entity'si
 
+        //[Column("aciklama")]
+        //public string aciklama { get; set; } = DateTime.Now.ToString();
+
         public virtual ICollection<CalinmaGecmisi> CalinmaGecmisleri { get; set; } = new List<CalinmaGecmisi>();
     }
 }

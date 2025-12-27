@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_23122025_2359\\Resta.API\\Resta.API.csproj": {}
+    "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.API\\Resta.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_23122025_2359\\Resta.API\\Resta.API.csproj": {
+    "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.API\\Resta.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_23122025_2359\\Resta.API\\Resta.API.csproj",
+        "projectUniqueName": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.API\\Resta.API.csproj",
         "projectName": "Resta.API",
-        "projectPath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_23122025_2359\\Resta.API\\Resta.API.csproj",
+        "projectPath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.API\\Resta.API.csproj",
         "packagesPath": "C:\\Users\\_a19sisopr35\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_23122025_2359\\Resta.API\\obj\\",
+        "outputPath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

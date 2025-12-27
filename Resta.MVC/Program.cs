@@ -14,6 +14,10 @@ public class Program
         builder.Services.AddSignalR();
 
 
+        //mvc müzik ekleme
+        builder.Services.AddAntiforgery(o => o.HeaderName = "RequestVerificationToken");
+
+
         // API base url (appsettings.json -> ApiSettings:BaseUrl)
         var apiBaseUrl = builder.Configuration["ApiSettings:BaseUrl"];
         if (string.IsNullOrWhiteSpace(apiBaseUrl))

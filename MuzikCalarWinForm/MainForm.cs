@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Media;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +18,23 @@ namespace MuzikCalarWinForm
         private HttpClient _httpClient;
         private System.Timers.Timer _sureTimer;
         private System.Timers.Timer _otomatikCalmaTimer;
-        private SoundPlayer _soundPlayer;
+
+        // NAudio (MP3/WAV)
+        private WaveOutEvent _outputDevice;
+        private AudioFileReader _audioFile;
+
+        private volatile bool _stopRequestedByUser = false; // kullanıcı stop/next/prev yaptı mı?
+
         private bool _caliyor = false;
         private bool _otomatikCalmaAktif = false;
         private DateTime _sarkiBaslangic;
+
         private int _toplamSure = 0;
         private string _apiBaseUrl = "https://localhost:7286/api/muzik"; // SipApp API URL
+
         private List<CalmaListesiDto> _mevcutListe = new List<CalmaListesiDto>();
         private CalmaListesiDto _suAnCalanItem = null;
+
         private List<SarkiDto> _apiSarkilari = new List<SarkiDto>();
         private AppSettings _settings;
 
@@ -39,8 +49,10 @@ namespace MuzikCalarWinForm
             InitializeCustomComponents();
             InitializeHttpClient();
             InitializeTimers();
+
             LoadSettings();
             _settings = AppSettings.Load();
+
             this.FormClosing += MainForm_FormClosing;
         }
 
@@ -99,15 +111,16 @@ namespace MuzikCalarWinForm
         private void InitializeTimers()
         {
             // Listeyi yenileme timer'ı
+            // İSTENEN: timer ile değil, şarkı bitince yenilenecek => Start ETMİYORUZ.
             timerYenile.Tick += async (s, e) => await SiraListesiniYenile();
             timerYenile.Interval = (int)numYenilemeAraligi.Value * 1000;
-            timerYenile.Start();
+            // timerYenile.Start();  // <-- KAPALI
 
             // Şarkı süresi timer'ı
             _sureTimer = new System.Timers.Timer(1000);
             _sureTimer.Elapsed += (s, e) => UpdateSureGosterge();
 
-            // Otomatik çalma kontrol timer'ı
+            // Otomatik çalma kontrol timer'ı (bunu koruyoruz)
             _otomatikCalmaTimer = new System.Timers.Timer(5000); // 5 saniyede bir kontrol
             _otomatikCalmaTimer.Elapsed += async (s, e) => await OtomatikCalmaKontrol();
             _otomatikCalmaTimer.AutoReset = true;
@@ -115,7 +128,7 @@ namespace MuzikCalarWinForm
 
         private void LoadSettings()
         {
-            // Ses seviyesi ayarı
+            // Ses seviyesi ayarı (mevcut yapı korunuyor, istersen NAudio volume ile bağlarız)
             cbSesSeviyesi.SelectedIndexChanged += (s, e) =>
             {
                 if (cbSesSeviyesi.SelectedItem != null)
@@ -123,12 +136,13 @@ namespace MuzikCalarWinForm
                     string sesSeviye = cbSesSeviyesi.SelectedItem.ToString().Replace("%", "");
                     if (int.TryParse(sesSeviye, out int seviye))
                     {
-                        // Ses seviyesi ayarı burada yapılabilir
+                        // NAudio volume istenirse:
+                        // if (_audioFile != null) _audioFile.Volume = Math.Clamp(seviye / 100f, 0f, 1f);
                     }
                 }
             };
 
-            // Yenileme aralığı ayarı
+            // Yenileme aralığı ayarı (timer start edilmiyor ama manuel yenilemede interval yine güncel kalsın)
             numYenilemeAraligi.ValueChanged += (s, e) =>
             {
                 timerYenile.Interval = (int)numYenilemeAraligi.Value * 1000;
@@ -155,7 +169,7 @@ namespace MuzikCalarWinForm
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    var kuyruk = JsonConvert.DeserializeObject<List<CalmaListesiDto>>(json);
+                    var kuyruk = JsonConvert.DeserializeObject<List<CalmaListesiDto>>(json) ?? new List<CalmaListesiDto>();
 
                     Invoke(new Action(() => UpdateListView(kuyruk)));
                 }
@@ -169,11 +183,16 @@ namespace MuzikCalarWinForm
 
         private void UpdateListView(List<CalmaListesiDto> kuyruk)
         {
-            _mevcutListe = kuyruk;
+            _mevcutListe = kuyruk ?? new List<CalmaListesiDto>();
             listViewSira.Items.Clear();
 
             int siraNo = 1;
-            foreach (var item in kuyruk.Where(x => !x.calindi).OrderByDescending(x => x.siraDegeri).ThenBy(x => x.id))
+
+            // İSTENEN ÖNCELİK: calindi=0, siraDegeri DESC, id ASC
+            foreach (var item in _mevcutListe
+                .Where(x => !x.calindi)
+                .OrderByDescending(x => x.siraDegeri)
+                .ThenBy(x => x.id))
             {
                 var listItem = new ListViewItem(siraNo.ToString());
                 listItem.SubItems.Add(item.sarkiAdi);
@@ -196,63 +215,172 @@ namespace MuzikCalarWinForm
             }
         }
 
+        // -------------------------
+        // NAudio yardımcıları
+        // -------------------------
+        private void StopPlayback(bool userRequested)
+        {
+            _stopRequestedByUser = userRequested;
+
+            try { _outputDevice?.Stop(); } catch { /* ignore */ }
+
+            try { _audioFile?.Dispose(); _audioFile = null; } catch { /* ignore */ }
+            try { _outputDevice?.Dispose(); _outputDevice = null; } catch { /* ignore */ }
+
+            _sureTimer.Stop();
+        }
+
+        private void StartPlayback(string filePath)
+        {
+            // önceki çalma varsa kapat (userRequested=false => doğal bitiş akışını bozmayalım)
+            StopPlayback(userRequested: false);
+
+            _audioFile = new AudioFileReader(filePath);
+            _outputDevice = new WaveOutEvent();
+            _outputDevice.Init(_audioFile);
+
+            _outputDevice.PlaybackStopped += OutputDevice_PlaybackStopped;
+
+            _stopRequestedByUser = false;
+            _outputDevice.Play();
+        }
+
+        // Şarkı doğal bittiğinde çalışacak
+        private async void OutputDevice_PlaybackStopped(object sender, StoppedEventArgs e)
+        {
+            // Hata ile durduysa
+            if (e.Exception != null)
+            {
+                Invoke(new Action(() =>
+                {
+                    lblSarkiBilgisi.Text = $"Çalma hatası: {e.Exception.Message}";
+                }));
+                _caliyor = false;
+                return;
+            }
+
+            // Kullanıcı stop/next/prev yaptıysa otomatik akışı tetikleme
+            if (_stopRequestedByUser)
+                return;
+
+            // Doğal bitiş mi?
+            bool naturalEnd = false;
+            try
+            {
+                if (_audioFile != null && _audioFile.Position >= _audioFile.Length)
+                    naturalEnd = true;
+            }
+            catch { /* ignore */ }
+
+            if (!naturalEnd)
+                return;
+
+            // 1) BİTTİ -> DB’de calindi=1 yap
+            if (_suAnCalanItem != null)
+            {
+                await MarkAsPlayed(_suAnCalanItem.id);
+            }
+
+            // 2) Listeyi şarkı bitince yenile (timer yok!)
+            await SiraListesiniYenile();
+
+            // 3) Otomatik mod açıksa sıradakini çal
+            if (_otomatikCalmaAktif && chkOtomatikDevam.Checked)
+            {
+                await Task.Delay(300);
+                await SiradakiSarkiyiCal();
+            }
+            else
+            {
+                _caliyor = false;
+                Invoke(new Action(() =>
+                {
+                    btnBaslaDurdur.Text = "▶️ Çalmaya Başla";
+                    btnBaslaDurdur.BackColor = Color.FromArgb(52, 152, 219);
+                }));
+            }
+        }
+
+        // -------------------------
+        // UI Eventleri
+        // -------------------------
+
         private async void btnBaslaDurdur_Click(object sender, EventArgs e)
         {
             if (!_caliyor)
             {
+                // Eğer pause'dan dönüyorsak aynı şarkıyı devam ettir
+                if (_outputDevice != null && _audioFile != null &&
+                    _outputDevice.PlaybackState == PlaybackState.Paused)
+                {
+                    _stopRequestedByUser = false;
+                    _outputDevice.Play();
+                    _sureTimer.Start();
+
+                    btnBaslaDurdur.Text = "⏸ Duraklat";
+                    btnBaslaDurdur.BackColor = Color.FromArgb(46, 204, 113);
+                    _caliyor = true;
+                    return;
+                }
+
                 await SiradakiSarkiyiCal();
                 btnBaslaDurdur.Text = "⏸ Duraklat";
                 btnBaslaDurdur.BackColor = Color.FromArgb(46, 204, 113);
+                _caliyor = true;
             }
             else
             {
                 // Duraklat
-                _soundPlayer?.Stop();
+                if (_outputDevice != null)
+                    _outputDevice.Pause();
+
                 _sureTimer.Stop();
                 btnBaslaDurdur.Text = "▶️ Devam Et";
                 btnBaslaDurdur.BackColor = Color.FromArgb(241, 196, 15);
+                _caliyor = false;
             }
-            _caliyor = !_caliyor;
         }
 
         private async Task SiradakiSarkiyiCal()
         {
             try
             {
-                // API'den sıradaki şarkıyı belirle
+                // API'den sıradaki şarkıyı belirle (calindi burada set edilmeyecek!)
                 var response = await _httpClient.GetAsync($"{_apiBaseUrl}/siradaki");
-                if (response.IsSuccessStatusCode)
+                if (!response.IsSuccessStatusCode)
+                    return;
+
+                var json = await response.Content.ReadAsStringAsync();
+                _suAnCalanItem = JsonConvert.DeserializeObject<CalmaListesiDto>(json);
+
+                if (_suAnCalanItem == null || string.IsNullOrEmpty(_suAnCalanItem.dosyaYolu))
+                    return;
+
+                if (!File.Exists(_suAnCalanItem.dosyaYolu))
                 {
-                    var json = await response.Content.ReadAsStringAsync();
-                    _suAnCalanItem = JsonConvert.DeserializeObject<CalmaListesiDto>(json);
-
-                    if (_suAnCalanItem != null && !string.IsNullOrEmpty(_suAnCalanItem.dosyaYolu))
-                    {
-                        // Şarkıyı çal
-                        if (File.Exists(_suAnCalanItem.dosyaYolu))
-                        {
-                            _soundPlayer = new SoundPlayer(_suAnCalanItem.dosyaYolu);
-                            _soundPlayer.Play();
-
-                            // Bilgileri güncelle
-                            Invoke(new Action(() =>
-                            {
-                                lblSarkiBilgisi.Text = $"{_suAnCalanItem.sarkiAdi} - {_suAnCalanItem.masaAdi}";
-                                progressSarki.Value = 0;
-                                _sarkiBaslangic = DateTime.Now;
-                                _sureTimer.Start();
-                            }));
-
-                            // Çalındı olarak işaretle
-                            await MarkAsPlayed(_suAnCalanItem.id);
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Dosya bulunamadı: {_suAnCalanItem.dosyaYolu}",
-                                "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
-                    }
+                    MessageBox.Show($"Dosya bulunamadı: {_suAnCalanItem.dosyaYolu}",
+                        "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
+
+                // ÇAL (MP3/WAV)
+                StartPlayback(_suAnCalanItem.dosyaYolu);
+
+                // Bilgileri güncelle
+                Invoke(new Action(() =>
+                {
+                    lblSarkiBilgisi.Text = $"{_suAnCalanItem.sarkiAdi} - {_suAnCalanItem.masaAdi}";
+                    progressSarki.Value = 0;
+                    _sarkiBaslangic = DateTime.Now;
+                    _sureTimer.Start();
+
+                    // Listeyi burada timer ile yenilemiyoruz,
+                    // ama istersen burada sadece UI highlight için yenileyebilirsin:
+                    // _ = SiraListesiniYenile();
+                }));
+
+                // DİKKAT: İSTENEN DEĞİŞİKLİK -> calindi burada set edilmiyor!
+                // MarkAsPlayed(_suAnCalanItem.id) => SADECE şarkı bitince (PlaybackStopped) çağrılacak.
             }
             catch (Exception ex)
             {
@@ -269,31 +397,59 @@ namespace MuzikCalarWinForm
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Çalındı işaretleme hatası: {ex.Message}");
+                Debug.WriteLine($"Çalındı işaretleme hatası: {ex.Message}");
             }
         }
 
         private void UpdateSureGosterge()
         {
-            if (_caliyor && _suAnCalanItem != null)
+            if (_suAnCalanItem == null) return;
+
+            // Timer thread’i UI thread değil -> Invoke
+            try
             {
                 Invoke(new Action(() =>
                 {
-                    var gecenSure = (DateTime.Now - _sarkiBaslangic).TotalSeconds;
-                    var yuzde = (int)((gecenSure / _suAnCalanItem.sure) * 100);
-                    progressSarki.Value = Math.Min(100, yuzde);
+                    if (!_caliyor) return;
 
-                    // Süre gösterimi
-                    lblSure.Text = $"{TimeSpan.FromSeconds(gecenSure):mm\\:ss} / {TimeSpan.FromSeconds(_suAnCalanItem.sure):mm\\:ss}";
+                    var gecenSure = (DateTime.Now - _sarkiBaslangic).TotalSeconds;
+
+                    // Toplam süre: API sure > 0 ise onu kullan, yoksa NAudio TotalTime’dan çek
+                    int totalSeconds = _suAnCalanItem.sure > 0
+                        ? _suAnCalanItem.sure
+                        : (_audioFile != null ? (int)_audioFile.TotalTime.TotalSeconds : 0);
+
+                    if (totalSeconds <= 0) totalSeconds = 1;
+
+                    var yuzde = (int)((gecenSure / totalSeconds) * 100);
+                    progressSarki.Value = Math.Min(100, Math.Max(0, yuzde));
+
+                    lblSure.Text =
+                        $"{TimeSpan.FromSeconds(gecenSure):mm\\:ss} / {TimeSpan.FromSeconds(totalSeconds):mm\\:ss}";
                 }));
+            }
+            catch
+            {
+                // form kapanırken invoke patlayabilir, görmezden gel
             }
         }
 
         private async void btnSonraki_Click(object sender, EventArgs e)
         {
-            _soundPlayer?.Stop();
-            _sureTimer.Stop();
+            // Kullanıcı komutu -> doğal bitiş akışı tetiklenmesin
+            StopPlayback(userRequested: true);
+
+            // İSTENEN & GEREKLİ: Sonrakiye basınca mevcut şarkı bitmiş sayılmalı
+            // (yoksa API /siradaki aynı kaydı tekrar döndürür)
+            if (_suAnCalanItem != null)
+                await MarkAsPlayed(_suAnCalanItem.id);
+
+            await SiraListesiniYenile();
             await SiradakiSarkiyiCal();
+
+            _caliyor = true;
+            btnBaslaDurdur.Text = "⏸ Duraklat";
+            btnBaslaDurdur.BackColor = Color.FromArgb(46, 204, 113);
         }
 
         private async void btnOnceki_Click(object sender, EventArgs e)
@@ -311,29 +467,28 @@ namespace MuzikCalarWinForm
 
         private async Task PlaySelectedItem()
         {
-            if (_suAnCalanItem != null)
+            if (_suAnCalanItem == null) return;
+
+            // Kullanıcı komutu
+            StopPlayback(userRequested: true);
+
+            if (!File.Exists(_suAnCalanItem.dosyaYolu))
+                return;
+
+            StartPlayback(_suAnCalanItem.dosyaYolu);
+
+            Invoke(new Action(() =>
             {
-                _soundPlayer?.Stop();
-                _sureTimer.Stop();
+                lblSarkiBilgisi.Text = $"{_suAnCalanItem.sarkiAdi} - {_suAnCalanItem.masaAdi}";
+                progressSarki.Value = 0;
+                _sarkiBaslangic = DateTime.Now;
+                _sureTimer.Start();
+                _caliyor = true;
+                btnBaslaDurdur.Text = "⏸ Duraklat";
+                btnBaslaDurdur.BackColor = Color.FromArgb(46, 204, 113);
+            }));
 
-                if (File.Exists(_suAnCalanItem.dosyaYolu))
-                {
-                    _soundPlayer = new SoundPlayer(_suAnCalanItem.dosyaYolu);
-                    _soundPlayer.Play();
-
-                    Invoke(new Action(() =>
-                    {
-                        lblSarkiBilgisi.Text = $"{_suAnCalanItem.sarkiAdi} - {_suAnCalanItem.masaAdi}";
-                        progressSarki.Value = 0;
-                        _sarkiBaslangic = DateTime.Now;
-                        _sureTimer.Start();
-                        _caliyor = true;
-                        btnBaslaDurdur.Text = "⏸ Duraklat";
-                    }));
-
-                    await MarkAsPlayed(_suAnCalanItem.id);
-                }
-            }
+            // DİKKAT: calindi burada set edilmiyor (bitince set edilecek)
         }
 
         private async void btnYenile_Click(object sender, EventArgs e)
@@ -343,10 +498,13 @@ namespace MuzikCalarWinForm
 
         private void btnDurdur_Click(object sender, EventArgs e)
         {
-            _soundPlayer?.Stop();
-            _sureTimer.Stop();
+            // Kullanıcı stop -> şarkı bitmiş sayılmayacak (calindi set edilmeyecek)
+            StopPlayback(userRequested: true);
+
             _caliyor = false;
             btnBaslaDurdur.Text = "▶️ Çalmaya Başla";
+            btnBaslaDurdur.BackColor = Color.FromArgb(52, 152, 219);
+
             progressSarki.Value = 0;
             lblSure.Text = "00:00 / 00:00";
         }
@@ -396,9 +554,10 @@ namespace MuzikCalarWinForm
             this.Close();
         }
 
-        // YENİ EKLENEN METOTLAR
+        // -------------------------
+        // YENİ EKLENEN METOTLAR (korundu)
+        // -------------------------
 
-        // API'den şarkıları çek
         private async Task<List<SarkiDto>> ApiSarkilariCek()
         {
             try
@@ -407,8 +566,7 @@ namespace MuzikCalarWinForm
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<List<SarkiDto>>(json)
-                        ?? new List<SarkiDto>();
+                    return JsonConvert.DeserializeObject<List<SarkiDto>>(json) ?? new List<SarkiDto>();
                 }
                 return new List<SarkiDto>();
             }
@@ -420,12 +578,10 @@ namespace MuzikCalarWinForm
             }
         }
 
-        // API şarkılarını çalma listesine ekle
         private async Task<bool> ApiSarkilariniCalmaListesineEkle()
         {
             try
             {
-                // 1. API'den şarkıları çek
                 _apiSarkilari = await ApiSarkilariCek();
 
                 if (!_apiSarkilari.Any())
@@ -435,18 +591,15 @@ namespace MuzikCalarWinForm
                     return false;
                 }
 
-                // 2. Her şarkı için kontrol et ve ekle
                 int adminMasaId = 1; // Varsayılan admin masa ID
                 int eklenenSayi = 0;
 
                 foreach (var sarki in _apiSarkilari)
                 {
-                    // Şarkı zaten sırada mı kontrol et
                     var zatenVar = await CalmaListesindeVarMi(sarki.id);
 
                     if (!zatenVar)
                     {
-                        // CalmaListesi'ne ekle
                         var request = new
                         {
                             sarkiId = sarki.id,
@@ -465,7 +618,6 @@ namespace MuzikCalarWinForm
                     }
                 }
 
-                // 3. Listeyi yenile
                 await SiraListesiniYenile();
 
                 MessageBox.Show($"{eklenenSayi} şarkı çalma listesine eklendi.",
@@ -481,7 +633,6 @@ namespace MuzikCalarWinForm
             }
         }
 
-        // Şarkı çalma listesinde var mı kontrol
         private async Task<bool> CalmaListesindeVarMi(int sarkiId)
         {
             try
@@ -501,14 +652,16 @@ namespace MuzikCalarWinForm
             }
         }
 
-        // Otomatik çalma kontrolü
         private async Task OtomatikCalmaKontrol()
         {
-            if (!_otomatikCalmaAktif || _caliyor) return;
+            // Otomatik mod açık değilse çık
+            if (!_otomatikCalmaAktif) return;
+
+            // Eğer şu an çalıyorsa çık (bitişte zaten event sıradakini alacak)
+            if (_caliyor) return;
 
             try
             {
-                // Sırayı kontrol et
                 var kuyruk = await GetKuyrukAsync();
 
                 if (!kuyruk.Any(k => !k.calindi))
@@ -518,21 +671,21 @@ namespace MuzikCalarWinForm
                     {
                         await Task.Delay(1000);
                         await SiradakiSarkiyiCal();
+                        _caliyor = true;
                     }
                 }
                 else
                 {
-                    // Sırada şarkı varsa, çal
                     await SiradakiSarkiyiCal();
+                    _caliyor = true;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Otomatik çalma hatası: {ex.Message}");
+                Debug.WriteLine($"Otomatik çalma hatası: {ex.Message}");
             }
         }
 
-        // Kuyruğu getir (yardımcı metot)
         private async Task<List<CalmaListesiDto>> GetKuyrukAsync()
         {
             try
@@ -541,8 +694,7 @@ namespace MuzikCalarWinForm
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<List<CalmaListesiDto>>(json)
-                        ?? new List<CalmaListesiDto>();
+                    return JsonConvert.DeserializeObject<List<CalmaListesiDto>>(json) ?? new List<CalmaListesiDto>();
                 }
                 return new List<CalmaListesiDto>();
             }
@@ -552,7 +704,6 @@ namespace MuzikCalarWinForm
             }
         }
 
-        // Otomatik çalma başlat
         private void BaslatOtomatikCalma()
         {
             _otomatikCalmaAktif = true;
@@ -564,7 +715,6 @@ namespace MuzikCalarWinForm
                 "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Otomatik çalma durdur
         private void DurdurOtomatikCalma()
         {
             _otomatikCalmaAktif = false;
@@ -572,8 +722,6 @@ namespace MuzikCalarWinForm
             btnOtomatikBaslat.Text = "▶️ Otomatik Çalma";
             btnOtomatikBaslat.BackColor = Color.FromArgb(46, 204, 113);
         }
-
-        // YENİ BUTON EVENT HANDLER'LARI
 
         private async void btnApiSarkilariCek_Click(object sender, EventArgs e)
         {
@@ -586,8 +734,8 @@ namespace MuzikCalarWinForm
 
                 if (basarili && !_caliyor)
                 {
-                    // Hemen çalmaya başla
                     await SiradakiSarkiyiCal();
+                    _caliyor = true;
                 }
             }
             catch (Exception ex)
@@ -624,27 +772,21 @@ namespace MuzikCalarWinForm
             }
         }
 
-        // Media player şarkı bittiğinde
-        private async void MediaPlayer_MediaEnded(object sender, EventArgs e)
-        {
-            // Otomatik çalma aktifse, sıradakini çal
-            if (_otomatikCalmaAktif && chkOtomatikDevam.Checked)
-            {
-                await Task.Delay(1000); // 1 saniye bekle
-                await SiradakiSarkiyiCal();
-            }
-        }
-
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _soundPlayer?.Stop();
-            _sureTimer?.Stop();
-            _otomatikCalmaTimer?.Stop();
-            timerYenile.Stop();
-            _httpClient?.Dispose();
+            StopPlayback(userRequested: true);
+
+            try { _sureTimer?.Stop(); } catch { }
+            try { _otomatikCalmaTimer?.Stop(); } catch { }
+
+            try { timerYenile?.Stop(); } catch { } // zaten start etmiyoruz ama güvenli
+
+            try { _httpClient?.Dispose(); } catch { }
         }
 
-        // Data modelleri - YENİ DTO'LAR
+        // -------------------------
+        // DTO'lar
+        // -------------------------
         public class CalmaListesiDto
         {
             public int id { get; set; }
