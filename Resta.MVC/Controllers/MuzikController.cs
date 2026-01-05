@@ -236,6 +236,91 @@ namespace Resta.MVC.Controllers
                 return StatusCode(500, new { success = false, message = "Sunucu hatası" });
             }
         }
+
+
+
+
+
+        // upload dosya
+        // YENİ EKLENEN: POST: /Muzik/sarkilar (Admin - Yeni şarkı oluşturma)
+        [HttpPost("sarkilar")]
+        [Authorize(Roles = "Admin")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateSarki([FromBody] CreateSarkiViewModel model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(new { success = false, message = "Geçersiz veri" });
+
+                // API'ye istek gönder
+                var response = await _api.PostAsync<object>("api/Muzik/sarkilar", new
+                {
+                    ad = model.Ad,
+                    dosyaYolu = model.DosyaYolu,
+                    sure = model.Sure,
+                    aktif = model.Aktif
+                });
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Şarkı ekleme hatası");
+                return StatusCode(500, new { success = false, message = "Sunucu hatası" });
+            }
+        }
+
+        //// YENİ EKLENEN: PUT: /Muzik/sarkilar/{id} (Şarkı güncelleme)
+        //[HttpPut("sarkilar/{id}")]
+        //[Authorize(Roles = "Admin")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> UpdateSarki(int id, [FromBody] CreateSarkiViewModel model)
+        //{
+        //    try
+        //    {
+        //        if (!ModelState.IsValid)
+        //            return BadRequest(new { success = false, message = "Geçersiz veri" });
+
+        //        // API'ye istek gönder (PUT)
+        //        var response = await _apiClient.PutAsync<object>($"api/Muzik/sarkilar/{id}", new
+        //        {
+        //            ad = model.Ad,
+        //            dosyaYolu = model.DosyaYolu,
+        //            sure = model.Sure,
+        //            aktif = model.Aktif
+        //        });
+
+        //        return Ok(response);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Şarkı güncelleme hatası");
+        //        return StatusCode(500, new { success = false, message = "Sunucu hatası" });
+        //    }
+        //}
+
+        //// YENİ EKLENEN: DELETE: /Muzik/sarkilar/{id} (Şarkı silme/pasifleştirme)
+        //[HttpDelete("sarkilar/{id}")]
+        //[Authorize(Roles = "Admin")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteSarki(int id)
+        //{
+        //    try
+        //    {
+        //        // API'ye DELETE isteği gönder
+        //        // Not: Gerçek silme yerine pasifleştirme yapılacak
+        //        var response = await _api.DeleteAsync<object>($"api/Muzik/sarkilar/{id}");
+
+        //        return Ok(response);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(ex, "Şarkı silme hatası");
+        //        return StatusCode(500, new { success = false, message = "Sunucu hatası" });
+        //    }
+        //}
+
     }
 
     // MVC için API DTO'ları (API'dan gelen verileri karşılamak için)
