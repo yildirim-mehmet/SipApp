@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.MVC\\Resta.MVC.csproj",
+      "projectUniqueName": "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj",
       "projectName": "Resta.MVC",
-      "projectPath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.MVC\\Resta.MVC.csproj",
+      "projectPath": "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj",
       "packagesPath": "C:\\Users\\_a19sisopr35\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\_a19sisopr35\\Downloads\\SipApp-main_27122025_0110\\Resta.MVC\\obj\\",
+      "outputPath": "D:\\github\\SipApp\\Resta.MVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

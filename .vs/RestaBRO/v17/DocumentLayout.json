@@ -1,65 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\MEHMET\\RestaBRO\\",
+  "WorkspaceRootPath": "D:\\github\\SipApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|d:\\github\\sipapp\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|d:\\github\\sipapp\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\wwwroot\\js\\masa.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\wwwroot\\js\\masa.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\wwwroot\\js\\masa.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\controllers\\home_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\controllers\\home_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\home_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\fixtures\\apitestfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|d:\\github\\sipapp\\resta.api.tests\\fixtures\\apitestfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\fixtures\\apitestfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\flows\\fullflowtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|d:\\github\\sipapp\\resta.api.tests\\flows\\fullflowtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\flows\\fullflowtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\dtos\\commonresponsedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|d:\\github\\sipapp\\resta.api.tests\\dtos\\commonresponsedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\dtos\\commonresponsedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\helpers\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|d:\\github\\sipapp\\resta.api.tests\\helpers\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\helpers\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\resta.api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|d:\\github\\sipapp\\resta.api.tests\\resta.api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\resta.api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|d:\\github\\sipapp\\resta.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -70,80 +78,100 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "masa.js",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\wwwroot\\js\\masa.js",
-              "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\js\\masa.js",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\wwwroot\\js\\masa.js",
-              "RelativeToolTip": "Resta.MVC\\wwwroot\\js\\masa.js",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-12-15T21:36:34.125Z",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs",
+              "RelativeDocumentMoniker": "MuzikCalarWinForm\\MainForm.cs",
+              "ToolTip": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs",
+              "RelativeToolTip": "MuzikCalarWinForm\\MainForm.cs",
+              "ViewState": "AgIAAPYCAAAAAAAAAAAewBQDAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:19:08.354Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "RelativeToolTip": "Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-15T21:35:58.952Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs",
+              "RelativeDocumentMoniker": "MuzikCalarWinForm\\MainForm.cs",
+              "ToolTip": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs [Design]",
+              "RelativeToolTip": "MuzikCalarWinForm\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:17:36.906Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MenuController.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MenuController.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MenuController.cs",
-              "RelativeToolTip": "Resta.MVC\\Controllers\\MenuController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T21:34:52.766Z",
-              "EditorCaption": ""
+              "Title": "masa.js",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\wwwroot\\js\\masa.js",
+              "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\js\\masa.js",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\wwwroot\\js\\masa.js",
+              "RelativeToolTip": "Resta.MVC\\wwwroot\\js\\masa.js",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-15T21:36:34.125Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MasaDto.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Models\\MasaDto.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Models\\MasaDto.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Models\\MasaDto.cs",
-              "RelativeToolTip": "Resta.MVC\\Models\\MasaDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T21:33:25.555Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T21:35:58.952Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ApiClient.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Services\\ApiClient.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Services\\ApiClient.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Services\\ApiClient.cs",
-              "RelativeToolTip": "Resta.MVC\\Services\\ApiClient.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAAAAAAAAAAAA==",
+              "Title": "MenuController.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\MenuController.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MenuController.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\MenuController.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\MenuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:42:30.453Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T21:34:52.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
+              "Title": "MasaDto.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Models\\MasaDto.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\MasaDto.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Models\\MasaDto.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\MasaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T21:33:25.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Services\\ApiClient.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Services\\ApiClient.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Services\\ApiClient.cs",
+              "RelativeToolTip": "Resta.MVC\\Services\\ApiClient.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T20:42:30.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MasaController.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MasaController.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\MasaController.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MasaController.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MasaController.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\MasaController.cs",
               "RelativeToolTip": "Resta.MVC\\Controllers\\MasaController.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -152,63 +180,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Program.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Program.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Program.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Program.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Program.cs",
               "RelativeToolTip": "Resta.MVC\\Program.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAQwDYAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:38:35.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\appsettings.json",
-              "RelativeDocumentMoniker": "Resta.MVC\\appsettings.json",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\appsettings.json",
-              "RelativeToolTip": "Resta.MVC\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-15T20:44:22.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Home_Controller.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\Home_Controller.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\Home_Controller.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\Home_Controller.cs",
-              "RelativeToolTip": "Resta.MVC\\Controllers\\Home_Controller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:38:21.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T20:38:35.28Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ApiTestFixture.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "RelativeToolTip": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:19:07.21Z",
-              "EditorCaption": ""
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\appsettings.json",
+              "RelativeDocumentMoniker": "Resta.MVC\\appsettings.json",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\appsettings.json",
+              "RelativeToolTip": "Resta.MVC\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-15T20:44:22.505Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 10,
+              "Title": "Home_Controller.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\Home_Controller.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\Home_Controller.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\Home_Controller.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\Home_Controller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T20:38:21.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ApiTestFixture.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
+              "RelativeDocumentMoniker": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
+              "RelativeToolTip": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T20:19:07.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "Resta.API.Tests.csproj",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Resta.API.Tests.csproj",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Resta.API.Tests.csproj",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Resta.API.Tests.csproj",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Resta.API.Tests.csproj",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API.Tests\\Resta.API.Tests.csproj",
               "RelativeToolTip": "Resta.API.Tests\\Resta.API.Tests.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -216,11 +240,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "HttpClientExtensions.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
               "RelativeToolTip": "Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAYwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -228,37 +252,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "CommonResponseDtos.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
               "RelativeToolTip": "Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwBcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T09:13:55.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T09:13:55.342Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "FullFlowTests.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Flows\\FullFlowTests.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
               "RelativeToolTip": "Resta.API.Tests\\Flows\\FullFlowTests.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAnwC4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T08:08:06.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-14T08:08:06.923Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "UnitTest1.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\UnitTest1.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\UnitTest1.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\UnitTest1.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API.Tests\\UnitTest1.cs",
               "RelativeToolTip": "Resta.API.Tests\\UnitTest1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

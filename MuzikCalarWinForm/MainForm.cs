@@ -784,6 +784,13 @@ namespace MuzikCalarWinForm
             try { _httpClient?.Dispose(); } catch { }
         }
 
+
+
+        private void btnTumSarkilar_Click(object sender, EventArgs e)
+        {
+            // buraya SarkiListesi tablosunda tüm şarkılar, CalmaListesi tablosuna siraDegeri = 0 ve odemeMiktari=0 olacak şekilde eklenecek
+        }
+
         // -------------------------
         // DTO'lar
         // -------------------------
@@ -811,6 +818,7 @@ namespace MuzikCalarWinForm
             public bool aktif { get; set; }
             public DateTime eklenmeTarihi { get; set; }
         }
+
     }
 
     public class AppSettings
