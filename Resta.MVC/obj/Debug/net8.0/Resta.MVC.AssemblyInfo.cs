@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Resta.MVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25e1d8f82fc5ad651d4f4a7ebf92e981791f3c1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7096812e1e28dfd24c811932a1a16ac2b46fd0d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Resta.MVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Resta.MVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

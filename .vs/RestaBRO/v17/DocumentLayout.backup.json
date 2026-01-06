@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\github\\SipApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|d:\\github\\sipapp\\resta.api\\controllers\\api\\muzikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\muzikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|d:\\github\\sipapp\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|d:\\github\\sipapp\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|D:\\github\\SipApp\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|d:\\github\\sipapp\\muzikcalarwinform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|d:\\github\\sipapp\\resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -83,19 +91,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MuzikController.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\Resta.API\\Controllers\\API\\MuzikController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\MuzikController.cs",
+              "ToolTip": "D:\\github\\SipApp\\Resta.API\\Controllers\\API\\MuzikController.cs*",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\MuzikController.cs*",
+              "ViewState": "AgIAADYAAAAAAAAAAAAgwEIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-06T04:15:32.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\github\\SipApp\\MuzikCalarWinForm\\Program.cs",
+              "RelativeDocumentMoniker": "MuzikCalarWinForm\\Program.cs",
+              "ToolTip": "D:\\github\\SipApp\\MuzikCalarWinForm\\Program.cs",
+              "RelativeToolTip": "MuzikCalarWinForm\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:49:31.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs",
               "RelativeDocumentMoniker": "MuzikCalarWinForm\\MainForm.cs",
               "ToolTip": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs",
               "RelativeToolTip": "MuzikCalarWinForm\\MainForm.cs",
-              "ViewState": "AgIAAPYCAAAAAAAAAAAewBQDAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAB4DAAAAAAAAAAAtwCMDAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T20:19:08.354Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "D:\\github\\SipApp\\MuzikCalarWinForm\\MainForm.cs",
               "RelativeDocumentMoniker": "MuzikCalarWinForm\\MainForm.cs",
@@ -107,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "masa.js",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\wwwroot\\js\\masa.js",
               "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\js\\masa.js",
@@ -119,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Views\\Menu\\Index.cshtml",
               "RelativeDocumentMoniker": "Resta.MVC\\Views\\Menu\\Index.cshtml",
@@ -131,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MenuController.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\MenuController.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MenuController.cs",
@@ -143,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "MasaDto.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Models\\MasaDto.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Models\\MasaDto.cs",
@@ -155,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "ApiClient.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Services\\ApiClient.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Services\\ApiClient.cs",
@@ -167,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MasaController.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\MasaController.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MasaController.cs",
@@ -180,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Program.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Program.cs",
@@ -192,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\appsettings.json",
               "RelativeDocumentMoniker": "Resta.MVC\\appsettings.json",
@@ -204,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Home_Controller.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.MVC\\Controllers\\Home_Controller.cs",
               "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\Home_Controller.cs",
@@ -216,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ApiTestFixture.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
@@ -228,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Resta.API.Tests.csproj",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Resta.API.Tests.csproj",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Resta.API.Tests.csproj",
@@ -240,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "HttpClientExtensions.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
@@ -252,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "CommonResponseDtos.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
@@ -264,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "FullFlowTests.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\Flows\\FullFlowTests.cs",
@@ -276,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "UnitTest1.cs",
               "DocumentMoniker": "D:\\github\\SipApp\\Resta.API.Tests\\UnitTest1.cs",
               "RelativeDocumentMoniker": "Resta.API.Tests\\UnitTest1.cs",

@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using NAudio.Wave;
+﻿using NAudio.Wave;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +10,13 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using System.Net.Http;
+using System.Text;
+
+
+using static System.Net.WebRequestMethods;
+using File = System.IO.File;
 
 namespace MuzikCalarWinForm
 {
@@ -42,6 +49,9 @@ namespace MuzikCalarWinForm
         private Button btnApiSarkilariCek;
         private Button btnOtomatikBaslat;
         private CheckBox chkOtomatikDevam;
+
+        private readonly HttpClient _http = new HttpClient();
+
 
         public MainForm()
         {
@@ -785,11 +795,119 @@ namespace MuzikCalarWinForm
         }
 
 
-
-        private void btnTumSarkilar_Click(object sender, EventArgs e)
+        private async Task<HttpResponseMessage> PostAsyncSimple(string url)
         {
-            // buraya SarkiListesi tablosunda tüm şarkılar, CalmaListesi tablosuna siraDegeri = 0 ve odemeMiktari=0 olacak şekilde eklenecek
+            return await _http.PostAsync(url, null);
         }
+
+        private async void btnTumSarkilar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var confirm = MessageBox.Show(
+                    "Tüm aktif şarkıları (siraDegeri=0) kuyruklamak istiyor musunuz?",
+                    "Tüm Şarkıları Ekle",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes)
+                    return;
+
+                btnTumSarkilar.Enabled = false;
+
+                // 1️⃣ API çağrısı
+                var response = await PostAsyncSimple($"{_apiBaseUrl}/tum-sarkilari-ekle");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorText = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show(
+                        $"API hata: {response.StatusCode}\n{errorText}",
+                        "Hata",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 2️⃣ Kuyruğu çek
+                var kuyruk = await GetKuyrukAsync();
+
+                // 3️⃣ ListView doldur
+                BindKuyrukToListView(kuyruk);
+
+                // 4️⃣ Player boşta ise başlat
+                StartPlaybackIfIdle();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                btnTumSarkilar.Enabled = true;
+            }
+        }
+
+        private void StartPlaybackIfIdle()
+        {
+            // 1) Kuyruk yoksa çık
+            if (listViewSira.Items.Count == 0)
+                return;
+
+            // 2) Şu an çalıyorsa dokunma (mevcut flag’in ile değiştir)
+            // ÖRN: if (_isPlaying) return;
+            if (IsPlayerBusy())
+                return;
+
+            // 3) İlk sıradaki öğeyi al ve çal
+            var firstItem = listViewSira.Items[0];
+            if (firstItem?.Tag is CalmaListesiDto dto)
+            {
+                // sende muhtemelen zaten var: PlayFile(dto.dosyaYolu) / StartSong(dto)
+                PlayFromPath(dto.dosyaYolu);
+            }
+        }
+        private bool IsPlayerBusy()
+        {
+            // TODO: senin projede "çalıyor mu" nasıl tutuluyor?
+            // örnek:
+            // return _isPlaying || waveOutEvent?.PlaybackState == PlaybackState.Playing;
+            return false;
+        }
+
+        private void PlayFromPath(string path)
+        {
+            // TODO: sende var olan WAV/NAudio çalma metodunu çağır
+            // örnek:
+            // PlaySong(path);
+        }
+
+        private void BindKuyrukToListView(List<CalmaListesiDto> kuyruk)
+        {
+            listViewSira.BeginUpdate();
+            listViewSira.Items.Clear();
+
+            foreach (var x in kuyruk)
+            {
+                // 1. kolon: queue id
+                var lvi = new ListViewItem(x.id.ToString());
+
+                // örnek kolonlar:
+                lvi.SubItems.Add(x.sarkiAdi ?? "");
+                lvi.SubItems.Add(x.masaAdi ?? "");
+                lvi.SubItems.Add(x.siraDegeri.ToString());
+                lvi.SubItems.Add(x.dosyaYolu ?? "");
+
+                // player için lazım olacak her şeyi Tag'e koy
+                lvi.Tag = x;
+
+                listViewSira.Items.Add(lvi);
+            }
+
+            listViewSira.EndUpdate();
+        }
+
+
 
         // -------------------------
         // DTO'lar
