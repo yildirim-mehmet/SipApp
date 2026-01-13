@@ -928,6 +928,16 @@
   },
   {
     "ContainingType": "Resta.API.Controllers.API.MuzikController",
+    "Method": "TumSarkilariEkle",
+    "RelativePath": "api/Muzik/tum-sarkilari-ekle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Resta.API.Controllers.API.MuzikController",
     "Method": "GetTumSira",
     "RelativePath": "api/Muzik/tum-sira",
     "HttpMethod": "GET",

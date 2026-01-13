@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "RG9JhzlWnCw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Resta.MVC.csproj",
+=======
+  "dgSpecHash": "4S0qhdkOFL4=",
+  "success": true,
+  "projectFilePath": "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj",
+>>>>>>> ac88e2837235ac296494cdec610e8b6a79add180
   "expectedPackageFiles": [],
   "logs": []
 }

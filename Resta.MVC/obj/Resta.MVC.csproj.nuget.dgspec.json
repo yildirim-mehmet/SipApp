@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Resta.MVC.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Resta.MVC.csproj",
         "packagesPath": "C:\\Users\\Software\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\obj\\",
+=======
+    "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj": {}
+  },
+  "projects": {
+    "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj",
+        "projectName": "Resta.MVC",
+        "projectPath": "D:\\github\\SipApp\\Resta.MVC\\Resta.MVC.csproj",
+        "packagesPath": "C:\\Users\\_a19sisopr35\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\SipApp\\Resta.MVC\\obj\\",
+>>>>>>> ac88e2837235ac296494cdec610e8b6a79add180
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

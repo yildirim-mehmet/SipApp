@@ -534,11 +534,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\MuzikCalarWinForm\\MuzikCalarWinForm.csproj",
       "projectName": "MuzikCalarWinForm",
       "projectPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\MuzikCalarWinForm\\MuzikCalarWinForm.csproj",
       "packagesPath": "C:\\Users\\Software\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\MuzikCalarWinForm\\obj\\",
+=======
+      "projectUniqueName": "D:\\github\\SipApp\\MuzikCalarWinForm\\MuzikCalarWinForm.csproj",
+      "projectName": "MuzikCalarWinForm",
+      "projectPath": "D:\\github\\SipApp\\MuzikCalarWinForm\\MuzikCalarWinForm.csproj",
+      "packagesPath": "C:\\Users\\_a19sisopr35\\.nuget\\packages\\",
+      "outputPath": "D:\\github\\SipApp\\MuzikCalarWinForm\\obj\\",
+>>>>>>> ac88e2837235ac296494cdec610e8b6a79add180
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

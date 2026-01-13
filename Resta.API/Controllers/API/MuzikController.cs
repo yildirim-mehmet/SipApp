@@ -24,6 +24,71 @@ namespace Resta.API.Controllers.API
             _logger = logger;
         }
 
+        [HttpPost("tum-sarkilari-ekle")]
+        public async Task<IActionResult> TumSarkilariEkle()
+        {
+            try
+            {
+                // 1) Otomatik ekleme için kullanılacak "sistem" masa seçimi:
+                // En düşük id'li aktif masa (FK zorunluysa en risksiz)
+                var sistemMasa = await _context.Masalar
+                    .Where(m => m.Aktif)
+                    .OrderBy(m => m.Id)
+                    .FirstOrDefaultAsync();
+
+                if (sistemMasa == null)
+                    return BadRequest(new { success = false, message = "Aktif masa bulunamadı." });
+
+                // 2) Aktif şarkıları al
+                var aktifSarkilar = await _context.SarkiListesi
+                    .Where(s => s.aktif)
+                    .Select(s => new { s.id, s.ad })
+                    .ToListAsync();
+
+                // 3) Performans için: şu an kuyrukta (calindi=0) bulunan sarkiId'leri tek seferde çek
+                var kuyruktaBekleyenSarkiIdler = await _context.CalmaListesi
+                    .Where(c => !c.calindi)
+                    .Select(c => c.sarkiId)
+                    .Distinct()
+                    .ToListAsync();
+
+                int eklenenSayi = 0;
+
+                foreach (var s in aktifSarkilar)
+                {
+                    // zaten bekliyorsa tekrar ekleme
+                    if (kuyruktaBekleyenSarkiIdler.Contains(s.id))
+                        continue;
+
+                    _context.CalmaListesi.Add(new CalmaListesi
+                    {
+                        sarkiId = s.id,
+                        masaId = sistemMasa.Id,
+                       // siraDegeri = 0,
+                        calindi = false,
+                        odemeMiktari = 0,
+                        eklenmeZamani = DateTime.Now
+                    });
+
+                    eklenenSayi++;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    success = true,
+                    message = $"{eklenenSayi} şarkı (siraDegeri=0) kuyruklandı.",
+                    eklenenSayi
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "TumSarkilariEkle hata");
+                return StatusCode(500, new { success = false, message = "Sunucu hatası" });
+            }
+        }
+
         // GET: api/Muzik/sarkilar
         [HttpGet("sarkilar")]
         [ProducesResponseType(typeof(IEnumerable<SarkiDto>), 200)]
