@@ -1060,18 +1060,6 @@
         }
       }
     },
-    "/api/Muzik/tum-sarkilari-ekle": {
-      "post": {
-        "tags": [
-          "Muzik"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Muzik/sarkilar": {
       "get": {
         "tags": [

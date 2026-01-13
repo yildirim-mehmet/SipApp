@@ -9740,19 +9740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API.Tests\\Resta.API.Tests.csproj",
       "projectName": "Resta.API.Tests",
       "projectPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API.Tests\\Resta.API.Tests.csproj",
       "packagesPath": "C:\\Users\\Software\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API.Tests\\obj\\",
-=======
-      "projectUniqueName": "D:\\github\\SipApp\\Resta.API.Tests\\Resta.API.Tests.csproj",
-      "projectName": "Resta.API.Tests",
-      "projectPath": "D:\\github\\SipApp\\Resta.API.Tests\\Resta.API.Tests.csproj",
-      "packagesPath": "C:\\Users\\_a19sisopr35\\.nuget\\packages\\",
-      "outputPath": "D:\\github\\SipApp\\Resta.API.Tests\\obj\\",
->>>>>>> ac88e2837235ac296494cdec610e8b6a79add180
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9773,13 +9765,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Resta.API.csproj": {
               "projectPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Resta.API.csproj"
-=======
-            "D:\\github\\SipApp\\Resta.API\\Resta.API.csproj": {
-              "projectPath": "D:\\github\\SipApp\\Resta.API\\Resta.API.csproj"
->>>>>>> ac88e2837235ac296494cdec610e8b6a79add180
             }
           }
         }

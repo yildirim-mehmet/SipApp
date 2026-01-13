@@ -80,7 +80,6 @@
             progressSarki = new ProgressBar();
             lblSure = new Label();
             timerYenile = new System.Windows.Forms.Timer(components);
-            btnTumSarkilar = new Button();
             panelTop.SuspendLayout();
             panelControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numYenilemeAraligi).BeginInit();
@@ -163,7 +162,6 @@
             // panelControls
             // 
             panelControls.BackColor = Color.FromArgb(236, 240, 241);
-            panelControls.Controls.Add(btnTumSarkilar);
             panelControls.Controls.Add(btnListeTemizle);
             panelControls.Controls.Add(btnSarkiEkle);
             panelControls.Controls.Add(label2);
@@ -370,21 +368,6 @@
             // 
             timerYenile.Interval = 10000;
             // 
-            // btnTumSarkilar
-            // 
-            btnTumSarkilar.BackColor = Color.FromArgb(230, 126, 34);
-            btnTumSarkilar.FlatStyle = FlatStyle.Flat;
-            btnTumSarkilar.Font = new Font("Microsoft Sans Serif", 9F);
-            btnTumSarkilar.ForeColor = Color.White;
-            btnTumSarkilar.Location = new Point(967, 69);
-            btnTumSarkilar.Margin = new Padding(4, 3, 4, 3);
-            btnTumSarkilar.Name = "btnTumSarkilar";
-            btnTumSarkilar.Size = new Size(169, 35);
-            btnTumSarkilar.TabIndex = 14;
-            btnTumSarkilar.Text = "Tüm Şarıları Ekle && Çal";
-            btnTumSarkilar.UseVisualStyleBackColor = false;
-            btnTumSarkilar.Click += btnTumSarkilar_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -404,7 +387,5 @@
             ResumeLayout(false);
         }
         #endregion
-
-        private Button btnTumSarkilar;
     }
 }

@@ -107,7 +107,6 @@ C:\Users\_a19sisopr35\Downloads\SipApp-main_27122025_0110\MuzikCalarWinForm\obj\
 C:\Users\_a19sisopr35\Downloads\SipApp-main_27122025_0110\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.pdb
 C:\Users\_a19sisopr35\Downloads\SipApp-main_27122025_0110\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.genruntimeconfig.cache
 C:\Users\_a19sisopr35\Downloads\SipApp-main_27122025_0110\MuzikCalarWinForm\obj\Debug\net8.0-windows\ref\MuzikCalarWinForm.dll
-<<<<<<< HEAD
 C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.exe
 C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.deps.json
 C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.runtimeconfig.json
@@ -134,32 +133,3 @@ C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\obj\Debug\net8.0-
 C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.pdb
 C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.genruntimeconfig.cache
 C:\Users\Software\Downloads\SipApp-main_2026\MuzikCalarWinForm\obj\Debug\net8.0-windows\ref\MuzikCalarWinForm.dll
-=======
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.exe
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.deps.json
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.runtimeconfig.json
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\MuzikCalarWinForm.pdb
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.Asio.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.Core.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.Midi.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.Wasapi.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.WinForms.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\NAudio.WinMM.dll
-D:\github\SipApp\MuzikCalarWinForm\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.csproj.AssemblyReference.cache
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.MainForm.resources
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.csproj.GenerateResource.cache
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.GeneratedMSBuildEditorConfig.editorconfig
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.AssemblyInfoInputs.cache
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.AssemblyInfo.cs
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.csproj.CoreCompileInputs.cache
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.sourcelink.json
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCal.3FA75054.Up2Date
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.dll
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\refint\MuzikCalarWinForm.dll
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.pdb
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\MuzikCalarWinForm.genruntimeconfig.cache
-D:\github\SipApp\MuzikCalarWinForm\obj\Debug\net8.0-windows\ref\MuzikCalarWinForm.dll
->>>>>>> ac88e2837235ac296494cdec610e8b6a79add180
