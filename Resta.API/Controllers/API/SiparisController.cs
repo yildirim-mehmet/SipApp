@@ -109,6 +109,17 @@ namespace Resta.API.Controllers.API
             //    .AsNoTracking()
             //    .FirstOrDefaultAsync(a => a.Id == kalem.AdisyonId);
 
+            // ✅ 1) Masa dolu bildirimi (sende var)
+
+            await _hub.Clients
+            .Group("EKRAN_ALL") // şimdilik tüm ekranlar
+            .SendAsync("YeniSiparis", new
+            {
+                masaId = adisyon.MasaId,
+                adisyonId = adisyon.Id
+            });
+
+
             if (adisyon != null)
             {
                 await _hub.Clients
@@ -117,6 +128,33 @@ namespace Resta.API.Controllers.API
                     {
                         masaId = adisyon.MasaId,
                         durum = "dolu"
+                    });
+            }
+
+            // ✅ 2) Bu sipariş hangi ekranlara düşmeli? (urun->kategori->EkranKategori)
+            var urunIds = dto.Urunler.Select(x => x.UrunId).Distinct().ToList();
+
+            var ekranIds = await _db.UrunKategori
+                .Where(uk => urunIds.Contains(uk.UrunId))
+                .Join(_db.EkranKategoriler,
+                    uk => uk.KategoriId,
+                    ek => ek.KategoriId,
+                    (uk, ek) => ek.EkranId
+                )
+                .Distinct()
+                .ToListAsync();
+
+            // ✅ 3) Ekranlara “YeniSiparis” event’i gönder
+            foreach (var ekranId in ekranIds)
+            {
+                await _hub.Clients
+                    .Group($"EKRAN_{ekranId}")
+                    .SendAsync("YeniSiparis", new
+                    {
+                        ekranId,
+                        masaId = adisyon.MasaId,
+                        adisyonId = adisyon.Id,
+                        kalemSayisi = kalemler.Count
                     });
             }
 
@@ -173,6 +211,15 @@ namespace Resta.API.Controllers.API
             }
 
             await _db.SaveChangesAsync();
+
+            await _hub.Clients
+            .All
+            .SendAsync("SiparisDurumDegisti", new
+            {
+                kalemId = kalem.Id,
+                yeniDurum = dto.YeniDurum
+            });
+
 
             // ===============================
             // SIGNALR – MASA DOLU BİLDİRİMİ

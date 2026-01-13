@@ -181,6 +181,129 @@
         }
       }
     },
+    "/api/Adisyon/aktif/masa/{masaId}": {
+      "get": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "masaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Adisyon/{id}/detay": {
+      "get": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Adisyon/{id}/iptal": {
+      "post": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Adisyon/{id}/yazdir": {
+      "get": {
+        "tags": [
+          "Adisyon"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Bolum": {
       "get": {
         "tags": [
@@ -360,16 +483,94 @@
             "description": "OK"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Ekran"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
-    "/api/Ekran/{id}/Siparisler": {
+    "/api/Ekran/{ekranId}/siparisler": {
       "get": {
         "tags": [
           "Ekran"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "ekranId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ekran/siparis/{kalemId}/durum": {
+      "put": {
+        "tags": [
+          "Ekran"
+        ],
+        "parameters": [
+          {
+            "name": "kalemId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ekran/kullanici/{kullaniciId}": {
+      "get": {
+        "tags": [
+          "Ekran"
+        ],
+        "parameters": [
+          {
+            "name": "kullaniciId",
             "in": "path",
             "required": true,
             "schema": {
@@ -565,6 +766,37 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/EkranKategoriDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Kullanici": {
+      "post": {
+        "tags": [
+          "Kullanici"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKullaniciDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKullaniciDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateKullaniciDto"
               }
             }
           }
@@ -1705,6 +1937,10 @@
             "type": "string",
             "format": "date-time"
           },
+          "aciklama": {
+            "type": "string",
+            "nullable": true
+          },
           "sureFormatted": {
             "type": "string",
             "nullable": true,
@@ -1810,6 +2046,28 @@
         },
         "additionalProperties": false
       },
+      "CreateKullaniciDto": {
+        "type": "object",
+        "properties": {
+          "ad": {
+            "type": "string",
+            "nullable": true
+          },
+          "kullaniciAdi": {
+            "type": "string",
+            "nullable": true
+          },
+          "sifre": {
+            "type": "string",
+            "nullable": true
+          },
+          "rolId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateMasaDto": {
         "type": "object",
         "properties": {
@@ -1888,6 +2146,20 @@
           "sayi": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "kullaniciAdi": {
+            "type": "string",
+            "nullable": true
+          },
+          "sifre": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

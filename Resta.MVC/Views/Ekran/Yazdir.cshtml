@@ -1,0 +1,93 @@
+﻿@model Resta.MVC.Models.AdisyonYazdirVm
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Adisyon Fişi</title>
+
+    <style>
+        @@page {
+            size: A5;
+            margin: 10mm;
+        }
+
+        body {
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .center { text-align: center; }
+        .right { text-align: right; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 4px 0;
+        }
+
+        .line {
+            border-top: 1px dashed #000;
+            margin: 6px 0;
+        }
+
+        .no-print {
+            display: none;
+        }
+    </style>
+</head>
+
+<body onload="window.print()">
+
+    <div class="center">
+        <b>RESTA</b><br />
+        <small>Adisyon Fişi</small>
+    </div>
+
+    <div class="line"></div>
+
+    <div>
+        Masa: <b>@Model.MasaAdi</b><br />
+        Adisyon: @Model.Id<br />
+        Açılış: @Model.Acilis
+    </div>
+
+    <div class="line"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th class="right">Ad</th>
+                <th class="right">Fiyat</th>
+                <th class="right">Tutar</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var k in Model.Kalemler)
+        {
+            <tr>
+                <td>@k.Ad</td>
+                <td class="right">@k.Adet</td>
+                <td class="right">@k.BirimFiyat</td>
+                <td class="right">@k.AraToplam</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <div class="line"></div>
+
+    <div class="right">
+        <b>TOPLAM: @Model.Toplam ₺</b>
+    </div>
+
+    <div class="center" style="margin-top:20px;">
+        Teşekkür ederiz 🙏
+    </div>
+
+</body>
+</html>

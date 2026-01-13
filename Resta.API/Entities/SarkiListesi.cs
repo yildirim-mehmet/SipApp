@@ -23,6 +23,8 @@ namespace Resta.API.Entities
         [Column("eklenmeTarihi")]
         public DateTime eklenmeTarihi { get; set; } = DateTime.UtcNow;
 
+        
+
         // Navigation properties
         public virtual ICollection<CalmaListesi> CalmaListeleri { get; set; } = new List<CalmaListesi>();
     }

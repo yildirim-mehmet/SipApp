@@ -82,6 +82,7 @@ namespace Resta.API.Controllers.API
                         calindi = c.calindi,
                         odemeMiktari = c.odemeMiktari,
                         eklenmeZamani = c.eklenmeZamani
+                       // , aciklama = c.aciklama
                     })
                     .ToListAsync();
 
@@ -141,6 +142,7 @@ namespace Resta.API.Controllers.API
                     calindi = siradaki.calindi,
                     odemeMiktari = siradaki.odemeMiktari,
                     eklenmeZamani = siradaki.eklenmeZamani
+                   // , aciklama = siradaki.aciklama
                 };
 
                 return Ok(dto);
@@ -217,7 +219,8 @@ namespace Resta.API.Controllers.API
                     siraDegeri = 1,
                     calindi = false,
                     eklenmeZamani = DateTime.UtcNow,
-                    odemeMiktari = 0
+                    odemeMiktari = 0,
+                    //aciklama = DateTime.Now.ToString()
                 };
 
                 _context.CalmaListesi.Add(calmaListesi);
@@ -292,7 +295,8 @@ namespace Resta.API.Controllers.API
                     siraDegeri = request.odemeMiktari,
                     calindi = false,
                     eklenmeZamani = DateTime.UtcNow,
-                    odemeMiktari = request.odemeMiktari
+                    odemeMiktari = request.odemeMiktari,
+                    //aciklama = DateTime.Now.ToString()
                 };
 
                 _context.CalmaListesi.Add(calmaListesi);
@@ -361,7 +365,7 @@ namespace Resta.API.Controllers.API
 
         // GET: api/Muzik/istatistikler
         [HttpGet("istatistikler")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(MuzikIstatistikDto), 200)]
         [ProducesResponseType(typeof(object), 500)]
         public async Task<IActionResult> GetIstatistikler()
@@ -427,6 +431,7 @@ namespace Resta.API.Controllers.API
                         siraDegeri = c.siraDegeri,
                         calindi = c.calindi,
                         odemeMiktari = c.odemeMiktari,
+                        //aciklama = c.aciklama,
                         eklenmeZamani = c.eklenmeZamani
                     })
                     .ToListAsync();
@@ -479,6 +484,7 @@ namespace Resta.API.Controllers.API
                                 calindi = false,
                                 eklenmeZamani = DateTime.UtcNow,
                                 odemeMiktari = 0
+                               // ,aciklama = "Otomatik ekleme"+ DateTime.Now.ToString()
                             };
 
                             _context.CalmaListesi.Add(calmaListesi);

@@ -1,66 +1,209 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\MEHMET\\RestaBRO\\",
+  "WorkspaceRootPath": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\wwwroot\\js\\masa.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\wwwroot\\js\\masa.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\muzik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\muzik\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\controllers\\muzikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\muzikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\menu\\_kategorinode.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\menu\\_kategorinode.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\menu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\menucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|C:\\Users\\Software\\Downloads\\SipApp-main_2026\\zzz_TestAkisi.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|solutionrelative:zzz_TestAkisi.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\muzik\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\muzik\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\models\\createsarkiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\createsarkiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\models\\sarkiuploadvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\sarkiuploadvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\controllers\\api\\muzikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\muzikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\dtos\\muzik\\createsarkirequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\dtos\\muzik\\createsarkirequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\dtos\\muzik\\sarkieklerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\dtos\\muzik\\sarkieklerequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\models\\adisyonyazdirvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\adisyonyazdirvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\ekran\\yazdir.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\ekran\\yazdir.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\controllers\\ekrancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\ekrancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\controllers\\api\\adisyoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\adisyoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\models\\ekranvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\ekranvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\controllers\\api\\kullanicicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\kullanicicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|e:\\mehmet\\restabro\\resta.mvc\\controllers\\home_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\home_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\fixtures\\apitestfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\fixtures\\apitestfixture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\auth\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\auth\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\flows\\fullflowtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\flows\\fullflowtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\dtos\\commonresponsedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\dtos\\commonresponsedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\models\\uservm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\uservm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\helpers\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\helpers\\httpclientextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\controllers\\api\\ekrancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\ekrancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\resta.api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\resta.api.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\ekran\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\ekran\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|e:\\mehmet\\restabro\\resta.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A872605-9926-41F5-A9DA-E0553DA598F7}|Resta.API.Tests\\Resta.API.Tests.csproj|solutionrelative:resta.api.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\ekran\\inndex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\ekran\\inndex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\data\\restacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\data\\restacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\controllers\\api\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\entities\\kullaniciekran.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\kullaniciekran.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\entities\\kullanici.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\kullanici.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\controllers\\api\\sipariscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\controllers\\api\\sipariscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\wwwroot\\js\\ekran.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\wwwroot\\js\\ekran.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\ekran\\pano.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\ekran\\pano.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\services\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|C:\\Users\\Software\\Downloads\\SipApp-main_2026\\zzz_Bilgi||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|Solution Items{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}|solutionrelative:zzz_Bilgi||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\entities\\kategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\kategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\entities\\ekran.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\ekran.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|C:\\Users\\Software\\Downloads\\SipApp-main_2026\\muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9B4B9BAD-F3DC-49E6-8C56-B28CB1ECCE05}|MuzikCalarWinForm\\MuzikCalarWinForm.csproj|solutionrelative:muzikcalarwinform\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\entities\\calmalistesi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\calmalistesi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\dtos\\muzik\\calmalistesidto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\dtos\\muzik\\calmalistesidto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.api\\entities\\sarkilistesi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0C897F26-A072-4F1F-B80B-EF412167FD7D}|Resta.API\\Resta.API.csproj|solutionrelative:resta.api\\entities\\sarkilistesi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\models\\masadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\resta.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\resta.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|c:\\users\\software\\downloads\\sipapp-main_2026\\resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66110CB6-F3DC-4A4B-A649-D0E7CCAF7599}|Resta.MVC\\Resta.MVC.csproj|solutionrelative:resta.mvc\\controllers\\masacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,199 +213,629 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "masa.js",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\wwwroot\\js\\masa.js",
-              "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\js\\masa.js",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\wwwroot\\js\\masa.js",
-              "RelativeToolTip": "Resta.MVC\\wwwroot\\js\\masa.js",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-12-15T21:36:34.125Z",
-              "EditorCaption": ""
+              "DocumentIndex": 2,
+              "Title": "MuzikController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\MuzikController.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MuzikController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\MuzikController.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\MuzikController.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAjwG4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T17:00:46.781Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SarkiUploadVm.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\SarkiUploadVm.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\SarkiUploadVm.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\SarkiUploadVm.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\SarkiUploadVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-28T05:35:20.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Panel.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Muzik\\Panel.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Muzik\\Panel.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Muzik\\Panel.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Muzik\\Panel.cshtml",
+              "ViewState": "AgIAABICAAAAAAAAAAAmwDICAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-28T05:25:04.168Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AdisyonYazdirVm.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\AdisyonYazdirVm.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\AdisyonYazdirVm.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\AdisyonYazdirVm.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\AdisyonYazdirVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T23:06:47.941Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "RelativeToolTip": "Resta.MVC\\Views\\Menu\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Muzik\\Index.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Muzik\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Muzik\\Index.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Muzik\\Index.cshtml",
+              "ViewState": "AgIAAA4BAAAAAAAAAAAAAG0BAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-15T21:35:58.952Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MenuController.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MenuController.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MenuController.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MenuController.cs",
-              "RelativeToolTip": "Resta.MVC\\Controllers\\MenuController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T21:34:52.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T16:56:39.087Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "MasaDto.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Models\\MasaDto.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Models\\MasaDto.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Models\\MasaDto.cs",
-              "RelativeToolTip": "Resta.MVC\\Models\\MasaDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T21:33:25.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ApiClient.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Services\\ApiClient.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Services\\ApiClient.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Services\\ApiClient.cs",
-              "RelativeToolTip": "Resta.MVC\\Services\\ApiClient.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:42:30.453Z",
-              "EditorCaption": ""
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Menu\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-26T06:55:43.919Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MasaController.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MasaController.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MasaController.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\MasaController.cs",
-              "RelativeToolTip": "Resta.MVC\\Controllers\\MasaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:37:57.316Z",
-              "EditorCaption": ""
+              "Title": "_KategoriNode.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Menu\\_KategoriNode.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Menu\\_KategoriNode.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Menu\\_KategoriNode.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Menu\\_KategoriNode.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAB2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T08:46:20.779Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Program.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Program.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Program.cs",
-              "RelativeToolTip": "Resta.MVC\\Program.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAQwDYAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:38:35.28Z",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T08:59:58.113Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\appsettings.json",
-              "RelativeDocumentMoniker": "Resta.MVC\\appsettings.json",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\appsettings.json",
-              "RelativeToolTip": "Resta.MVC\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-15T20:44:22.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Home_Controller.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\Home_Controller.cs",
-              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\Home_Controller.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.MVC\\Controllers\\Home_Controller.cs",
-              "RelativeToolTip": "Resta.MVC\\Controllers\\Home_Controller.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:38:21.843Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "ApiTestFixture.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "RelativeToolTip": "Resta.API.Tests\\Fixtures\\ApiTestFixture.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Title": "MuzikController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\MuzikController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\MuzikController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\MuzikController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\MuzikController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAADcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T20:19:07.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T17:02:43.728Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Resta.API.Tests.csproj",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Resta.API.Tests.csproj",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\Resta.API.Tests.csproj",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Resta.API.Tests.csproj",
-              "RelativeToolTip": "Resta.API.Tests\\Resta.API.Tests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-14T08:06:08.989Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "HttpClientExtensions.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
-              "RelativeToolTip": "Resta.API.Tests\\Helpers\\HttpClientExtensions.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAYwCgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T08:07:18.876Z"
+              "DocumentIndex": 5,
+              "Title": "zzz_TestAkisi.txt",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\zzz_TestAkisi.txt",
+              "RelativeDocumentMoniker": "zzz_TestAkisi.txt",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\zzz_TestAkisi.txt",
+              "RelativeToolTip": "zzz_TestAkisi.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-01-02T16:11:34.081Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "CommonResponseDtos.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
-              "RelativeToolTip": "Resta.API.Tests\\DTOs\\CommonResponseDtos.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwBcAAAABAAAAAAAAAA==",
+              "Title": "SarkiEkleRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\DTOs\\Muzik\\SarkiEkleRequest.cs",
+              "RelativeDocumentMoniker": "Resta.API\\DTOs\\Muzik\\SarkiEkleRequest.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\DTOs\\Muzik\\SarkiEkleRequest.cs",
+              "RelativeToolTip": "Resta.API\\DTOs\\Muzik\\SarkiEkleRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T09:13:55.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T07:38:51.748Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "FullFlowTests.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\Flows\\FullFlowTests.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\Flows\\FullFlowTests.cs",
-              "RelativeToolTip": "Resta.API.Tests\\Flows\\FullFlowTests.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAnwC4AAAAPAAAAAAAAAA==",
+              "Title": "CreateSarkiRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\DTOs\\Muzik\\CreateSarkiRequest.cs",
+              "RelativeDocumentMoniker": "Resta.API\\DTOs\\Muzik\\CreateSarkiRequest.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\DTOs\\Muzik\\CreateSarkiRequest.cs",
+              "RelativeToolTip": "Resta.API\\DTOs\\Muzik\\CreateSarkiRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T08:08:06.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-29T07:39:22.749Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateSarkiViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\CreateSarkiViewModel.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\CreateSarkiViewModel.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\CreateSarkiViewModel.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\CreateSarkiViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-29T07:46:33.79Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "Resta.API.Tests\\UnitTest1.cs",
-              "ToolTip": "E:\\MEHMET\\RestaBRO\\Resta.API.Tests\\UnitTest1.cs",
-              "RelativeToolTip": "Resta.API.Tests\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "EkranController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\EkranController.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\EkranController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\EkranController.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\EkranController.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAUwHMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-14T08:01:03.114Z"
+              "WhenOpened": "2025-12-27T14:49:23.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Yazdir.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Yazdir.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Ekran\\Yazdir.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Yazdir.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Ekran\\Yazdir.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T15:26:43.009Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EkranVm.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\EkranVm.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\EkranVm.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\EkranVm.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\EkranVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T22:09:42.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AdisyonController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\AdisyonController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\AdisyonController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\AdisyonController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\AdisyonController.cs",
+              "ViewState": "AgIAAH8BAAAAAAAAAAAmwJ0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T14:52:33.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Program.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Program.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Program.cs",
+              "RelativeToolTip": "Resta.MVC\\Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAswC8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T07:45:06.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserVm.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\UserVm.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\UserVm.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\UserVm.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\UserVm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T22:26:26.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Auth\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAiwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T22:31:44.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "KullaniciController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\KullaniciController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\KullaniciController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\KullaniciController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\KullaniciController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T22:33:57.81Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Auth\\Create.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Auth\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Auth\\Create.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Auth\\Create.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T22:32:17.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAmwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T22:25:45.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Index.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Ekran\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Index.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Ekran\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T22:12:04.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "EkranController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\EkranController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\EkranController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\EkranController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\EkranController.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAqwMkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T23:28:09.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Inndex.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Inndex.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Ekran\\Inndex.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Inndex.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Ekran\\Inndex.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAmwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T14:49:56.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RestaContext.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Data\\RestaContext.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Data\\RestaContext.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Data\\RestaContext.cs",
+              "RelativeToolTip": "Resta.API\\Data\\RestaContext.cs",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAQwNMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:23:40.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\AuthController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\AuthController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\AuthController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAmwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:26:18.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "KullaniciEkran.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\KullaniciEkran.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\KullaniciEkran.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\KullaniciEkran.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\KullaniciEkran.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:23:00.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Kullanici.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\Kullanici.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\Kullanici.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\Kullanici.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\Kullanici.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T21:21:51.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SiparisController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\SiparisController.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Controllers\\API\\SiparisController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Controllers\\API\\SiparisController.cs",
+              "RelativeToolTip": "Resta.API\\Controllers\\API\\SiparisController.cs",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAYwNcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T14:44:59.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ekran.js",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\wwwroot\\js\\ekran.js",
+              "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\js\\ekran.js",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\wwwroot\\js\\ekran.js",
+              "RelativeToolTip": "Resta.MVC\\wwwroot\\js\\ekran.js",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAjwLMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-27T14:50:53.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Resta.MVC\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvyoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-27T19:01:28.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Services\\ApiClient.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Services\\ApiClient.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Services\\ApiClient.cs",
+              "RelativeToolTip": "Resta.MVC\\Services\\ApiClient.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T18:26:02.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Pano.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Pano.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Ekran\\Pano.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Ekran\\Pano.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Ekran\\Pano.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAmwCkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T14:50:17.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Program.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Program.cs",
+              "RelativeToolTip": "Resta.API\\Program.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAUwGwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T13:26:41.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T09:01:00.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "CalmaListesiDto.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\DTOs\\Muzik\\CalmaListesiDto.cs",
+              "RelativeDocumentMoniker": "Resta.API\\DTOs\\Muzik\\CalmaListesiDto.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\DTOs\\Muzik\\CalmaListesiDto.cs",
+              "RelativeToolTip": "Resta.API\\DTOs\\Muzik\\CalmaListesiDto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwBAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-26T13:21:57.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "SarkiListesi.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\SarkiListesi.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\SarkiListesi.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\SarkiListesi.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\SarkiListesi.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowBkAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-26T13:16:13.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "CalmaListesi.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\CalmaListesi.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\CalmaListesi.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\CalmaListesi.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\CalmaListesi.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAewCQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-26T13:23:16.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "zzz_Bilgi",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\zzz_Bilgi",
+              "RelativeDocumentMoniker": "zzz_Bilgi",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\zzz_Bilgi",
+              "RelativeToolTip": "zzz_Bilgi",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-12-25T05:49:39.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Ekran.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\Ekran.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\Ekran.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\Ekran.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\Ekran.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T10:24:37.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Kategori.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\Kategori.cs",
+              "RelativeDocumentMoniker": "Resta.API\\Entities\\Kategori.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.API\\Entities\\Kategori.cs",
+              "RelativeToolTip": "Resta.API\\Entities\\Kategori.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T04:50:16.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Resta.MVC\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Resta.MVC\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-27T09:00:52.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\MuzikCalarWinForm\\MainForm.cs",
+              "RelativeDocumentMoniker": "MuzikCalarWinForm\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\MuzikCalarWinForm\\MainForm.cs",
+              "RelativeToolTip": "MuzikCalarWinForm\\MainForm.cs",
+              "ViewState": "AgIAACwDAAAAAAAAAAAwwD0DAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-26T19:07:10.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\MuzikCalarWinForm\\MainForm.cs",
+              "RelativeDocumentMoniker": "MuzikCalarWinForm\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_25122025_----\\MuzikCalarWinForm\\MainForm.cs [Design]",
+              "RelativeToolTip": "..\\SipApp-main_25122025_----\\MuzikCalarWinForm\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T20:24:14.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Microsoft.PackageDependencyResolution.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.100\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
+              "ViewState": "AgIAAP4AAAAAAAAAAAAswAkBAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-12-25T07:16:20.319Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Resta.MVC.csproj",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Resta.MVC.csproj",
+              "RelativeDocumentMoniker": "Resta.MVC\\Resta.MVC.csproj",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Resta.MVC.csproj",
+              "RelativeToolTip": "Resta.MVC\\Resta.MVC.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-25T07:31:40.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "bootstrap.css",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeDocumentMoniker": "Resta.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeToolTip": "Resta.MVC\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ViewState": "AgIAAP4RAAAAAAAAAIBJwAESAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-26T06:52:53.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "MasaDto.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\MasaDto.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Models\\MasaDto.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Models\\MasaDto.cs",
+              "RelativeToolTip": "Resta.MVC\\Models\\MasaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T19:58:31.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "MasaController.cs",
+              "DocumentMoniker": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\MasaController.cs",
+              "RelativeDocumentMoniker": "Resta.MVC\\Controllers\\MasaController.cs",
+              "ToolTip": "C:\\Users\\Software\\Downloads\\SipApp-main_2026\\Resta.MVC\\Controllers\\MasaController.cs",
+              "RelativeToolTip": "Resta.MVC\\Controllers\\MasaController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswBsAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T19:39:26.759Z"
             }
           ]
         }

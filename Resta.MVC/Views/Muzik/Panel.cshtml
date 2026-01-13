@@ -491,65 +491,76 @@
                 </h4>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="upload-area mb-4" id="uploadArea">
-                            <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
-                            <h5>Şarkıyı buraya sürükleyin veya tıklayın</h5>
-                            <p class="text-muted small mb-3">
-                                Desteklenen formatlar: MP3, WAV, WMA, M4A<br>
-                                Maksimum dosya boyutu: 50MB
-                            </p>
-                            <input type="file" id="fileInput" accept=".mp3,.wav,.wma,.m4a" style="display: none;">
-                            <button class="btn btn-outline-primary" onclick="document.getElementById('fileInput').click()">
-                                <i class="fas fa-folder-open me-1"></i>Dosya Seç
+                    <!-- Şarkı Yükleme Formu -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">
+                                <i class="fas fa-upload me-2"></i>Yeni Şarkı Ekle
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            @Html.AntiForgeryToken()
+
+                            <div class="mb-3">
+                                <label for="sarkiAdi" class="form-label">Şarkı Adı *</label>
+                                <input type="text" id="sarkiAdi" class="form-control"
+                                       placeholder="Şarkı adını girin" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="sarkiDosyaYolu" class="form-label">Dosya Yolu *</label>
+                                <div class="input-group">
+                                    <input type="text" id="sarkiDosyaYolu" class="form-control"
+                                           placeholder="Ör: C:\Müzik\şarkı.mp3" required>
+                                    <button class="btn btn-outline-secondary" type="button" onclick="browseFile()">
+                                        <i class="fas fa-folder-open"></i>
+                                    </button>
+                                </div>
+                                <small class="form-text text-muted">
+                                    Windows dosya yolu (örn: d:\muzik\sarki.mp3)
+                                </small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="sarkiSure" class="form-label">Süre (saniye) *</label>
+                                <input type="number" id="sarkiSure" class="form-control"
+                                       min="1" max="3600" value="180" required>
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" id="sarkiAktif" class="form-check-input" checked>
+                                <label for="sarkiAktif" class="form-check-label">Aktif</label>
+                            </div>
+
+                            <button class="btn btn-primary w-100" id="btnUpload" onclick="uploadSong()">
+                                <i class="fas fa-upload me-1"></i>Şarkıyı Ekle
                             </button>
                         </div>
-
-                        <div id="uploadProgress" class="mb-4" style="display: none;">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Yükleniyor...</span>
-                                <span id="uploadPercent">0%</span>
-                            </div>
-                            <div class="progress" style="height: 10px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                     id="uploadProgressBar" style="width: 0%"></div>
-                            </div>
-                        </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="sarkiAdi" class="form-label fw-semibold">Şarkı Adı *</label>
-                            <input type="text" id="sarkiAdi" class="form-control"
-                                   placeholder="Şarkı adını girin" required>
-                            <div class="form-text">Zorunlu alan</div>
-                        </div>
+                    <script>
+                        function browseFile() {
+                            // Not: Web tarayıcıda direkt dosya yolunu alamayız
+                            // Bu sadece demo amaçlıdır
+                            alert('Web tarayıcıda dosya yolu seçilemez. Lütfen manuel girin.');
+                        }
 
-                        <div class="mb-3">
-                            <label for="sarkiDosyaYolu" class="form-label fw-semibold">Dosya Yolu *</label>
-                            <input type="text" id="sarkiDosyaYolu" class="form-control"
-                                   placeholder="Ör: d:/sarki/sarkim.mp3" required>
-                            <div class="form-text">Windows üzerinde çalacak dosya yolu</div>
-                        </div>
+                        function showSuccess(message) {
+                            const alert = `<div class="alert alert-success alert-dismissible fade show">
+                                <i class="fas fa-check-circle me-2"></i>${message}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>`;
+                            $('.card-body').prepend(alert);
+                        }
 
-                        <div class="mb-3">
-                            <label for="sarkiSure" class="form-label fw-semibold">Süre (saniye) *</label>
-                            <input type="number" id="sarkiSure" class="form-control"
-                                   min="1" value="180" required>
-                            <div class="form-text">Şarkının saniye cinsinden süresi</div>
-                        </div>
-
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="sarkiAktif" checked>
-                            <label class="form-check-label" for="sarkiAktif">
-                                Şarkıyı aktif olarak listeye ekle
-                            </label>
-                        </div>
-
-                        <button class="btn btn-primary w-100" id="btnUpload" onclick="uploadSong()">
-                            <i class="fas fa-upload me-1"></i>Şarkıyı Yükle
-                        </button>
-                    </div>
+                        function showError(message) {
+                            const alert = `<div class="alert alert-danger alert-dismissible fade show">
+                                <i class="fas fa-exclamation-circle me-2"></i>${message}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>`;
+                            $('.card-body').prepend(alert);
+                        }
+                    </script>
                 </div>
             </div>
 
@@ -643,7 +654,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <small class="text-muted d-block">API URL</small>
-                                    <code>@Url.Action("Index", "Home", null, Context.Request.Scheme)/api/Muzik/</code>
+                                    <code>@Url.Action("Index", "Home", null, Context.Request.Scheme)api/Muzik/</code>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -857,7 +868,7 @@
 
             // API'ye gönder
             $.ajax({
-                url: '/api/Muzik/sarkilar', // BU ENDPOINT'I EKLEMENIZ GEREKECEK
+                url: '/Muzik/sarkilar', // BU ENDPOINT'I EKLEMENIZ GEREKECEK
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({

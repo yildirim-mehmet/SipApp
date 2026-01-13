@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Resta.API.Entities;
 
+
+
 namespace Resta.API.Data
 {
     public class RestaContext : DbContext
@@ -29,6 +31,9 @@ namespace Resta.API.Data
         public DbSet<CalmaListesi> CalmaListesi => Set<CalmaListesi>();
         public DbSet<CalinmaGecmisi> CalinmaGecmisi => Set<CalinmaGecmisi>();
 
+        //kullanıcı tarafı eklendi
+        public DbSet<Kullanici> Kullanicilar => Set<Kullanici>();
+        public DbSet<KullaniciEkran> KullaniciEkranlar => Set<KullaniciEkran>();
 
         protected override void OnModelCreating(ModelBuilder model)
         {
@@ -63,9 +68,39 @@ namespace Resta.API.Data
                 .WithMany(b => b.Masalar)
                 .HasForeignKey(m => m.BolumId);
 
-            // EkranKategori
-            model.Entity<EkranKategori>()
-                .HasKey(e => new { e.EkranId, e.KategoriId });
+
+
+            // --------------------------------------------------
+            // EKRAN ↔ KATEGORİ (SADECE JOIN TABLE)
+            // --------------------------------------------------
+            model.Entity<EkranKategori>(entity =>
+            {
+                entity.ToTable("EkranKategori");
+
+                entity.HasKey(x => new { x.EkranId, x.KategoriId });
+
+                // DB kolon isimlerini kilitle
+                entity.Property(x => x.EkranId)
+                      .HasColumnName("ekranId");
+
+                entity.Property(x => x.KategoriId)
+                      .HasColumnName("kategoriId");
+
+                entity.HasOne(x => x.Ekran)
+                      .WithMany(e => e.EkranKategoriler)
+                      .HasForeignKey(x => x.EkranId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(x => x.Kategori)
+                      .WithMany(k => k.EkranKategoriler)
+                      .HasForeignKey(x => x.KategoriId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+
+            //// EkranKategori
+            //model.Entity<EkranKategori>()
+            //    .HasKey(e => new { e.EkranId, e.KategoriId });
 
             model.Entity<EkranKategori>()
                 .HasOne(e => e.Ekran)
@@ -171,6 +206,23 @@ namespace Resta.API.Data
                 .HasOne(c => c.Masa)
                 .WithMany()
                 .HasForeignKey(c => c.masaId);
+
+
+            model.Entity<KullaniciEkran>()
+                .ToTable("KullaniciEkran");
+
+            model.Entity<KullaniciEkran>()
+                .HasOne(x => x.Kullanici)
+                .WithMany(k => k.KullaniciEkranlar)
+                .HasForeignKey(x => x.KullaniciId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            model.Entity<KullaniciEkran>()
+                .HasOne(x => x.Ekran)
+                .WithMany()
+                .HasForeignKey(x => x.EkranId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
         }
     }

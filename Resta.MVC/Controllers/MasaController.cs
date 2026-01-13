@@ -25,7 +25,7 @@ namespace Resta.MVC.Controllers
                 return NotFound("Masa bulunamadı veya pasif.");
 
             // Menü ekranına yönlendiriyoruz
-            return RedirectToAction("Index", "Menu", new { masaId = masa.id });
+            return RedirectToAction("Index", "Menu", new { masaId = masa.Id });
         }
     }
 }

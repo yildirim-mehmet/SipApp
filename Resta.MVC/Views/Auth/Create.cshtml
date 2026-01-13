@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Kullanıcı Oluştur";
+}
+
+<div class="container py-4">
+    <h4 class="mb-3">Yeni Kullanıcı</h4>
+
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Ad Soyad</label>
+            <input type="text" name="ad" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Kullanıcı Adı</label>
+            <input type="text" name="kullaniciAdi" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Şifre</label>
+            <input type="password" name="sifre" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Rol</label>
+            <select name="rolId" class="form-select">
+                <option value="1">Admin</option>
+                <option value="2">Garson</option>
+                <option value="3">Kasa</option>
+                <option value="4">Mutfak</option>
+                <option value="5">Bar</option>
+            </select>
+        </div>
+
+        <button class="btn btn-success">
+            Kaydet
+        </button>
+    </form>
+</div>

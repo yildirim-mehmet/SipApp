@@ -1,0 +1,56 @@
+Bolum
+id	ad	aciklama	aktif	ekleyen	tarih	kod
+4	BlmTest	BlmTest	1	1	2026-01-02 22:21:23.007	NULL
+
+[BolumKategori]
+id	BolumId	kategoriId
+8	4	8
+
+Ekran
+id	ad	tip	ipAdresi	baglantiKodu	aktif	tarih
+4	EkrTest	EkrTest	EkrTest	EkrTest	1	2026-01-02 22:20:58.703
+
+[EkranKategori]
+id	ekranId	kategoriId
+4	3	8
+
+[Kategori]]
+id	ustId	ad	renk	siraNo	ekleyen	aktif	tarih
+9	NULL	KtgTest	ff1111	NULL	NULL	1	2026-01-02 22:22:35.457
+
+
+[Kullanici]
+id	ad	kullaniciAdi	sifre	rolId	aktif	tarih
+3	mu	mu	mu	1	1	2026-01-02 18:58:15.917
+
+[KullaniciEkran]
+id	kullaniciId	ekranId
+4	3	2
+
+[Urun]
+id	ad	aciklama	fiyat	hazirlamaSuresiDakika	aktif	ekleyen	tarih
+6	meyve	myv	5.00	1	1	1	2026-01-02 23:15:26.300
+
+[UrunKategori]
+id	UrunId	kategoriId
+9	6	9
+
+
+
+
+
+
+
+
+
+Masa_mu					id=5		bolumId=3
+Bolum_rst				id=3
+Kategori_kate mu te		id=8
+Kullanici_mu			id=8
+Ekran_Mu_Ekrn			id=3
+
+EkranKategori_4			Eid=3		Kid=8
+KullaniciEkran_4		kuId=3		Eid=2
+
+BolumKategori	bid=3		kid=8
+

@@ -1,0 +1,19 @@
+﻿@model List<Resta.MVC.Models.EkranVm>
+
+@{
+    ViewData["Title"] = "Ekran Seç";
+}
+
+<div class="container py-4">
+    <h4 class="mb-3">Ekran Seç</h4>
+
+    <div class="list-group">
+        @foreach (var e in Model)
+        {
+            <a class="list-group-item list-group-item-action"
+               href="/Ekran/Pano?ekranId=@e.Id">
+                @e.Ad
+            </a>
+        }
+    </div>
+</div>

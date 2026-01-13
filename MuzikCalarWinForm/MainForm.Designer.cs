@@ -268,6 +268,7 @@
             btnKapat.TabIndex = 5;
             btnKapat.Text = "✕ Kapat";
             btnKapat.UseVisualStyleBackColor = false;
+            btnKapat.Click += btnKapat_Click;
             // 
             // btnDurdur
             // 
@@ -346,7 +347,7 @@
             // 
             // progressSarki
             // 
-            progressSarki.Location = new Point(23, 81);
+            progressSarki.Location = new Point(325, 139);
             progressSarki.Margin = new Padding(4, 3, 4, 3);
             progressSarki.Name = "progressSarki";
             progressSarki.Size = new Size(467, 23);
@@ -356,7 +357,7 @@
             // 
             lblSure.AutoSize = true;
             lblSure.Font = new Font("Microsoft Sans Serif", 9F);
-            lblSure.Location = new Point(502, 81);
+            lblSure.Location = new Point(790, 147);
             lblSure.Margin = new Padding(4, 0, 4, 0);
             lblSure.Name = "lblSure";
             lblSure.Size = new Size(78, 15);

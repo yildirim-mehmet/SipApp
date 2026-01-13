@@ -11,7 +11,23 @@ public class Program
 
         // MVC
         builder.Services.AddControllersWithViews();
+
+        // ✅ Session için zorunlu login kullanıcı
+        builder.Services.AddDistributedMemoryCache();
+
+        builder.Services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromHours(8); // login süresi
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
+
+
         builder.Services.AddSignalR();
+
+
+        //mvc müzik ekleme
+        builder.Services.AddAntiforgery(o => o.HeaderName = "RequestVerificationToken");
 
 
         // API base url (appsettings.json -> ApiSettings:BaseUrl)
@@ -38,6 +54,10 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+
+        // ✅ SESSION MUTLAKA BURADA
+        app.UseSession();
+
         app.UseAuthorization();
 
         // Daha spesifik route önce (Masa/{id})
